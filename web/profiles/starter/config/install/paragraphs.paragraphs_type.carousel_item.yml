@@ -1,0 +1,11 @@
+uuid: 5b26716c-e2de-48f4-8110-7ae39a57d101
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: yS4z4zl3sCNXaw8ijVVMsSssPcFQsQ4FaOqgJCFi00A
+id: carousel_item
+label: 'Carousel Item'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

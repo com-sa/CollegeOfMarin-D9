@@ -1,0 +1,475 @@
+
+/* -----------------------------------------------
+/* NAVIGATION DEFAULT
+----------------------------------------------- */
+
+@media(max-width:1200px) {
+	nav ul a {
+		color: #fff;
+	    display: block;
+	    font-size: .75rem;
+	    padding: .5rem 0;
+	    text-transform: uppercase;
+	}
+
+	#school-nav ul.menu a {
+	    text-shadow: 1px 1px rgba(0,0,0,.5);
+	}
+}
+
+
+/* -----------------------------------------------
+/* REGION: NAVIGATION
+----------------------------------------------- */
+
+#navigation {
+	max-width: 100%;
+	width: 100%;
+	z-index: 1;
+
+	/* fix disappearing nav when scrolling */
+	position:relative;
+}
+
+@media(min-width:1201px) {
+	#navigation {
+		background-color: rgba(182, 196, 202,.9);
+	}
+}
+
+@media(max-width:1200px) {
+	#navigation {
+		padding-right: 1.25rem;
+	}
+	
+	#navigation > .row,
+	#navigation > .row > .column {
+		padding: 0;
+	}
+}
+
+#block-mainnavigation .block-title {
+    background: #231f20;
+    border-color: #cd9027;
+    border-style: solid;
+    border-width: 6px 0 0;
+    color: #fff;
+    font-weight: 400;
+    padding: 1rem;
+}
+
+
+#navigation ul.menu {
+	align-items: flex-start;
+	display: flex;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+#navigation ul.menu li {
+	padding-right: 2rem;
+}
+
+#navigation ul.menu li a {
+	color: #254160;
+	font-weight: 500;
+}
+
+#navigation ul.menu li a:hover {
+	color: #a47c42;
+}
+
+@media(min-width:1201px) {
+	#navigation ul.menu li {
+		display: table-cell;
+		text-align: left;
+	}
+
+
+	#navigation ul.menu li a {
+	    display: block;
+	    line-height: 1;
+	    padding: .75rem 0rem;
+		text-transform: uppercase;
+	}
+
+	#navigation ul.menu li.first > a {
+		padding-left: 0;
+	}
+
+	#navigation ul.menu li.last > a {
+		padding-right: 0;
+	}
+}
+
+
+
+@media(min-width:1201px) {
+	#navigation ul.menu li { position: relative; }
+	#navigation ul.menu ul.menu {
+		background-color: rgba(182, 196, 202,.9);
+		left: -6%;
+		max-height: 0;
+		opacity: 0;
+		overflow: hidden;
+		padding: 0 6%;
+		position: absolute;
+		right: -6%;
+		top: 100%;
+		transition: opacity .3s ease, max-height 0s linear .3s;
+	}
+
+	#navigation ul.menu li:hover ul.menu {
+		max-height: 999px;
+		opacity: 1;
+		transition: opacity .3s ease, max-height 0s;
+	}
+}
+
+
+/* -----------------------------------------------
+/* END REGION: NAVIGATION
+----------------------------------------------- */
+
+
+
+/* -----------------------------------------------
+/* NAV IN SIDEBAR
+----------------------------------------------- */
+
+.sidebar .block-menu {
+
+}
+
+
+.sidebar .block-menu ul.menu {
+	list-style: none;
+    margin: 0;
+}
+
+
+@media(min-width:1201px) {
+	.sidebar .block-menu ul.menu li:not(:last-child) {
+		border-bottom: 1px dotted #b7c5ca;
+		padding-bottom: .25rem;
+	}
+
+	.sidebar .block-menu ul.menu li:not(:first-child) {
+		padding-top: .25rem;
+	}
+}
+
+
+
+
+@media(max-width:1200px) {
+
+	#main {
+		position: relative;
+	}
+
+	.sidebar {
+		position: static;
+	}
+
+	.sidebar .block-menu {
+		padding: 0 !important;
+	}
+
+	.sidebar .block-menu nav > ul.menu {
+		margin: 1rem 0 0;
+	}
+
+	.sidebar .block-menu .block-title {
+		display: none;
+	}
+
+}
+
+
+/* -----------------------------------------------
+/* END: NAV IN SIDEBAR
+----------------------------------------------- */
+
+
+
+
+
+/* -----------------------------------------------
+/* HAMBURGER MENU BUTTON
+----------------------------------------------- */
+
+.hamburger-menu {
+	/*background: #254160;*/
+	cursor: pointer;
+	display: none;
+	height: 24px;
+	margin-top: -12px;
+	position: absolute;
+	right: 1rem;
+	top: 0;
+	width: 30px;
+	transition: transform .3s ease;
+}
+
+#department-nav .hamburger-menu {
+	display: none;
+}
+
+.hamburger-menu:before {
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	background: #ae842c;
+	box-shadow: 0 9px 0 #ae842c, 0 -9px 0 #ae842c;
+	content:"";
+	display: block;
+	height: 4px;
+	margin-top: -2px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+
+}
+
+.hamburger-menu.in:before {
+	animation-name: hamburger-rotate-in;
+}
+
+
+.hamburger-menu.out:before {
+	animation-name: hamburger-rotate-out;
+}
+
+#header .hamburger-menu {
+	top: 50%;
+}
+
+
+
+@keyframes hamburger-rotate-in {
+	0% {
+		box-shadow: 0 9px 0 #ae842c, 0 -9px 0 #ae842c;
+		transform:rotate(0deg);
+	}
+    33% {
+		box-shadow: 0 0px 0 #ae842c, 0 0px 0 #ae842c;
+		transform:rotate(0deg);
+	}
+    66% {
+		box-shadow: 0 0px 0 #ae842c, 0 0px 0 #ae842c;
+		transform:rotate(-90deg);
+	}
+	100% {
+		box-shadow: 0 9px 0 #ae842c, 0 -9px 0 #ae842c;
+		transform:rotate(-90deg);
+	}
+}
+
+
+@keyframes hamburger-rotate-out {
+	0% {
+		box-shadow: 0 9px 0 #ae842c, 0 -9px 0 #ae842c;
+		transform:rotate(-90deg);
+	}
+    33% {
+		box-shadow: 0 0px 0 #ae842c, 0 0px 0 #ae842c;
+		transform:rotate(-90deg);
+	}
+    66% {
+		box-shadow: 0 0px 0 #ae842c, 0 0px 0 #ae842c;
+		transform:rotate(0deg);
+	}
+    100% {
+		box-shadow: 0 9px 0 #ae842c, 0 -9px 0 #ae842c;
+		transform:rotate(0deg);
+	}
+}
+
+
+@keyframes hamburger-dark-rotate-in {
+	0% {
+		box-shadow: 0 9px 0 #254160, 0 -9px 0 #254160;
+		transform:rotate(0deg);
+	}
+    33% {
+		box-shadow: 0 0px 0 #254160, 0 0px 0 #254160;
+		transform:rotate(0deg);
+	}
+    66% {
+		box-shadow: 0 0px 0 #254160, 0 0px 0 #254160;
+		transform:rotate(-90deg);
+	}
+	100% {
+		box-shadow: 0 9px 0 #254160, 0 -9px 0 #254160;
+		transform:rotate(-90deg);
+	}
+}
+
+
+@keyframes hamburger-dark-rotate-out {
+	0% {
+		box-shadow: 0 9px 0 #254160, 0 -9px 0 #254160;
+		transform:rotate(-90deg);
+	}
+    33% {
+		box-shadow: 0 0px 0 #254160, 0 0px 0 #254160;
+		transform:rotate(-90deg);
+	}
+    66% {
+		box-shadow: 0 0px 0 #254160, 0 0px 0 #254160;
+		transform:rotate(0deg);
+	}
+    100% {
+		box-shadow: 0 9px 0 #254160, 0 -9px 0 #254160;
+		transform:rotate(0deg);
+	}
+}
+
+
+
+@media(max-width:1200px) {
+	.hamburger-menu {
+		display: block;
+	}
+
+	header ~ main .hamburger-menu,
+	header ~ section .hamburger-menu {
+		top: -.5rem;
+	}
+}
+
+
+
+/* header hamburger menu */
+#header .hamburger-menu:before {
+	background: #254160;
+	box-shadow: 0 9px 0 #254160, 0 -9px 0 #254160;
+}
+
+#header .hamburger-menu.in:before {
+	animation-name: hamburger-dark-rotate-in;
+}
+
+
+#header .hamburger-menu.out:before {
+	animation-name: hamburger-dark-rotate-out;
+}
+
+
+
+
+/* -----------------------------------------------
+/* END: HAMBURGER MENU BUTTON
+----------------------------------------------- */
+
+
+
+
+#department-navigation li {
+	list-style: none;
+}
+
+
+@media(max-width:1200px) {
+
+
+	#nav-wrapper .hamburger-menu {
+		display: none;
+	}
+
+	#nav-wrapper {
+		background: #b7c5ca;
+		bottom: 100%;
+		height: 100vh;
+		left: 0;
+		max-width: 40rem;
+		overflow: hidden;
+		pointer-events: none;
+	    position: fixed;
+		top: 0;
+		transform: translateX(-100%);
+		transition: all .3s ease;
+		width: calc(100vw - 4rem);
+		z-index: 10;
+
+	}
+	.menu-slide-in #nav-wrapper {
+		pointer-events: all;
+		transform: translateX(0);
+	}
+	
+	#nav-overflow {
+	    height: 100%;
+		overflow: auto;
+		width: calc(100% + 1.25rem);
+	}
+
+	.menu-slide-in #page:before {
+		background: rgba(0,0,0,.4);
+		bottom: 0;
+		content:"";
+	    cursor: pointer;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100vw;
+		z-index: 11;
+	}
+
+	#department-navigation {
+		padding-bottom:5rem
+	}
+
+	body {
+		overflow-x: hidden;
+		overflow-y: visible;
+		width: 100%;
+	}
+
+	body.menu-slide-in > .page {
+		overflow: hidden;
+		position: relative;
+		height: 95vh;
+	}
+
+	body > .page > :not(#header) {
+		transition: transform .5s ease;
+	}
+	body.menu-slide-in > .page > :not(#header) {
+		transform: translateX(calc(250px + 1rem ));
+	}
+
+	body.menu-slide-in #nav-wrapper {
+		left: 0;
+	}
+
+}
+
+
+@media(min-width:601px) and (max-width:1200px) {
+	#logo-site-name {
+		transition: transform .3s ease;
+		transform: translateX(0);
+
+	}
+
+	/*body.menu-slide-in #logo-site-name {
+		transform: translateX(calc(250px + 1rem ));
+	}*/
+}
+
+
+@media(max-width:600px) {
+	#logo-site-name {
+		transition: opacity .3s ease .35s;
+		opacity: 1;
+
+	}
+
+	body.menu-slide-in #logo-site-name {
+		transition: opacity .3s ease;
+		opacity: 0;
+	}
+}

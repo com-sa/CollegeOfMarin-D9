@@ -1,0 +1,27 @@
+uuid: c1ae7b19-cb56-4a98-8dc1-16ffb0eab528
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - subtheme
+_core:
+  default_config_hash: QwXZ6SSaIjArZUKwcVpPpXi7bHVnVit2k2vN4a8vvnM
+id: subtheme_page_title
+theme: subtheme
+region: content
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

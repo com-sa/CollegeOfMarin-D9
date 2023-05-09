@@ -1,0 +1,34 @@
+uuid: 7438cfe3-9b6d-48c4-9037-5d4b9d21a6bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.related_content
+  module:
+    - node
+    - views
+  theme:
+    - subtheme
+id: views_block__related_content_block_1
+theme: subtheme
+region: content_bottom
+weight: -10
+provider: null
+plugin: 'views_block:related_content-block_1'
+settings:
+  id: 'views_block:related_content-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      article: article
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

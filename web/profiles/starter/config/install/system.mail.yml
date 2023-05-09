@@ -1,0 +1,5 @@
+interface:
+  default: php_mail
+  webform: webform_php_mail
+_core:
+  default_config_hash: aIEocDW9B-UHO1AXnSyj6C0OuPntbAUXzVaQJDUHfSM

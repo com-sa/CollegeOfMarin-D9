@@ -1,0 +1,15 @@
+uuid: f20c0106-574e-4401-a097-313f8fea1b7d
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - media_library
+  module:
+    - media
+_core:
+  default_config_hash: WDVNleG_e26uhoJtsgDkgx_StVzs4eM0YLY4MNQziFY
+id: media.media_library
+label: 'Media library'
+targetEntityType: media
+cache: true

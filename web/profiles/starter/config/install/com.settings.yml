@@ -1,0 +1,14 @@
+facebook: 'https://www.facebook.com/collegeofmarin'
+twitter: 'https://twitter.com/collegeofmarin'
+youtube: 'https://www.youtube.com/user/collegeofmarin'
+linkedin: 'https://www.linkedin.com/company/college-of-marin'
+instagram: 'http://instagram.com/college_of_marin'
+_core:
+  default_config_hash: iYZKPdzIP-_JGSgXGwCkFWPshw9wdzFuH6M5gKqISx8
+google_cse_cx: '017521502328193371144:y_-cdddnodg'
+disabled_layouts:
+  layout_: '0'
+  foundation_: '0'
+active_menu: null
+header_active_menu: themes/custom/echotimes/templates/includes/menus/header/default.html.twig
+footer_active_menu: themes/custom/echotimes/templates/includes/menus/footer/default.html.twig

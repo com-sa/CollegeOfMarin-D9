@@ -1,0 +1,47 @@
+uuid: f5fee218-8322-4f4b-8869-0095959fcd85
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video_background.field_image
+    - field.field.paragraph.video_background.field_scroll_down
+    - field.field.paragraph.video_background.field_video_url
+    - paragraphs.paragraphs_type.video_background
+  module:
+    - link
+_core:
+  default_config_hash: VvxeKVB_3eyJzl8Eih8fvIRf_ZzRfGRLIuFPEjRvvWw
+id: paragraph.video_background.default
+targetEntityType: paragraph
+bundle: video_background
+mode: default
+content:
+  field_image:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_scroll_down:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_video_url:
+    weight: 0
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+hidden: {  }

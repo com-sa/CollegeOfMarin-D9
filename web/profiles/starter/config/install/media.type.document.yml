@@ -1,0 +1,16 @@
+uuid: c872d840-9274-490e-8dd7-c3bb2ddfb239
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Sps6-JDcpfpTnGKqooa7vg5vLN4c7BloJB6pv0dNq_0
+id: document
+label: Document
+description: 'A document is a file of type .doc, .docx, .xls, .ppt, .pptx, or .pdf'
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_file
+field_map:
+  name: name

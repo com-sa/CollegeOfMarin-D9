@@ -1,0 +1,6 @@
+block_edit_form:
+  version: 1.x
+  js:
+    js/block-edit-form.js: {}  
+  dependencies:
+    - core/jquery

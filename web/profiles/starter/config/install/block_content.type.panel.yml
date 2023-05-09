@@ -1,0 +1,8 @@
+uuid: 47798101-8920-4f87-855a-a3ceb8a87b3d
+langcode: en
+status: true
+dependencies: {  }
+id: panel
+label: Panel
+revision: 0
+description: ''

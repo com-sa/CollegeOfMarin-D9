@@ -1,0 +1,46 @@
+{% if items %}
+<div class="orbit" role="region" aria-live="polite" data-orbit
+													{% if meta.autoplay %} data-auto-play="{{meta.autoplay}}"{% endif %}
+													{% if meta.timer %} data-timer-delay="{{meta.timer}}"{% endif %}
+													{% if meta.disable_animation %} data-use-m-u-i="{{meta.disable_animation}}"{% endif %}
+													{% if meta.infinte %} data-infinite-wrap="{{meta.infinte}}"{% endif %}
+													{% if meta.pause_on_hover %} data-pause-on-hover="{{meta.pause_on_hover}}"{% endif %}
+													{% if meta.animation %}
+														{% if meta.animation['#animinfromleft'] %} data-anim-in-from-left="{{meta.animation['#animinfromleft']}}"{% endif %}
+														{% if meta.animation['#animinfromright'] %} data-anim-in-from-right="{{meta.animation['#animinfromright']}}"{% endif %}
+														{% if meta.animation['#animouttoleft'] %} data-anim-out-to-left="{{meta.animation['#animouttoleft']}}"{% endif %}
+														{% if meta.animation['#animouttoright'] %} data-anim-out-to-right="{{meta.animation['#animouttoright']}}"{% endif %}
+													{% endif %}>
+	<!--div class="orbit-wrapper"-->
+		{% if meta.arrows and items|length > 1 %}
+    		<div class="orbit-controls">
+				<button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+				<button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+			</div>
+		{% endif %}
+
+		<ul class="slides orbit-container">		
+			{% for item in items %}
+				<li class="item slide orbit-slide{% if loop.index == 1 %} is-active{% endif %}" style="background-image:url('{{ item.image }}');">
+					<figure class="orbit-figure">
+						{% if item.body %}
+							<figcaption class="orbit-caption slide-body">{{ item.body|raw }}</figcaption>
+						{% endif %}
+					</figure>
+				</li>
+			{% endfor %}
+		</ul>
+	<!--/div-->
+
+	{% if meta.dots and items|length > 1 %}
+		<nav class="orbit-bullets">
+			{% for item in items %}
+		    	<button data-slide="{{ loop.index0 }}"{% if loop.index == 1 %} class="is-active"{% endif %}>
+		    		<span class="show-for-sr">{{ loop.index }}</span>
+		    	</button>
+	    	{% endfor %}
+		</nav>
+	{% endif %}
+	{% if meta.scroll_down %}<button id="carousel-scroll-down" data-scroll="#main-content">{{meta.scroll_down}}</button>{% endif %}
+</div>
+{% endif %}

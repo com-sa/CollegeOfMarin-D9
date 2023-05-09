@@ -1,0 +1,26 @@
+<footer id="footer">
+	{% if footer_active_menu %}
+	<div id="footer-top">
+		{% include footer_active_menu %}
+	</div>
+	{% endif %}
+	<div id="footer-bottom">
+		<div class="grid-container grid-x align-justify">
+			<div id="copyright">
+				<h3>College of Marin</h3>
+				Copyright &copy; {{"now"|date('Y')}} Marin Community College District. All rights reserved.
+			</div>
+			{% if social_links %}
+			<div class="social-links">
+				{% for name, link in social_links %}
+				<a class="icon-social {{ name }}" href="{{ link }}" title="{{ name|capitalize }}">
+					<svg class="icon-social-{{ name }}" alt="{{ name|capitalize }}">
+						<use xlink:href="/themes/custom/echotimes/images/sprite.svg#icon-social-{{ name }}" />
+					</svg>
+				</a>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</footer>

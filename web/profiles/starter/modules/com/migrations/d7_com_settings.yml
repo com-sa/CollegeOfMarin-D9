@@ -1,0 +1,23 @@
+id: d7_com_settings
+label: COM 7 Settings
+migration_tags:
+  - Drupal 7
+  - Configuration
+source:
+  plugin: variable
+  variables:
+    - social_media_facebook
+    - social_media_twitter
+    - social_media_youtube
+    - social_media_linkedin
+    - social_media_instagram
+  source_module: com_starter
+process:
+  facebook: social_media_facebook
+  twitter: social_media_twitter
+  youtube: social_media_youtube
+  linkedin: social_media_linkedin
+  instagram: social_media_instagram
+destination:
+  plugin: config
+  config_name: com.settings

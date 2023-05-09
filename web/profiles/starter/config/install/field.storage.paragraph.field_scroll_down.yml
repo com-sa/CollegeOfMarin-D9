@@ -1,0 +1,21 @@
+uuid: f8c072a3-e7a6-4d0e-ad67-0be63956bdb7
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_scroll_down
+field_name: field_scroll_down
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

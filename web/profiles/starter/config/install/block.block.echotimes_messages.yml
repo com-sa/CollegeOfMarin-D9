@@ -1,0 +1,22 @@
+uuid: 14e64df2-8076-46aa-aea0-ddc00464a408
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - echotimes
+_core:
+  default_config_hash: 5QsqEE6SGYdpeR0YnOBV6lwMhEkVFigTGbFrtTfzkJk
+id: echotimes_messages
+theme: echotimes
+region: messages
+weight: -2
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

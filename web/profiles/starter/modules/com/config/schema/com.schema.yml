@@ -1,0 +1,22 @@
+com.settings:
+  type: mapping
+  label: Settings
+  mapping:
+    facebook:
+      type: string
+    twitter:
+      type: string
+    youtube:
+      type: string
+    instagram:
+      type: string
+    linkedin:
+      type: string
+    google_cse_cx:
+      type: string
+    disabled_layouts:
+      type: sequence
+      sequence:
+        type: string
+    active_menu:
+      type: string

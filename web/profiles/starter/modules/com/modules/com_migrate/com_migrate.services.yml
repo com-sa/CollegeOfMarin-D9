@@ -1,0 +1,5 @@
+services:
+  com_migrate.post_migration_subscriber:
+    class: '\Drupal\com_migrate\EventSubscriber\PostMigrationSubscriber'
+    tags:
+      - { name: 'event_subscriber' }

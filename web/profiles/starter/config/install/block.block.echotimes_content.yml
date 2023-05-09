@@ -1,0 +1,22 @@
+uuid: 97fd06b2-98c4-4c74-8559-0288aa955f7f
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - echotimes
+_core:
+  default_config_hash: Ad4w6WEgXGJV2TK0ISEvMgYre2NgeSkw7wG19HB13oI
+id: echotimes_content
+theme: echotimes
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,66 @@
+uuid: 05b1dd88-4985-4f92-a916-712a3408c0ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.panel
+    - field.field.block_content.panel.field_centered
+    - field.field.block_content.panel.field_full_width
+    - field.field.block_content.panel.field_grid
+    - field.field.block_content.panel.field_grid_size
+    - field.field.block_content.panel.field_item
+  module:
+    - entity_reference_revisions
+    - options
+id: block_content.panel.default
+targetEntityType: block_content
+bundle: panel
+mode: default
+content:
+  field_centered:
+    weight: 3
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_full_width:
+    weight: 1
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_grid:
+    weight: 2
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_grid_size:
+    type: list_default
+    weight: 4
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_item:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden: {  }

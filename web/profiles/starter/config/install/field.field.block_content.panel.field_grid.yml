@@ -1,0 +1,23 @@
+uuid: ab185de6-2656-4c49-bf40-1e764b6f3164
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.panel
+    - field.storage.block_content.field_grid
+id: block_content.panel.field_grid
+field_name: field_grid
+entity_type: block_content
+bundle: panel
+label: Grid
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

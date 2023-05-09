@@ -1,0 +1,8 @@
+uuid: 38bec7a6-6de9-4853-a77b-3c20a3b3acd9
+langcode: en
+status: true
+dependencies: {  }
+name: 'COM Colors'
+vid: com_colors
+description: ''
+weight: 0

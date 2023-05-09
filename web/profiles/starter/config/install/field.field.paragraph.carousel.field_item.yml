@@ -1,0 +1,39 @@
+uuid: 253dcce4-4a82-4228-b005-c3c45bd40c60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_item
+    - paragraphs.paragraphs_type.carousel
+    - paragraphs.paragraphs_type.carousel_item
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: 8DM_5gvgOudvvFXzxvgbH5j8_sE4tHNccW33QgztfKY
+id: paragraph.carousel.field_item
+field_name: field_item
+entity_type: paragraph
+bundle: carousel
+label: Item
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      carousel_item: carousel_item
+    target_bundles_drag_drop:
+      carousel:
+        weight: 4
+        enabled: false
+      carousel_item:
+        enabled: true
+        weight: 5
+      video_background:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

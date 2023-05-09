@@ -1,0 +1,24 @@
+uuid: da653fdc-effe-4f26-945f-31c41bdd72f8
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZEBRJgMQYdpqHXzhLUaElR8R2Kimo7kYZAI_xjfUlZM
+id: node
+label: Content
+tags:
+  title: '[node:title] | [site:name]'
+  canonical_url: '[node:url]'
+  description: '[node:summary]'
+  og_image: '[com-logo:url]'
+  og_image_url: '[com-logo:url]'
+  og_image_alt: '[site:name]'
+  og_image_secure_url: '[com-logo:url]'
+  og_url: '[current-page:url]'
+  og_title: '[current-page:title]'
+  twitter_cards_image: '[com-logo:url]'
+  twitter_cards_page_url: '[current-page:url]'
+  twitter_cards_description: '[node:summary]'
+  twitter_cards_image_alt: '[site:name]'
+  twitter_cards_type: summary
+  twitter_cards_title: '[current-page:title]'

@@ -1,0 +1,10 @@
+com.admin_settings:
+  route_name: com.admin_settings
+  title: 'College of Marin'
+  description: 'COM Configuration.'
+  parent: system.admin_config
+com.kitchen_sink:
+  route_name: com.kitchen_sink
+  title: 'Kitchen Sink'
+  description: 'COM: Kitchen Sink - Configuration.'
+  parent: system.admin_content

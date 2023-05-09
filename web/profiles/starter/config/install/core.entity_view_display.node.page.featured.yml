@@ -1,0 +1,162 @@
+uuid: 43043270-6b95-42ad-847a-f8982376d3ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.featured
+    - field.field.node.page.body
+    - field.field.node.page.field_hero
+    - field.field.node.page.field_related_content
+    - field.field.node.page.field_teaser_image
+    - field.field.node.page.field_weight
+    - node.type.page
+  module:
+    - com_animation
+    - fences
+    - layout_builder
+    - text
+    - user
+  theme:
+    - echotimes
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: wrapper
+        layout_settings:
+          css_id: ''
+          css_classes: image-wrapper
+        components:
+          f390f716-5c80-4adb-88c8-96d6c5c3c3a8:
+            uuid: f390f716-5c80-4adb-88c8-96d6c5c3c3a8
+            region: content
+            configuration:
+              id: 'field_block:node:page:field_teaser_image'
+              label: 'Teaser Image'
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: media_thumbnail
+                settings:
+                  image_style: large
+                  image_link: content
+                third_party_settings:
+                  com_animation:
+                    animate: ''
+                  fences:
+                    fences_field_tag: div
+                    fences_field_classes: ''
+                    fences_field_item_tag: div
+                    fences_field_item_classes: ''
+                    fences_label_tag: div
+                    fences_label_classes: ''
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 0
+        third_party_settings: {  }
+      -
+        layout_id: wrapper
+        layout_settings:
+          css_id: ''
+          css_classes: content
+        components:
+          93e1ef7c-836b-4904-9d32-c75e85c3b50b:
+            uuid: 93e1ef7c-836b-4904-9d32-c75e85c3b50b
+            region: content
+            configuration:
+              id: 'field_block:node:page:title'
+              label: Title
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: string
+                settings:
+                  link_to_entity: true
+                third_party_settings:
+                  com_animation:
+                    animate: ''
+                  fences:
+                    fences_field_tag: div
+                    fences_field_classes: testing
+                    fences_field_item_tag: h3
+                    fences_field_item_classes: ''
+                    fences_label_tag: h3
+                    fences_label_classes: ''
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 1
+          1afb9f90-5dad-4122-aa4e-c4ef96990b81:
+            uuid: 1afb9f90-5dad-4122-aa4e-c4ef96990b81
+            region: content
+            configuration:
+              id: 'field_block:node:page:body'
+              label: Body
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: text_summary_or_trimmed
+                settings:
+                  trim_length: 200
+                third_party_settings:
+                  com_animation:
+                    animate: ''
+                  fences:
+                    fences_field_tag: div
+                    fences_field_classes: ''
+                    fences_field_item_tag: div
+                    fences_field_item_classes: ''
+                    fences_label_tag: div
+                    fences_label_classes: ''
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 2
+          c9250fab-d0ec-4ef7-80bf-b50c543ca0e5:
+            uuid: c9250fab-d0ec-4ef7-80bf-b50c543ca0e5
+            region: content
+            configuration:
+              id: 'extra_field_block:node:page:links'
+              label: Links
+              provider: layout_builder
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 3
+        third_party_settings: {  }
+_core:
+  default_config_hash: '-Lpk_wjgp1swAnhU5W_j5rxVi-Y5c0VthPE_GzGnCFs'
+id: node.page.featured
+targetEntityType: node
+bundle: page
+mode: featured
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings:
+      com_animation:
+        animate: ''
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    region: content
+hidden:
+  field_hero: true
+  field_related_content: true
+  field_teaser_image: true
+  field_weight: true
+  links: true

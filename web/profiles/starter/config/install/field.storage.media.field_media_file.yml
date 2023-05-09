@@ -1,0 +1,25 @@
+uuid: 6a7ea7c1-7082-485a-8404-0030ae79713f
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - media
+_core:
+  default_config_hash: BJJ5Skq1NdHe92w3WULpQ2v5ni3qouaybKTeBqoeBw8
+id: media.field_media_file
+field_name: field_media_file
+entity_type: media
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

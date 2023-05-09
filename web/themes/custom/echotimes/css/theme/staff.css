@@ -1,0 +1,122 @@
+/* PAGES: STAFF
+----------------------------------------------- */
+/*
+.view-staff { text-align: center; }
+.view-staff .view-content > .column { 
+	margin: 0 0 1em; 
+}
+
+.view-staff .view-content > .column > div {
+	margin-bottom: .333rem;
+}
+
+.view-staff .view-content > .column > div:last-child {
+	margin-bottom: 1.5rem;
+}
+*/
+
+.type-staff.teaser .layout-builder-item {
+	margin-bottom: .3125rem;
+	text-align: center;
+}
+
+.type-staff.teaser .field-title {
+	color: #a47c42;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.type-staff.teaser .field-field_position {
+	color: #ccc;
+    font-size: 1rem;
+}
+
+
+.type-staff.full {
+	margin-top: .75rem;	
+}
+
+@media(max-width:900px) {
+	.type-staff .view-mode-full {
+	    order: 1;
+	    padding-top: 1rem;
+	}
+}
+
+.type-staff.full .layout-builder-item {
+	margin-bottom: 0;
+}
+
+/*
+.staff-graphic {
+	border: 1px solid #bdbdbd;
+	display:inline-block;
+	margin-bottom: 1.25rem;
+	overflow: hidden;
+}
+
+.staff-name {
+	color: #a47c42;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.staff-position {
+	color: #ccc;
+	font-size: 1rem;
+}
+
+.staff-phone {
+	color: #666;
+}
+*/
+
+
+/* staff page block */
+
+/*
+.block-com-starter-staff-staff-info {
+	color: #666;
+}
+*/
+
+/*
+.block-com-starter-staff-staff-info:first-child {
+	margin-top: 2.333rem;	
+}
+*/
+
+.type-staff.full .field {
+	margin-bottom: .625rem;
+	padding-bottom: .625rem;
+}
+
+
+@media(min-width:63.0625rem) {
+	.type-staff.full .field:not(.field--name-field-teaser-image):not(.field--name-body) {
+		padding-left: 1.25rem;
+		padding-right: 1.25rem;
+	}
+}
+
+.type-staff.full .field:nth-last-child(-n+3):not(:last-child),
+/*.type-staff.full .layout-builder-item:not(:last-child) .field:nth-last-child(-n+3)*/
+.type-staff.full .layout-builder-item:not(:first-child):not(:last-child) .field {
+	border-bottom: 1px solid #f7f7f7;
+}
+ 
+.type-staff.full .field-label {
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.type-staff.full .field--name-field-teaser-image img {
+	width: 100%;
+}
+
+.type-staff.full .field--name-field-position {
+	color: #b7c5ca;
+	font-size: 1rem;
+}
+

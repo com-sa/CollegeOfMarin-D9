@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.panel
+    - field.storage.block_content.field_parallax_scale
+id: block_content.panel.field_parallax_scale
+field_name: field_parallax_scale
+entity_type: block_content
+bundle: panel
+label: 'Parallax Scale'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1.5
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: !!float 4
+  prefix: ''
+  suffix: ''
+field_type: float

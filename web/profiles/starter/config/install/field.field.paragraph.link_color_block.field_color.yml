@@ -1,0 +1,29 @@
+uuid: 93425b05-4366-489f-bbf2-9dbfb43a5015
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_color
+    - paragraphs.paragraphs_type.link_color_block
+    - taxonomy.vocabulary.com_colors
+id: paragraph.link_color_block.field_color
+field_name: field_color
+entity_type: paragraph
+bundle: link_color_block
+label: Color
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      com_colors: com_colors
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

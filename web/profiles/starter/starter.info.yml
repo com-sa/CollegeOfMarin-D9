@@ -1,0 +1,76 @@
+name: Starter
+type: profile
+description: 'Install with commonly used features pre-configured.'
+core_version_requirement: '^8.7.7 || ^9 || ^10'
+distribution:
+  name: SRJC Starter
+  langcode: en
+install:
+  - automated_cron
+  - block
+  - big_pipe
+  - block_content
+  - ckeditor
+  - config
+  - contextual
+  - datetime
+  - dynamic_page_cache
+  - editor
+  - field_ui
+  - file
+  - help
+  - image
+  - layout_builder
+  - media_library
+  - menu_link_content
+  - menu_ui
+  - node
+  - options
+  - path
+  - page_cache
+  - quickedit
+  - rdf
+  - taxonomy
+  - toolbar
+  - views
+  - views_ui
+  - admin_toolbar
+  - admin_toolbar_links_access_filter
+  - admin_toolbar_tools
+  - block_class
+#  - cas
+  - content_access
+  - ctools
+  - editor_advanced_link
+  - entity_reference_revisions
+  - externalauth
+  - fast404
+  - fences
+  - field_group
+  - hotjar
+  - google_analytics
+  - media
+  - metatag
+  - metatag_open_graph
+  - metatag_twitter_cards
+  - paragraphs
+  - pathauto
+  - redirect
+  - shield
+  - telephone
+  - token
+#  - views_bulk_operations
+  - webform
+  - webform_ui
+  - weight
+  - xmlsitemap
+  - xmlsitemap_custom
+  - xmlsitemap_engines
+  - syslog
+dependencies:  
+  - com
+  - com_animation
+  - com_hero
+themes:
+  - subtheme
+  - seven

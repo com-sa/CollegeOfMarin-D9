@@ -1,0 +1,79 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.panel
+    - field.field.block_content.panel.field_centered
+    - field.field.block_content.panel.field_full_width
+    - field.field.block_content.panel.field_grid
+    - field.field.block_content.panel.field_grid_size
+    - field.field.block_content.panel.field_item
+    - field.field.block_content.panel.field_parallax_scale
+  module:
+    - paragraphs
+id: block_content.panel.default
+targetEntityType: block_content
+bundle: panel
+mode: default
+content:
+  field_centered:
+    weight: 4
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_full_width:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_grid:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_grid_size:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_item:
+    weight: 6
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+    type: paragraphs
+    region: content
+  field_parallax_scale:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,22 @@
+uuid: 8a456b26-0856-445c-a289-75114b3b4345
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.com_colors
+id: taxonomy_term.com_colors.default
+targetEntityType: taxonomy_term
+bundle: com_colors
+mode: default
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  path: true

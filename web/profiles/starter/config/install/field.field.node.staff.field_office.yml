@@ -1,0 +1,21 @@
+uuid: 34b597eb-bad6-42fe-ac9d-1acf14fa974b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_office
+    - node.type.staff
+_core:
+  default_config_hash: PzRnu2Xv_nv_o-BxEXEzek9bjQRaL6ffx_kUQr9ie8w
+id: node.staff.field_office
+field_name: field_office
+entity_type: node
+bundle: staff
+label: Office
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

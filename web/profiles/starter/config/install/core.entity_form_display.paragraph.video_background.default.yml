@@ -1,0 +1,47 @@
+uuid: 0e2576ad-eba0-432d-9dca-6ea35595be27
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video_background.field_image
+    - field.field.paragraph.video_background.field_scroll_down
+    - field.field.paragraph.video_background.field_video_url
+    - paragraphs.paragraphs_type.video_background
+  module:
+    - link
+_core:
+  default_config_hash: AlLblBWx-8_jlfSpnYOwgyFlTDE0SPjr4wfDzfXWD9M
+id: paragraph.video_background.default
+targetEntityType: paragraph
+bundle: video_background
+mode: default
+content:
+  field_image:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_scroll_down:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_video_url:
+    weight: 0
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

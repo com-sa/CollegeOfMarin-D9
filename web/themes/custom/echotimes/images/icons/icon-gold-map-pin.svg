@@ -1,0 +1,5 @@
+<svg id="icon-gold-map-pin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 20">
+    <path fill="#cd9027" d="M15,7.5C15,11.64,7.5,20,7.5,20S0,11.64,0,7.5a7.5,7.5,0,0,1,15,0Z" />
+    <circle fill="#a57d3d" cx="7.5" cy="8.1" r="3.68" />
+    <circle fill="#ffffff" cx="7.5" cy="7.1" r="3.68" />
+</svg>

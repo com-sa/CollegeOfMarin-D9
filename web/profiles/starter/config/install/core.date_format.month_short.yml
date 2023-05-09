@@ -1,0 +1,10 @@
+uuid: 1e5274c8-cf07-46c2-b81d-cb21264d8fe2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 0Ma5FjzrYLgCoy-6cRf1oHSOSkhTWEZyx7opZqGztOU
+id: month_short
+label: 'Month Short'
+locked: false
+pattern: M

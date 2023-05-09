@@ -1,0 +1,51 @@
+/* abbr, cite, em, strong, a, img, span, button, input, label, select, textarea */
+span.animated, span.animatable {
+	display: inline-block;
+}
+
+.bounceIn,
+.bounceInDown,
+.bounceInLeft,
+.bounceInRight,
+.bounceInUp,
+.fadeIn,
+.fadeInDown,
+.fadeInDownBig,
+.fadeInLeft,
+.fadeInLeftBig,
+.fadeInRight,
+.fadeInRightBig,
+.fadeInUp,
+.fadeInUpBig,
+.flipInX,
+.flipInY,
+.lightSpeedIn,
+.rotateIn,
+.rotateInDownLeft,
+.rotateInDownRight,
+.rotateInUpLeft,
+.rotateInUpRight,
+.rollIn,
+.zoomIn,
+.zoomInDown,
+.zoomInLeft,
+.zoomInRight,
+.zoomInUp {
+	opacity: 0;
+}
+
+.slideInDown {
+	transform: translate3d(0, -100%, 0);
+}
+
+.slideInLeft {
+	transform: translate3d(-100%, 0, 0);
+}
+
+.slideInRight {
+	transform: translate3d(100%, 0, 0);
+}
+
+.slideInUp {
+	transform: translate3d(0, 100%, 0);
+}

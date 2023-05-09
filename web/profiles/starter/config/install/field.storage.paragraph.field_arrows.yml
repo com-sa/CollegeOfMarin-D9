@@ -1,0 +1,20 @@
+uuid: 70fe8bcf-491e-41ba-8bdb-9ac06a679222
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: vgpCIm2JM6OLOckmTixjrHyY88itN-OPE5XJI62cOxI
+id: paragraph.field_arrows
+field_name: field_arrows
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

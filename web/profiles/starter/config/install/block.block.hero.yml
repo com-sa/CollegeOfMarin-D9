@@ -1,0 +1,28 @@
+uuid: 3914e3ac-0972-4012-9b14-6a3d943d8e2b
+langcode: en
+status: true
+dependencies:
+  module:
+    - com_hero
+    - node
+  theme:
+    - subtheme
+id: hero
+theme: subtheme
+region: highlighted
+weight: -7
+provider: null
+plugin: com_hero_block
+settings:
+  id: com_hero_block
+  label: Hero
+  provider: com_hero
+  label_display: '0'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

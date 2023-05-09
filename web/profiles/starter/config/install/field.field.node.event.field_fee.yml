@@ -1,0 +1,21 @@
+uuid: 09b419e2-2729-4ac6-9522-71abb84a25ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fee
+    - node.type.event
+_core:
+  default_config_hash: Q75QoHC8zmeLy8SBPeutHw08lAk7FOgzR3CJFbJ277M
+id: node.event.field_fee
+field_name: field_fee
+entity_type: node
+bundle: event
+label: Fee
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

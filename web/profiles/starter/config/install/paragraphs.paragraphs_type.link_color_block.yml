@@ -1,0 +1,9 @@
+uuid: 93cdee53-f971-4fc7-a602-52d93843d10e
+langcode: en
+status: true
+dependencies: {  }
+id: link_color_block
+label: 'Link Color Block'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

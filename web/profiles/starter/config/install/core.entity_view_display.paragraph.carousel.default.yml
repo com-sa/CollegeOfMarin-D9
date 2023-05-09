@@ -1,0 +1,109 @@
+uuid: c02e244c-7b4f-4af9-bba8-31c92796432b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.carousel.field_animation
+    - field.field.paragraph.carousel.field_arrows
+    - field.field.paragraph.carousel.field_autoplay
+    - field.field.paragraph.carousel.field_dots
+    - field.field.paragraph.carousel.field_infinite
+    - field.field.paragraph.carousel.field_item
+    - field.field.paragraph.carousel.field_pause_on_hover
+    - field.field.paragraph.carousel.field_scroll_down
+    - field.field.paragraph.carousel.field_timer
+    - paragraphs.paragraphs_type.carousel
+  module:
+    - com_animation
+    - entity_reference_revisions
+_core:
+  default_config_hash: IGrKb5UPnBdxInJ7IMjANsdOfPyhwPG8I6Amdp8KJws
+id: paragraph.carousel.default
+targetEntityType: paragraph
+bundle: carousel
+mode: default
+content:
+  field_animation:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: com_carousel_animation_formatter
+    region: content
+  field_arrows:
+    weight: 6
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_autoplay:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_dots:
+    weight: 5
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_infinite:
+    weight: 3
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_item:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_pause_on_hover:
+    weight: 4
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_scroll_down:
+    weight: 7
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_timer:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+hidden: {  }

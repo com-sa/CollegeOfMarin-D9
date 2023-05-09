@@ -1,0 +1,11 @@
+uuid: 19a6aebb-236d-4d28-a55d-15c0dd4b0899
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: shDwmuo8yMuPg4P2Cbhe0TsrVu8c5LKet8Jg5IK_udw
+id: video_background
+label: 'Video Background'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

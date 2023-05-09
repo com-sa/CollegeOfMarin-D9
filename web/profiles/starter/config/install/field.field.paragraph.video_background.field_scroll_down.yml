@@ -1,0 +1,19 @@
+uuid: d689ef6d-fa39-43a1-886e-cef47e30539c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_scroll_down
+    - paragraphs.paragraphs_type.video_background
+id: paragraph.video_background.field_scroll_down
+field_name: field_scroll_down
+entity_type: paragraph
+bundle: video_background
+label: 'Scroll Down'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

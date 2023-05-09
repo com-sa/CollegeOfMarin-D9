@@ -1,0 +1,5 @@
+<svg id="icon-arrow-right-light-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+    <circle fill="#b6c4ca" cx="10" cy="10" r="10" />
+    <polyline fill="none" stroke="#244161" stroke-linecap="round" stroke-miterlimit="10" points="9.8 5.5 14.5 10 9.8 14.5" />
+    <line fill="none" stroke="#244161" stroke-linecap="round" stroke-miterlimit="10" x1="13.81" y1="10" x2="5.5" y2="10" />
+</svg>

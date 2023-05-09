@@ -1,0 +1,17 @@
+uuid: 8ad48563-b91e-4cf0-8563-423db807e681
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 20asbsYiQTmBnYQ2ms-FsrTPg4last5rbsfIFo_wnMk
+name: large
+label: 'Large (480×480)'
+effects:
+  ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d:
+    uuid: ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d
+    id: image_scale
+    weight: 0
+    data:
+      width: 480
+      height: 480
+      upscale: false

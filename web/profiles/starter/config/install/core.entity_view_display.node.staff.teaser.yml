@@ -1,0 +1,166 @@
+uuid: 2f67c9f7-643d-4dec-8344-2724bfad174e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.staff.body
+    - field.field.node.staff.field_email
+    - field.field.node.staff.field_office
+    - field.field.node.staff.field_phone_number
+    - field.field.node.staff.field_position
+    - field.field.node.staff.field_teaser_image
+    - image.style.large
+    - node.type.staff
+  module:
+    - field_group
+    - layout_builder
+    - layout_discovery
+    - media
+    - user
+third_party_settings:
+  field_group:
+    group_staff_contact_info:
+      children:
+        - field_email
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: grid-x
+      label: 'Staff Contact Info'
+      region: content
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings: {  }
+        components:
+          f660175f-f9c3-4966-ae48-ce45944a5728:
+            uuid: f660175f-f9c3-4966-ae48-ce45944a5728
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:staff:field_teaser_image'
+              formatter:
+                type: media_thumbnail
+                label: hidden
+                settings:
+                  image_style: large
+                  image_link: content
+                third_party_settings: {  }
+            additional: {  }
+            weight: 0
+          6a1107cf-2b8a-493d-a143-62da7984e3f2:
+            uuid: 6a1107cf-2b8a-493d-a143-62da7984e3f2
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:staff:field_email'
+              formatter:
+                type: email_mailto
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 3
+          c9ab1489-23dc-42a7-9ae3-ccc32fdb9072:
+            uuid: c9ab1489-23dc-42a7-9ae3-ccc32fdb9072
+            region: content
+            configuration:
+              id: 'field_block:node:staff:title'
+              label: TItle
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: string
+                settings:
+                  link_to_entity: true
+                third_party_settings:
+                  fences:
+                    fences_field_tag: div
+                    fences_field_classes: test-1
+                    fences_field_item_tag: h2
+                    fences_field_item_classes: test-2
+                    fences_label_tag: div
+                    fences_label_classes: ''
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 1
+          fa02973b-15ac-484b-9ab0-2729ec34fd32:
+            uuid: fa02973b-15ac-484b-9ab0-2729ec34fd32
+            region: content
+            configuration:
+              id: 'field_block:node:staff:field_position'
+              label: Position
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: string
+                settings:
+                  link_to_entity: false
+                third_party_settings:
+                  fences:
+                    fences_field_tag: div
+                    fences_field_classes: ''
+                    fences_field_item_tag: div
+                    fences_field_item_classes: ''
+                    fences_label_tag: div
+                    fences_label_classes: ''
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 2
+        third_party_settings: {  }
+_core:
+  default_config_hash: hyKGDb99R8mre8ToHxJvw_4TsuoGY0ZjklKXfXu0SJw
+id: node.staff.teaser
+targetEntityType: node
+bundle: staff
+mode: teaser
+content:
+  field_email:
+    type: email_mailto
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_position:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_teaser_image:
+    type: media_thumbnail
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: large
+      image_link: content
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_office: true
+  field_phone_number: true
+  links: true

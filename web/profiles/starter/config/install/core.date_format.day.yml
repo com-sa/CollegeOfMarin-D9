@@ -1,0 +1,10 @@
+uuid: 8b0a3781-e143-4b7b-a5f6-6c28d92692e9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: IlM8WdFIxn6N6x-BbKfvDNzIMFE1nlDCe8kDGoEV-vQ
+id: day
+label: Day
+locked: false
+pattern: j

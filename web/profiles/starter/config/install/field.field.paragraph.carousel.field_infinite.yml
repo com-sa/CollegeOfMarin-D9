@@ -1,0 +1,25 @@
+uuid: e20fd64b-9e35-468a-8a83-84ea4147e7ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_infinite
+    - paragraphs.paragraphs_type.carousel
+_core:
+  default_config_hash: kXycaHVuwSx-SbjmqyXoguFNRAVGBf95pL62059k_uQ
+id: paragraph.carousel.field_infinite
+field_name: field_infinite
+entity_type: paragraph
+bundle: carousel
+label: Infinite
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

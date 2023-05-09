@@ -1,0 +1,20 @@
+uuid: c1e14bff-f6c7-4426-b466-d2892d5ae120
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: _v6ZPSJcfK0UVkjTTJz3OgyrNOWH1tCoRS99R1b_xjg
+id: paragraph.field_autoplay
+field_name: field_autoplay
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

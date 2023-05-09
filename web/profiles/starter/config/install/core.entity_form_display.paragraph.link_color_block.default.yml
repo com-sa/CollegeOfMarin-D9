@@ -1,0 +1,32 @@
+uuid: c43c4ae4-dee9-4ef3-96fc-7a4488bee28d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.link_color_block.field_color
+    - field.field.paragraph.link_color_block.field_link
+    - paragraphs.paragraphs_type.link_color_block
+  module:
+    - link
+id: paragraph.link_color_block.default
+targetEntityType: paragraph
+bundle: link_color_block
+mode: default
+content:
+  field_color:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_link:
+    weight: 0
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+hidden:
+  created: true
+  status: true

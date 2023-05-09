@@ -1,0 +1,28 @@
+uuid: 95b536b0-a805-49e2-b965-b4c4f442ddf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_animation
+    - paragraphs.paragraphs_type.carousel
+  module:
+    - com_animation
+_core:
+  default_config_hash: Rwa2IuAi8Ped92fRW9abhX1RklT9leG51ceqq9nCnLU
+id: paragraph.carousel.field_animation
+field_name: field_animation
+entity_type: paragraph
+bundle: carousel
+label: Animation
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    animinfromleft: fade-in
+    animinfromright: fade-in
+    animouttoleft: fade-out
+    animouttoright: fade-out
+default_value_callback: ''
+settings: {  }
+field_type: com_carousel_animation

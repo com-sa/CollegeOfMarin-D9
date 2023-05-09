@@ -1,0 +1,7 @@
+field.field_settings.animation:
+  type: mapping
+  label: 'Animation settings'
+  mapping:
+    size:
+      type: string
+      label: 'Animation'

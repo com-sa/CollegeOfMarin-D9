@@ -1,0 +1,21 @@
+uuid: 9b5373b1-5de7-47da-aff3-3aad5af38474
+langcode: en
+status: true
+dependencies:
+  module:
+    - com_animation
+    - paragraphs
+_core:
+  default_config_hash: 1xiS4Ubf1pLziuIfShJdzkv3hqb3UJSLmKkNW-yWlRo
+id: paragraph.field_animation
+field_name: field_animation
+entity_type: paragraph
+type: com_carousel_animation
+settings: {  }
+module: com_animation
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
