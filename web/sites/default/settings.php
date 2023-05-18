@@ -32,15 +32,3 @@ $local_settings = __DIR__ . "/settings.local.php";
 if (file_exists($local_settings)) {
   include $local_settings;
 }
-$databases['default']['default'] = array (
-  'database' => 'collegeofmarin_test',
-  'username' => 'root',
-  'password' => 'root',
-  'prefix' => '',
-  'host' => 'localhost',
-  'port' => '8889',
-  'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
-  'driver' => 'mysql',
-  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
-);
-$settings['hash_salt'] = 'Om8AIrlsXXqMR2RLdRUGgD6emAdDFnaaW0bj8yrT8bGmUOveEyHvRbGjQfjW985w4s5Gm4nL_g';
