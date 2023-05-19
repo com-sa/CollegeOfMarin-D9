@@ -1,0 +1,9 @@
+name: com-upstream-d9
+recipe: pantheon
+config:
+  framework: drupal9
+  site: com-upstream-d9
+  id: 7ad2d8f4-457b-458c-a74e-d85f15548f0c
+services:
+  appserver:
+    type: php:8.0
