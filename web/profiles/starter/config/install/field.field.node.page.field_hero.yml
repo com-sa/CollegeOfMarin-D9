@@ -1,0 +1,41 @@
+uuid: 6b01ddc5-4520-4bcb-8259-ad2ebabb087f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hero
+    - node.type.page
+    - paragraphs.paragraphs_type.carousel
+    - paragraphs.paragraphs_type.video_background
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: pYBrsthkeaBo7uRcXfkK3NzeeW79d3OEvDTU8dz3oaE
+id: node.page.field_hero
+field_name: field_hero
+entity_type: node
+bundle: page
+label: Hero
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      carousel: carousel
+      video_background: video_background
+    target_bundles_drag_drop:
+      carousel:
+        enabled: true
+        weight: 2
+      video_background:
+        enabled: true
+        weight: 4
+      carousel_item:
+        weight: 5
+        enabled: false
+field_type: entity_reference_revisions

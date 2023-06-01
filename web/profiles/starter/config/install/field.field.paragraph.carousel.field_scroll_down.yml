@@ -1,0 +1,19 @@
+uuid: 253cf277-0c75-45e3-9794-ff27f8efa939
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_scroll_down
+    - paragraphs.paragraphs_type.carousel
+id: paragraph.carousel.field_scroll_down
+field_name: field_scroll_down
+entity_type: paragraph
+bundle: carousel
+label: 'Scroll Down'
+description: 'Add text here to include scroll down arrow'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

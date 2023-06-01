@@ -1,0 +1,14 @@
+com.admin_settings:
+  path: '/admin/config/com'
+  defaults:
+    _title: 'College of Marin'
+    _form: '\Drupal\com\Form\SettingsForm'
+  requirements:
+    _permission: 'administer com'
+com.kitchen_sink:
+  path: '/kitchen-sink'
+  defaults:
+    _controller: '\Drupal\com\Controller\KitchenSinkController::build'
+    _title: 'Kitchen Sink'
+  requirements:
+    _permission: 'access content overview'

@@ -1,0 +1,14 @@
+uuid: f0752dac-060e-41ca-8e09-8ab82ae42f5f
+name: COM
+mail: noreply@marin.edu
+slogan: Dream.Learn.Achieve
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: Zgfsj4_1XWtIfrXFNVZiL9oCQK1CoH-yihjOxiDXFH4

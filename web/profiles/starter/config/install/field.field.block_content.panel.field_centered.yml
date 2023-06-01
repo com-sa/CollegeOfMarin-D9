@@ -1,0 +1,23 @@
+uuid: 3110f9b1-26d6-4a4a-b216-7386b6345065
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.panel
+    - field.storage.block_content.field_centered
+id: block_content.panel.field_centered
+field_name: field_centered
+entity_type: block_content
+bundle: panel
+label: Centered
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

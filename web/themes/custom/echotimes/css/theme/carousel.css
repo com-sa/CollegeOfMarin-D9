@@ -1,0 +1,212 @@
+/* -----------------------------------------------
+/* ORBIT: DEFAULT
+----------------------------------------------- */
+
+.orbit-slide .orbit-figure {
+	min-height: calc(88vh - 176px);
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  width: 1200px;
+}
+
+
+.orbit-caption {
+	background: none;
+    bottom: 20%;
+    left: 0;
+    width: auto;
+}
+
+.orbit-caption h1 {
+	border: none;
+  font-size: 2.5rem;
+}
+
+/* Orbit Arrows */
+.orbit:focus,
+.orbit-container:focus,
+.orbit-controls button,
+.orbit-bullets button,
+.orbit-figure a {
+	outline: none;
+}
+
+.orbit-controls button {
+	background-color: rgba(76, 87, 98,.75);
+	cursor:pointer;
+}
+
+.orbit-bullets button span {
+	display: none;
+}
+
+
+.block-hero .slide-body h1,
+.block-hero .slide-body h2,
+.block-hero .slide-body h3,
+.block-hero .slide-body h4,
+.block-hero .slide-body h5,
+.block-hero .slide-body h6,
+.block-hero .slide-body a {
+	color: inherit;
+}
+
+
+/* -----------------------------------------------
+/* REGION: Highlighted/HERO Block
+----------------------------------------------- */
+
+#region-highlighted {
+	background-color: #f6f6f6;
+	clear: both;
+	overflow: hidden;
+}
+
+#block-hero .orbit-slide:before {
+	background: rgba(0,0,0,.25);
+	bottom:0;
+	content:"";
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index:0;
+}
+
+.block-hero.empty {
+	display: none;
+}
+
+.block-hero .item {
+    align-items: stretch;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+	display: flex;
+    justify-content: stretch;
+    min-height: 100vh;
+}
+
+
+@media(min-width:901px) {
+	.block-hero .orbit-container,
+	.block-hero .item {
+	    min-height: calc(88vh - 176px);
+	}
+}
+
+
+
+/* -----------------------------------------------
+/* BLOCK: FEATURED
+----------------------------------------------- */
+.content-carousel {
+	position: relative;
+}
+
+.content-carousel .slick-prev,
+.content-carousel .slick-next {
+    background: #b5c3c9 url('../../images/icons/icon-arrow-right-light-blue.svg');
+    border-radius: 50%;
+    left: auto;
+    top: -3.625rem;
+    transform: none;
+}
+
+.content-carousel .slick-prev {
+	right: 2rem;
+	transform: rotate(180deg);
+	transform-origin: center;
+}
+
+.content-carousel .slick-next {
+	right: 0;
+}
+
+.content-carousel .slick-prev:before,
+.content-carousel .slick-next:before {
+	content:none;
+}
+
+.content-carousel .more-link {
+	margin-top: 0;
+    position: absolute;
+    right: 3rem;
+    top: -4.5em;
+    text-align: inherit;
+}
+
+.content-carousel .more-link a {
+	background: none;
+    border: none;
+    border-radius: 0;
+    color: #4c5762 !important;
+    text-shadow: none;
+    font-size: .75rem;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+#carousel-scroll-down {
+	bottom: 1.875rem;
+	color: #fff;
+	cursor: pointer;
+	font-size: .875rem;
+	font-weight: 500;
+	line-height: 24px;
+	text-transform: uppercase;
+	/* Text style for "L, earn Mo" */
+	letter-spacing: 0.7px;
+	left: 50%;
+	outline: none;
+	position: absolute;
+	transform: translateX(-50%);
+	z-index: 1;
+}
+
+#carousel-scroll-down:after {
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #fff;
+	content:"";
+	display: block;
+	height: 0;
+	margin: auto;
+	width: 0;
+}
+
+
+
+
+
+
+/* Video
+----------------------------------------------- */
+.ambient-video {
+	overflow: hidden;
+	position: relative;
+}
+
+.ambient-video video {
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate3d(-50%,-50%,0);
+            transform: translate3d(-50%,-50%,0);
+}
+
+/* Orbit Bullets */
+.block-hero .orbit-bullets {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+}

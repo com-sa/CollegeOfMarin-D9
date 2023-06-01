@@ -1,0 +1,31 @@
+<header id="header">
+	<div class="grid-x grid-container">
+		<div class="cell">
+			<div id="logo-site-name" class="grid-x">
+				<a href="{{site_url}}" id="logo"><img src="{{logo}}" alt="{{site_name}}" /></a>
+				{% if site_slogan %}
+					{% set site_slogan_words = site_slogan|split('.') %}
+					<span id="site-name">{% for word in site_slogan_words %}<span>{{word}}</span>{% endfor %}</span>
+				{% endif %}
+			</div>
+			<span class="hamburger-menu" data-target="#school-nav"></span>
+		</div>
+	</div>
+
+	<!-- include header -->
+	<div id="nav-wrapper">
+		<div id="nav-overflow">
+			{% if header_active_menu %}{% include header_active_menu %}{% endif %}
+			{% if page.navigation %}
+				<section id="navigation">
+					<div class="grid-container grid-x">
+						<div class="cell large-12">
+							{{ page.navigation }}
+						</div>
+					</div>
+				</section><!--// #navigation -->
+			{% endif %}
+		</div>
+	</div>
+	<!-- include header -->
+</header>

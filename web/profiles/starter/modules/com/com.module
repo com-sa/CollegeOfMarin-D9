@@ -1,0 +1,207 @@
+<?php
+
+use Drupal\Core\File\FileSystem;
+
+/**
+* Implements hook_theme().
+*/
+function com_theme($existing, $type, $theme, $path) {
+	return [
+		'kitchen_sink' => array(
+			'template' => 'kitchen-sink',
+			'path' => drupal_get_path('module', 'com') . '/templates',
+			'render element' => 'kitchen-sink',
+		),
+	];
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function com_token_info() {
+	$types = [];
+	$types['com-logo'] = ['name' => t('COM Logo'), 'description' => t('Custom logo token group for COM')];
+	
+	$logo['url'] = [
+		'name' => t("URL"),
+		'description' => t("A token to provide the url of the default themes logo"),
+	];
+	/*$logo['height'] = [
+		'name' => t("Height"),
+		'description' => t("A token to provide the height of the default themes logo"),
+	];
+	$logo['width'] = [
+		'name' => t("Width"),
+		'description' => t("A token to provide the width of the default themes logo"),
+	];
+	$logo['mime'] = [
+		'name' => t("Mime"),
+		'description' => t("A token to provide the mime type of the default themes logo"),
+	];*/
+	
+	return [
+		'types' => $types,
+		'tokens' => [
+			'com-logo' => $logo,
+		],
+  ];
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function com_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata) {
+	$replacements = [];
+	if ($type == 'com-logo') {
+		
+		$url = theme_get_setting('logo.url');
+		//$logo_full_path = DRUPAL_ROOT . $url;
+		//list($width, $height, $type, $attr) = getimagesize($logo_full_path); 
+  		
+		foreach ($tokens as $name => $original) {
+			switch ($name) {
+				case 'url':
+
+					$replacements[$original] = $url;
+					break;
+				/*case 'height':
+
+					$replacements[$original] = $info[1];
+					break;
+				case 'width':
+
+					$replacements[$original] = $info[0];
+					break;
+				case 'mime':
+
+					$replacements[$original] = mime_content_type($logo_full_path);
+					break;*/															
+			}
+		}
+	}
+	
+	return $replacements;
+}
+
+
+/**
+ * Implements hook_preprocess_page
+ *
+ */
+function com_preprocess_html(&$variables) {
+	//Add a Google CSE code
+	$settings = \Drupal::config('com.settings');
+	$variables['#attached']['drupalSettings']['com']['google_cse']['cx'] = $settings->get('google_cse_cx');
+}
+
+/**
+ * Implements hook_preprocess_page
+ *
+ */
+function com_preprocess_page(&$variables) {
+	$config = \Drupal::config('com.settings');
+
+	$social_links = [
+		'facebook' => $config->get('facebook'),
+		'twitter' => $config->get('twitter'),
+		'youtube' => $config->get('youtube'),
+		'instagram' => $config->get('instagram'),
+		'linkedin' => $config->get('linkedin'),
+	];
+
+	$variables['social_links'] = array_filter($social_links);
+
+
+	// allow menu twig file to be choosen in settings
+	$variables['header_active_menu'] = $config->get('header_active_menu');
+	$variables['footer_active_menu'] = $config->get('footer_active_menu');	
+}
+
+/**
+ * Implements hook_preprocess_page
+ *
+ */
+function com_preprocess_block(&$variables) {
+	if (isset($variables['elements']['#id'])) {
+		$block = \Drupal\block\Entity\Block::load($variables['elements']['#id']);
+		if($block->getRegion() == 'content_bottom') {
+			if (isset($variables['attributes']['class'])) {
+				$variables['attributes']['class'][] = 'cell';
+			} else {
+				$variables['attributes']['class'] = ['cell'];	
+			}
+		}
+	}
+	
+	if ($variables['elements']['#plugin_id'] == 'system_main_block') {		
+		$markup = trim(strip_tags($variables['elements']['content']['#markup']));
+		if ($markup == '') {
+			if (isset($variables['attributes']['class'])) {
+				$variables['attributes']['class'][] = 'empty-block';
+			} else {
+				$variables['attributes']['class'] = ['empty-block'];	
+			}
+		}
+		//print_r($variables['elements']);
+	}
+}
+
+/**
+ * Implements hook_form_FORMID_alter().
+ *
+ * modifies views blocks item per page
+ */
+function com_form_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+	if (isset($form['settings']['override']['items_per_page'])) {
+		$options = $form['settings']['override']['items_per_page']['#options'];
+		$new_options = [1,2,3,4,5,6,7,8,9,10,11,12];
+		foreach($options as $key => $option) {
+			if (is_int($key)) { unset($form['settings']['override']['items_per_page']['#options'][$key]); }
+		}
+
+		foreach($new_options as $new_option) {
+			$form['settings']['override']['items_per_page']['#options'][$new_option] = $new_option;
+		}
+	}
+}
+
+
+// add js to handle panel block grid checkbox
+function com_form_block_content_panel_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+	if (isset($form['field_grid_size']) && isset($form['field_grid'])) { $form['#attached']['library'][] = 'com/panel_block_admin'; }
+}
+function com_form_block_content_panel_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+	if (isset($form['field_grid_size']) && isset($form['field_grid'])) { $form['#attached']['library'][] = 'com/panel_block_admin'; }
+}
+
+
+/**
+ * Implements hook_layout_alter().
+ */
+function com_layout_alter(&$definitions) {
+	$allow = ['layout_builder_blank', 'layout_onecol'];
+	$config = \Drupal::service('config.factory')->getEditable('com.settings');
+	$disabledLayouts = $config->get('disabled_layouts');
+
+	if ($disabledLayouts) {
+		$disallow = [];
+		foreach($disabledLayouts as $key => $disabledLayout) {
+			if ($key === $disabledLayout) {
+				$disallow[] = $disabledLayout;
+			}
+		}
+
+		foreach($definitions as $key => $definition) {
+			foreach($disallow as $term) {
+				if (strpos($key, $term) !== false && !in_array($key, $allow)) {
+					unset($definitions[$key]);
+				}
+			}
+		}
+	}
+}
+
+// update toolbar Edit link to read 'Editable Areas' to remove confusion
+function com_toolbar_alter(&$items) {
+	$items['contextual']['tab']['#value'] = t('Editable Areas');
+}

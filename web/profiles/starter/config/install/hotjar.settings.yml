@@ -1,0 +1,8 @@
+account: ''
+snippet_version: 6
+visibility_pages: 0
+pages: "/admin\n/admin/*\n/batch\n/node/add*\n/node/*/*\n/user/*/*"
+visibility_roles: 0
+roles: {  }
+_core:
+  default_config_hash: MTzkXK_1b-TAcgzp1t3YXFmE_LOby-7LNM5on6UJSuU

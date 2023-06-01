@@ -1,0 +1,346 @@
+<?php
+
+use Drupal\block\Entity\Block;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+
+use Drupal\fences\TagManagerInterface;
+
+
+/**
+ * Implements template_preprocess_html().
+ *
+ * Adds additional classes
+ */
+//function echotimes_preprocess_html(&$variables) {}
+
+/**
+ * Implements template_preprocess_page
+ *
+ * Add convenience variables and template suggestions
+ */
+function echotimes_preprocess_page(&$variables) {
+	$variables['header_include_path'] = echotimes_custom_get_theme_path('header');
+	$variables['footer_include_path'] = echotimes_custom_get_theme_path('footer');
+	$variables['navigation_include_path'] = echotimes_custom_get_theme_path('navigation');
+
+  $variables['com_url_prefix'] = com_get_multi_site_base_url();
+  $variables['com_url_home_prefix'] = com_get_multi_site_home_base_url();
+
+	//$site_config = \Drupal::config('system.site');
+	$variables['echotimes_theme_directory'] = drupal_get_path('theme', 'echotimes');
+	$variables['site_url'] = $GLOBALS['base_url'];
+	$variables['site_slogan'] = \Drupal::config('system.site')->get('slogan');
+	$variables['logo'] = theme_get_setting('logo.url');
+
+	// removing panel and callout classes, added by defaut by zf
+	if (!empty($variables['page']['highlighted'])) {
+		$highlighted_classes = $variables['page']['highlighted']['#attributes']['class'];
+		foreach(array('callout') as &$klass) {
+			if ( $index = array_search($klass, $highlighted_classes) ) {
+				unset($variables['page']['highlighted']['#attributes']['class'][$index]);
+			}
+		}
+	}
+
+	// Convenience variables
+	$left = $variables['page']['sidebar_first'];
+	$right = $variables['page']['sidebar_second'];
+	$variables['main_grid'] = '';
+	$variables['sidebar_first_grid'] = '';
+	$variables['sidebar_sec_grid'] = '';
+
+	// add main and sidebar classes
+/*
+	if (!empty($left) && !empty($right)) {
+	    $variables['main_grid'] = 'large-6';
+	    $variables['sidebar_first_grid'] = 'large-3';
+	    $variables['sidebar_sec_grid'] = 'large-3';
+	} elseif (empty($left) && !empty($right)) {
+	    $variables['main_grid'] = 'large-8';
+		$variables['sidebar_first_grid'] = 'large-4';
+	} elseif (!empty($left) && empty($right)) {
+		$variables['main_grid'] = 'large-8';
+		$variables['sidebar_first_grid'] = 'large-4';
+	}
+*/
+
+	if (!empty($left) || !empty($right)) {
+		$variables['main_grid'] = 'large-9';
+
+		if (!empty($left)) {
+			$variables['sidebar_first_grid'] = 'large-3';
+		}
+
+		if (!empty($right)) {
+			$variables['sidebar_sec_grid'] = 'large-3';
+		}
+	}
+}
+
+/**
+ * Implements template_preprocess_node
+ *
+ * Add template suggestions and classes
+ */
+function echotimes_preprocess_node(&$variables) {
+	$variables['attributes']['class'][] = 'type-' . $variables['elements']['#node']->getType();
+
+	// add view mode type as class to node
+	$variables['attributes']['class'][] = $variables['view_mode'];
+
+	// if node is unpublished add class
+	if (!$variables['elements']['#node']->isPublished()) {
+		$variables['attributes']['class'][] = 'node-unpublished';
+	}
+
+	//if ($variables['elements']['#node']->getType() == 'article') {
+	if ($variables['view_mode'] == 'featured') {
+		if (isset($variables['content']['_layout_builder'])) {
+			foreach($variables['content']['_layout_builder'] as &$item)	 {
+				if (isset($item['content'])) {
+					foreach($item['content'] as &$content) {
+						if (isset($content['#plugin_id'])) {
+							$plugin_id = $content['#plugin_id'];
+							$plugin_id_array = explode(':', $plugin_id);
+							if (end($plugin_id_array) == 'links') {
+
+								//$link = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $variables['elements']['#node']->id()]);
+								$link = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$variables['elements']['#node']->id());
+								$title = $variables['elements']['#node']->getTitle();
+								$content['content'] = ['links' => [
+									'#theme' => 'item_list',
+									'#list_type' => 'ul',
+									'#attributes' => ['class' => ['links', 'inline']],
+									//'#title' => 'Links',
+									'#items' => [
+										[
+										'#markup' => '<a href="'.$link.'" rel="tag" title="'.$title.'">Read more<span class="visually-hidden"> about '.$title.'</span></a>',
+										'#wrapper_attributes' => [
+											'class' => ['node-readmore'],
+										],],
+									],
+								]];
+							}
+						}
+					}
+				}
+			}
+
+		}
+		//print_r($variables['content']['_layout_builder'][1]['content']['94d2524f-e31e-4159-a9b0-c9b022aeb3d6']['#plugin_id']);
+		//print_r($variables['content']['_layout_builder'][1]['content']['94d2524f-e31e-4159-a9b0-c9b022aeb3d6']['content']);
+		//print_r(array_keys($variables['content']['_layout_builder'][1]['content']['94d2524f-e31e-4159-a9b0-c9b022aeb3d6']));
+/*
+		$variables['content']['links'] = [
+			'#theme' => 'item_list',
+			'#list_type' => 'ul',
+			//'#title' => 'Links',
+			'#items' => ['links','inline'],
+		];
+*/
+		//$link = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$variables['elements']['#node']->id());
+
+		//['#markup' => \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$variables['elements']['#node']->id())];
+	}
+
+
+
+	/*
+	<ul class="links inline">
+		<li class="node-readmore">
+			<a href="/blog/blog-post-three" rel="tag" title="Blog Post Three" hreflang="en">Read more<span class="visually-hidden"> about Blog Post Three</span></a>
+		</li>
+	</ul>*/
+
+}
+
+/**
+ * Implements hook_preprocess_region()
+ */
+//function echotimes_preprocess_region(&$variables) {}
+
+/**
+ * Implements hook_preprocess_block()
+ */
+function echotimes_preprocess_block(&$variables) {
+
+	$content = $variables['elements']['content'];
+	if (isset($content['#block_content']) && $content['#block_content'] instanceof \Drupal\block_content\BlockContentInterface) {
+		$variables['attributes']['class'][] = 'block-type-' . $content['#block_content']->bundle();
+	}
+
+
+
+/*
+	if (!empty($variables['elements']['#id'])) {
+		print "RONRONRONRONR";
+	}
+*/
+
+//	$block_id = $variables['elements']['#id'];
+//	print $block_id;
+/*	$block = \Drupal\block\Entity\Block::load($block_id);
+	$uuid = $block->getPlugin()->getDerivativeId();
+	print $uuuid;
+
+	$block_content = \Drupal::service('entity.repository')->loadEntityByUuid('block_content', $uuid);
+	if ($block_content) {
+		print 'rrr' . $block_content->field_grid->value . 'lll';
+	}
+*/
+}
+
+function echotimes_theme_suggestions_block_alter(&$suggestions, $variables) {
+
+	// add block region theme suggestion
+	if (!empty($variables['elements']['#id'])) {
+    	$block = Block::load($variables['elements']['#id']);
+		$suggestions[] = 'block__' . $block->getRegion();
+	}
+
+	// add block type theme suggestion
+	$content = $variables['elements']['content'];
+	if (isset($content['#block_content']) && $content['#block_content'] instanceof \Drupal\block_content\BlockContentInterface) {
+    	$suggestions[] = 'block__' . $content['#block_content']->bundle();
+	}
+
+	return $suggestions;
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function echotimes_preprocess_field(&$variables) {
+		$element = $variables['element'];
+	$entity = $element['#object'];
+	$field_name = $element['#field_name'];
+	$view_mode = $element['#view_mode'];
+	$is_layout_builder_view_mode = (strpos($view_mode, 'layout_builder') !== false) || (strpos($view_mode, '_custom') !== false);
+
+	// update the view mode in layout builder becuase it doesnt seem to catch default field settings otherwise
+	if ($is_layout_builder_view_mode) {
+		if (strpos($view_mode, 'teaser') !== false) {
+			$view_mode = 'teaser';
+		} else if (strpos($view_mode, 'teaser') !== false) {
+			$view_mode = 'full';
+		}
+	}
+
+	if ($is_layout_builder_view_mode) {
+
+		/* START: add month and day classes appropriatly to layout builder fields */
+		if (isset($field_name) && $field_name == 'field_date') {
+	    	if (!preg_match('/[^A-Za-z]/', $element[0]['#text']) && strlen($element[0]['#text']) == 3) {
+		    	$variables['items'][0]['attributes']->setAttribute('class', 'month');
+	    	} else if (!preg_match('/[^0-9]/', $element[0]['#text']) && strlen($element[0]['#text']) <= 2) {
+		    	$variables['items'][0]['attributes']->setAttribute('class', 'day');
+	    	}
+		}
+		/* END: add month and day classes appropriatly to layout builder fields */
+
+
+
+		/* START: add fences classes to layout builder fields */
+		$entity_type = $entity->getEntityTypeId();
+		$bundle = $entity->bundle();
+		$display = \Drupal::service('entity_display.repository')->getViewDisplay($entity_type, $bundle, $view_mode);
+
+		// If the EntityViewDisplay is new then they're using the default display so
+		// lets grab that instead.
+		if ($display->isNew()) {
+		  $display = \Drupal::service('entity_display.repository')->getViewDisplay($entity_type, $bundle);
+		}
+
+		// Default to showing all markup.
+		$variables['display_label_tag'] = TRUE;
+		$variables['display_field_tag'] = TRUE;
+		$variables['display_item_tag'] = TRUE;
+
+		$field_formatter_config = $display->getComponent($field_name);
+
+		if (isset($field_formatter_config['third_party_settings']['fences'])) {
+
+			$fences_config = $field_formatter_config['third_party_settings']['fences'];
+
+			$variables['display_label_tag'] = $fences_config['fences_label_tag'] !== TagManagerInterface::NO_MARKUP_VALUE;
+			$variables['display_field_tag'] = $fences_config['fences_field_tag'] !== TagManagerInterface::NO_MARKUP_VALUE;
+			$variables['display_item_tag'] = $fences_config['fences_field_item_tag'] !== TagManagerInterface::NO_MARKUP_VALUE;
+
+			$variables['label_tag'] = $fences_config['fences_label_tag'];
+			$variables['field_tag'] = $fences_config['fences_field_tag'];
+			$variables['field_item_tag'] = $fences_config['fences_field_item_tag'];
+
+			$variables['attributes']['class'][] = $fences_config['fences_field_classes'];
+			$variables['title_attributes']['class'][] = $fences_config['fences_label_classes'];
+
+			if (!empty($fences_config['fences_field_item_classes'])) {
+				foreach ($variables['items'] as $field_item) {
+			    	$field_item['attributes']->addClass($fences_config['fences_field_item_classes']);
+				}
+			}
+		}
+
+		if (isset($field_formatter_config['third_party_settings']['com_animation'])) {
+			$com_animation = $field_formatter_config['third_party_settings']['com_animation'];
+			$variables['attributes']['class'][] = 'animatable';
+			$variables['attributes']['class'][] = $com_animation['animate'];
+		}
+		/* END: add fences classes to layout builder fields */
+	}
+}
+
+
+/**
+ * Implements template_preprocess_links().
+ */
+/*function echotimes_preprocess_links(&$variables) {
+	if (isset($variables['links']['node-readmore'])) {}
+}*/
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+function echotimes_preprocess_views_view(&$variables) {
+	$variables['current_display'] = $variables['view']->current_display;
+}
+
+/**
+ * Custom function to determine where to include our custom .twig files from
+ */
+function echotimes_custom_get_theme_path($type) {
+	global $base_root;
+	$current_theme = \Drupal::theme()->getActiveTheme();
+	$default = '/templates/includes/' . $type .'.html.twig';
+	$current_theme_path = $current_theme->getPath() . $default;
+	return file_exists($_SERVER['DOCUMENT_ROOT'] .  '/' . $current_theme_path) ? $current_theme_path : drupal_get_path('theme', 'echotimes') . $default;
+}
+
+
+//This routine includes environmental selection logic to derive the approriate URL for our dev, stage, production and local development environments.
+function com_get_multi_site_base_url() {
+	$prefix = '';
+
+	// Prefix the sub site with the corresponding environmental variable.
+	if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+		switch ($_ENV['PANTHEON_ENVIRONMENT']) {
+			case 'test':
+				$prefix = 'stage.';
+				break;
+			case 'live':
+				$prefix = '';
+				break;
+			default: 
+				$prefix = 'dev.';
+		}
+	} else {
+		// Assume dev for local development
+		$prefix = 'dev.';
+	}
+
+	return $prefix;
+}
+
+function com_get_multi_site_home_base_url() {
+	return isset($_ENV['PANTHEON_ENVIRONMENT']) && $_ENV['PANTHEON_ENVIRONMENT'] == "live" ? 'www1.' : com_get_multi_site_base_url();
+}

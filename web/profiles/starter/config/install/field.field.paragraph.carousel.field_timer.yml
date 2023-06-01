@@ -1,0 +1,27 @@
+uuid: b3248638-3291-4311-a43f-bd5467a304c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_timer
+    - paragraphs.paragraphs_type.carousel
+_core:
+  default_config_hash: 2qv24WjJ1QkXPkc8qtBcksn8pXkXVeY_9Pa7y2oNVHE
+id: paragraph.carousel.field_timer
+field_name: field_timer
+entity_type: paragraph
+bundle: carousel
+label: Timer
+description: 'Milliseconds ( 1000ths of a second ). 5000 = 5 seconds.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 5000
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: milliseconds
+field_type: integer

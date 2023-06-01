@@ -1,0 +1,18 @@
+hero:
+  version: 1.x
+  css:
+    theme:
+      css/hero.css: {}
+  dependencies:
+    - core/jquery
+kitchen_sink:
+  version: 1.x
+  css:
+    theme:
+      css/kitchen-sink.css: {}
+  js:
+    js/kitchen-sink.js: {}
+panel_block_admin:
+  version: 1.x
+  js:
+    js/panel-block-admin.js: {}

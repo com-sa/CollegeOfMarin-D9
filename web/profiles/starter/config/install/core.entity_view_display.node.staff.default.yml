@@ -1,0 +1,282 @@
+uuid: 8667f336-deef-4c17-a56c-309b94d46f88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.staff.body
+    - field.field.node.staff.field_email
+    - field.field.node.staff.field_office
+    - field.field.node.staff.field_phone_number
+    - field.field.node.staff.field_position
+    - field.field.node.staff.field_teaser_image
+    - image.style.large
+    - node.type.staff
+  module:
+    - layout_builder
+    - media
+    - text
+    - user
+  theme:
+    - echotimes
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: 2_col_9_3
+        layout_settings: {  }
+        components:
+          ed13cffa-aad5-4387-8c9f-50d69487d875:
+            uuid: ed13cffa-aad5-4387-8c9f-50d69487d875
+            region: first
+            configuration:
+              id: 'field_block:node:staff:body'
+              label: Body
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings:
+                  fences:
+                    fences_field_tag: div
+                    fences_field_classes: ''
+                    fences_field_item_tag: div
+                    fences_field_item_classes: ''
+                    fences_label_tag: div
+                    fences_label_classes: ''
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 0
+          1fb0b637-ad3b-43ec-8af3-3441783710d7:
+            uuid: 1fb0b637-ad3b-43ec-8af3-3441783710d7
+            region: second
+            configuration:
+              id: 'field_block:node:staff:field_teaser_image'
+              label: Image
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: media_thumbnail
+                settings:
+                  image_style: large
+                  image_link: ''
+                third_party_settings:
+                  fences:
+                    fences_field_tag: div
+                    fences_field_classes: ''
+                    fences_field_item_tag: div
+                    fences_field_item_classes: ''
+                    fences_label_tag: div
+                    fences_label_classes: ''
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 0
+          7aac625d-7568-4381-85b2-10da4634f45f:
+            uuid: 7aac625d-7568-4381-85b2-10da4634f45f
+            region: second
+            configuration:
+              id: 'field_block:node:staff:field_position'
+              label: Position
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: string
+                settings:
+                  link_to_entity: false
+                third_party_settings:
+                  fences:
+                    fences_field_tag: div
+                    fences_field_classes: ''
+                    fences_field_item_tag: div
+                    fences_field_item_classes: ''
+                    fences_label_tag: div
+                    fences_label_classes: ''
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 1
+          499fc94a-0b39-42a6-81f1-b1d4d7e343f3:
+            uuid: 499fc94a-0b39-42a6-81f1-b1d4d7e343f3
+            region: second
+            configuration:
+              id: 'field_block:node:staff:field_office'
+              label: Office
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: string
+                settings:
+                  link_to_entity: false
+                third_party_settings:
+                  fences:
+                    fences_field_tag: div
+                    fences_field_classes: ''
+                    fences_field_item_tag: div
+                    fences_field_item_classes: ''
+                    fences_label_tag: div
+                    fences_label_classes: ''
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 2
+          355f5c16-d0ec-4520-ab4b-f05d15a58597:
+            uuid: 355f5c16-d0ec-4520-ab4b-f05d15a58597
+            region: second
+            configuration:
+              id: 'field_block:node:staff:field_email'
+              label: Email
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: basic_string
+                settings: {  }
+                third_party_settings:
+                  fences:
+                    fences_field_tag: div
+                    fences_field_classes: ''
+                    fences_field_item_tag: div
+                    fences_field_item_classes: ''
+                    fences_label_tag: div
+                    fences_label_classes: ''
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 3
+          3ba411d3-e717-45a4-aa28-58e032005570:
+            uuid: 3ba411d3-e717-45a4-aa28-58e032005570
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:staff:body'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 0
+          85e8b666-821a-4319-b668-0da09fb446b1:
+            uuid: 85e8b666-821a-4319-b668-0da09fb446b1
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:staff:field_email'
+              formatter:
+                type: email_mailto
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 1
+          7b1f7d00-02fd-406c-911f-6e1e98bb3f6f:
+            uuid: 7b1f7d00-02fd-406c-911f-6e1e98bb3f6f
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:staff:field_office'
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            additional: {  }
+            weight: 2
+          ebe8142d-ea21-48b8-9742-3e7f1f364384:
+            uuid: ebe8142d-ea21-48b8-9742-3e7f1f364384
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:staff:field_position'
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            additional: {  }
+            weight: 3
+          76702691-c65c-4228-befe-176bdb8c183e:
+            uuid: 76702691-c65c-4228-befe-176bdb8c183e
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:staff:field_teaser_image'
+              formatter:
+                type: media_thumbnail
+                label: hidden
+                settings:
+                  image_style: large
+                  image_link: ''
+                third_party_settings: {  }
+            additional: {  }
+            weight: 4
+        third_party_settings: {  }
+_core:
+  default_config_hash: urOuoumPTa-b9EmmAqr2VibUJpkE6HG7ng8o-aV7DYI
+id: node.staff.default
+targetEntityType: node
+bundle: staff
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_email:
+    type: email_mailto
+    weight: 4
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_office:
+    type: string
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_position:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_teaser_image:
+    type: media_thumbnail
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: large
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  field_phone_number: true
+  links: true

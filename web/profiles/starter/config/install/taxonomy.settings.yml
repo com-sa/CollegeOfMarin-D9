@@ -1,0 +1,5 @@
+maintain_index_table: true
+override_selector: false
+terms_per_page_admin: 100
+_core:
+  default_config_hash: rn927BTDlEFrxWKe4d30RFhFyrhfH40g_szKk_NJ2uk

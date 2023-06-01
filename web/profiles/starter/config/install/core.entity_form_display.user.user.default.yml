@@ -1,0 +1,38 @@
+uuid: 3d648e94-eb66-4371-a453-cda6c5bb6f04
+langcode: en
+status: true
+dependencies:
+  module:
+    - path
+    - user
+_core:
+  default_config_hash: pp6u6u6CBBszCcTNwGH9FZ8yBayolICnRfjTAcJ6b5E
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: -10
+    region: content
+  contact:
+    weight: 5
+    region: content
+  google_analytics:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  language:
+    weight: 0
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 6
+    region: content
+hidden: {  }

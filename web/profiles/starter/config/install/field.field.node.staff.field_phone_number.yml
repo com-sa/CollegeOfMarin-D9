@@ -1,0 +1,23 @@
+uuid: 6df4918e-9458-4dc9-8e7e-a41790b65cb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_phone_number
+    - node.type.staff
+  module:
+    - telephone
+_core:
+  default_config_hash: U9aUTKn6_xpfxyVxRhAEsEo4TZ903DqjBLDyVCxrmf4
+id: node.staff.field_phone_number
+field_name: field_phone_number
+entity_type: node
+bundle: staff
+label: Phone
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

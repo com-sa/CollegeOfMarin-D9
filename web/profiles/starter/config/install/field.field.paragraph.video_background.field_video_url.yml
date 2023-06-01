@@ -1,0 +1,25 @@
+uuid: 1cd8a275-f77f-4dfd-8b72-c4163712dd86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video_url
+    - paragraphs.paragraphs_type.video_background
+  module:
+    - link
+_core:
+  default_config_hash: x15ij4qsU6QBryZtH4UoADpyE2Iy2zbMBuVD4GYVpE0
+id: paragraph.video_background.field_video_url
+field_name: field_video_url
+entity_type: paragraph
+bundle: video_background
+label: 'Video URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

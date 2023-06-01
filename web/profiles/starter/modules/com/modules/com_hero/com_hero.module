@@ -1,0 +1,19 @@
+<?php
+
+/**
+* Implements hook_theme().
+*/
+function com_hero_theme($existing, $type, $theme, $path) {
+	return [
+    	'carousel' => [
+			'template' => 'hero.carousel',
+			'path' => drupal_get_path('module', 'com_hero') . '/templates',
+			'variables' => ['items' => NULL, 'meta' => NULL],
+		],
+    	'video_background' => [
+			'template' => 'hero.video',
+			'path' => drupal_get_path('module', 'com_hero') . '/templates',
+			'variables' => ['items' => NULL, 'meta' => NULL],
+		],
+	];
+}

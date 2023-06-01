@@ -1,0 +1,34 @@
+uuid: e9a4209e-bfa8-4be0-9935-d561b357ca22
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser_image
+    - media.type.image
+    - node.type.staff
+  content:
+    - 'media:image:e64532d9-fdd8-4522-befb-577c7751cb13'
+_core:
+  default_config_hash: IWGUAchUyGK_3FpooNr1VL2zmnFy6j1Pg65gsV4P7Jw
+id: node.staff.field_teaser_image
+field_name: field_teaser_image
+entity_type: node
+bundle: staff
+label: Image
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: e64532d9-fdd8-4522-befb-577c7751cb13
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

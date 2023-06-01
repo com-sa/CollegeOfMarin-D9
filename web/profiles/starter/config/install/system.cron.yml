@@ -1,0 +1,6 @@
+threshold:
+  requirements_warning: 172800
+  requirements_error: 1209600
+_core:
+  default_config_hash: KjEN6mw-K8652g6DqTJFoTtsxEzOk4mQW628wXiujik
+logging: 0

@@ -1,0 +1,26 @@
+uuid: 8b8605d6-5762-4d39-8081-24b80936b8b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.page
+  module:
+    - weight
+_core:
+  default_config_hash: MQyHvoYuWlDcYVOy_vJobKZv3nsF3zsM3w96-IbEJ00
+id: node.page.field_weight
+field_name: field_weight
+entity_type: node
+bundle: page
+label: Weight
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '0'
+default_value_callback: ''
+settings:
+  range: '20'
+field_type: weight

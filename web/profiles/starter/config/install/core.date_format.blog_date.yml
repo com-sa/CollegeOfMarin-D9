@@ -1,0 +1,10 @@
+uuid: 42a161d1-cfbe-4a64-aea9-a2c448170bb7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: jb_YT21RIRYHBKzNAgfpsswkdrsqsKloqmjoeXz7AhI
+id: blog_date
+label: 'Blog Date'
+locked: false
+pattern: 'F jS, Y - g:ia'

@@ -1,0 +1,29 @@
+uuid: 48526305-b11f-4f68-bca1-c18a1e613bfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_file
+    - media.type.document
+  module:
+    - file
+_core:
+  default_config_hash: DpF5MRqxH32cK_iTyOv_YCvCACgGs-wb6St1K3iJB6A
+id: media.document.field_media_file
+field_name: field_media_file
+entity_type: media
+bundle: document
+label: File
+description: '.doc and .docx, , .pdf'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: documents
+  file_extensions: 'txt doc docx pdf xls ppt pptx'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

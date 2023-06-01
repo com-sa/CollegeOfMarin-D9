@@ -1,0 +1,43 @@
+uuid: 77039a99-ff81-43da-94f1-348c7321f9d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta
+    - field.storage.block_content.field_link
+    - paragraphs.paragraphs_type.link_color_block
+  module:
+    - entity_reference_revisions
+id: block_content.cta.field_link
+field_name: field_link
+entity_type: block_content
+bundle: cta
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      link_color_block: link_color_block
+    target_bundles_drag_drop:
+      carousel:
+        weight: 6
+        enabled: false
+      carousel_item:
+        weight: 7
+        enabled: false
+      image_based_block_item:
+        weight: 8
+        enabled: false
+      link_color_block:
+        enabled: true
+        weight: 9
+      video_background:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

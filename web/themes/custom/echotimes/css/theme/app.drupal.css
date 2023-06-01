@@ -1,0 +1,173 @@
+@media(min-width:1201px) {
+	body.toolbar-horizontal {
+		padding-top: 0 !important;
+	}
+}
+
+#toolbar-item-administration-tray nav li { 
+	padding: 0;
+}
+
+#toolbar-item-administration-tray.toolbar-tray-vertical nav li { 
+	width: 100%;
+}
+
+
+#toolbar-item-administration-tray a {
+	color: #333;
+	font-size: 0.8125rem;
+	font-weight: 600;
+	text-transform: none;
+}
+
+#block-subtheme-local-tasks:before, #block-subtheme-local-tasks:after { 
+	content: none !important;
+}
+
+#block-subtheme-local-tasks { 
+	border: none !important;
+	left: 0;
+	padding: 0 !important;
+	position: fixed !important;
+	top: 30%;
+	z-index: 109;
+}
+
+#block-subtheme-local-tasks .button-group {
+	display: block;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+#block-subtheme-local-tasks .button-group:not(:hover) {
+	opacity: .3;
+    transform: translateX(-50%);
+}
+
+#block-subtheme-local-tasks .button-group a {
+	width: 100%;
+}
+
+.block-region {
+	width: 100%;
+}
+
+
+/* MESSAGES/ALERTS
+----------------------------------------------- */
+#region-messages {
+    bottom: 1rem;
+    pointer-events: none;
+    position: fixed;
+    right: 1rem;
+    z-index:101;
+}
+
+#region-messages .callout {
+    margin: 0;
+    min-width: 25vw;
+    pointer-events: all;
+    text-align: left;	
+}
+
+#region-messages .callout:not(:last-child) {
+	margin-bottom: .5rem;
+}
+
+#region-messages .callout {
+    background-color: #008CBA;
+    border-color: #0078a0;
+    border-style: solid;
+    border-width: 1px;
+    color: #fff;    
+    display: block;
+    font-size: 0.72222rem;
+    font-weight: normal;
+    margin-bottom: 1.11111rem;
+    padding: 0.75rem 3rem 0.75rem 0.75rem;
+    position: relative;
+	transition: opacity 300ms ease-out;
+}
+
+#region-messages .callout.success {
+    background-color: #43AC6A;
+    border-color: #3a945b;
+    color: #fff;
+}
+
+#region-messages .callout.warning {
+    background-color: #f08a24;
+    border-color: #de770f;
+    color: #fff;
+}
+
+#region-messages .callout.info {
+    background-color: #a0d3e8;
+    border-color: #74bfdd;
+    color: #4f4f4f;
+}
+
+#region-messages .callout.alert {
+    background-color: #f04124;
+    border-color: #de2d0f;
+    color: #fff;
+}
+
+#region-messages .callout.secondary {
+    background-color: #e7e7e7;
+    border-color: #c7c7c7;
+    color: #4f4f4f;
+}
+
+.callout .close-button {
+    background: none;
+}
+
+#region-messages .callout .close-button {
+    color: #333;
+    font-size: 1.5rem;
+    line-height: .9;
+    opacity: 0.3;
+    padding: 0;
+    position: absolute;
+    right: .25rem;
+    top: .25rem;
+}
+
+#region-messages .callout.fade-out {
+	opacity: 0;
+	overflow: hidden;
+	transition: opacity 1.3s ease-in-out, height 0s linear 1.3s;
+}
+
+#region-messages .callout.fly-out {
+    animation-name: bounceOutRight;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes bounceOutRight {
+	20% {
+    	opacity: 1;
+        transform: translate3d(-20px, 0, 0);
+	}
+
+	to {
+    	opacity: 0;
+        transform: translate3d(2000px, 0, 0);
+	}
+}
+
+@keyframes bounceOutRight {
+	20% {
+    	opacity: 1;
+        transform: translate3d(-20px, 0, 0);
+	}
+
+	to {
+    	opacity: 0;
+        transform: translate3d(2000px, 0, 0);
+	}
+}

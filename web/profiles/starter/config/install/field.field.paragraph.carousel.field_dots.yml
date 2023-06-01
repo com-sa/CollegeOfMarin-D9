@@ -1,0 +1,25 @@
+uuid: c830d513-2269-404e-ad93-9622236cb420
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_dots
+    - paragraphs.paragraphs_type.carousel
+_core:
+  default_config_hash: Yw-KRjCLQRV2Mx388349BI7XBGh3Bi5ZhJGjSXSjzSQ
+id: paragraph.carousel.field_dots
+field_name: field_dots
+entity_type: paragraph
+bundle: carousel
+label: Dots
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

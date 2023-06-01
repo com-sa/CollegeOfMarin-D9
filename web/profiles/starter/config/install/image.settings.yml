@@ -1,0 +1,5 @@
+preview_image: core/modules/image/sample.png
+allow_insecure_derivatives: false
+suppress_itok_output: false
+_core:
+  default_config_hash: P6I_TIfTGvymAcJMtYjcrBR0PhDcLvxMihJQ2YXWxuY

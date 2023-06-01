@@ -1,0 +1,17 @@
+uuid: 08c990cb-c9fb-4553-98d6-46bbb11dba53
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: wwNNdJmd7OMyCvHTNDn8zBDxUY4UZC220fgVC-Ib4mI
+name: 1600x450
+label: 1600x450
+effects:
+  393541e0-6d3f-4982-872a-bc9cf117abc2:
+    uuid: ''
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 450
+      anchor: center-center

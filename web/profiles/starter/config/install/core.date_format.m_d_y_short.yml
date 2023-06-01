@@ -1,0 +1,8 @@
+uuid: 9983551c-49a9-4346-b1ea-8e62c5fc331d
+langcode: en
+status: true
+dependencies: {  }
+id: m_d_y_short
+label: 'M D Y Short'
+locked: false
+pattern: m/d/y

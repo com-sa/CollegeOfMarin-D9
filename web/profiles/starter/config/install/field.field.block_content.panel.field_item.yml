@@ -1,0 +1,40 @@
+uuid: 6bab87ae-e5df-410d-8b22-d42ae2e2e5f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.panel
+    - field.storage.block_content.field_item
+    - paragraphs.paragraphs_type.image_based_block_item
+  module:
+    - entity_reference_revisions
+id: block_content.panel.field_item
+field_name: field_item
+entity_type: block_content
+bundle: panel
+label: Item
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      image_based_block_item: image_based_block_item
+    target_bundles_drag_drop:
+      carousel:
+        weight: 5
+        enabled: false
+      carousel_item:
+        weight: 6
+        enabled: false
+      image_based_block_item:
+        enabled: true
+        weight: 7
+      video_background:
+        weight: 8
+        enabled: false
+field_type: entity_reference_revisions

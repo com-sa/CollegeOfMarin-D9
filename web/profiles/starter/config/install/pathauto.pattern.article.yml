@@ -1,0 +1,23 @@
+uuid: fe8dab98-4d53-4a04-963b-f0e259bfe29d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: _rrF-pvUNlEfU0mkfaA0Fd_RkCxDfG0-1Il8UVV88IM
+id: article
+label: Article
+type: 'canonical_entities:node'
+pattern: '/blog/[node:title]'
+selection_criteria:
+  97cc5465-5c8b-4c7a-9540-27252f91f936:
+    id: node_type
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+weight: -5
+relationships: {  }

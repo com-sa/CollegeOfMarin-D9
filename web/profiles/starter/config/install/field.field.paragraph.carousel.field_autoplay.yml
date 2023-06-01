@@ -1,0 +1,25 @@
+uuid: 8624977b-5a39-475b-8426-909b1e07e4f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_autoplay
+    - paragraphs.paragraphs_type.carousel
+_core:
+  default_config_hash: 90oa9zr3CDrazfoGYLkK-YFJthyQ288pCIhdKyO2US4
+id: paragraph.carousel.field_autoplay
+field_name: field_autoplay
+entity_type: paragraph
+bundle: carousel
+label: Autoplay
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

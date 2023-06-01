@@ -1,0 +1,37 @@
+global:
+  version: 1.x
+  css:
+    base:
+      css/libraries/foundation-float.css: {}
+      css/libraries/foundation.css: {}
+      css/libraries/slick.css: {}
+      css/libraries/animate.css: {}
+      css/libraries/animate-initial.css: {}
+      css/theme/font.css: {}
+      css/theme/app.drupal.css: {}
+      css/theme/structure.css: {}
+#      css/theme/typography.css: {}
+#      css/theme/helpers.css: {}
+      css/theme/header.css: {}
+      css/theme/navigation.css: {}
+      css/theme/footer.css: {}
+      css/theme/carousel.css: {}
+      css/theme/blog.css: {}
+      css/theme/events.css: {}
+      css/theme/staff.css: {}
+      css/theme/blocks.css: {}
+#      css/theme/featured-content.css: {}
+  js:
+    js/libraries/css-vars-ponyfill.min.js: {}
+    js/libraries/foundation.js: {}
+    js/libraries/motion-ui.min.js: {}
+    js/libraries/slick.min.js: {}
+    js/libraries/smoothScroll.js: {}
+    js/libraries/intersection-observer.min.js: {}
+    js/foundation-backwards-compatability.js: {}
+    js/libraries/parallax.js: {}
+    js/libraries/svguse.js: {}
+    js/default.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

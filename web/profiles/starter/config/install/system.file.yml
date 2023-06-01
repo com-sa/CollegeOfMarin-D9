@@ -1,0 +1,7 @@
+allow_insecure_uploads: false
+default_scheme: public
+path:
+  temporary: /Applications/AMPPS/tmp
+temporary_maximum_age: 21600
+_core:
+  default_config_hash: EKNI-DaxmQdaDKpqNpZiUZXZuQBFTjJh7t3b3TQI5yU

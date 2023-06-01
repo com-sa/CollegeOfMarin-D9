@@ -1,0 +1,20 @@
+uuid: 26eb0b97-4690-4962-8b70-8ee77e1b80c1
+langcode: en
+status: true
+dependencies:
+  theme:
+    - echotimes
+_core:
+  default_config_hash: orRJGZEoffWhlT4nbLCNK0kT7q3cQzQyOHBVjyfo-aQ
+id: echotimes_page_title
+theme: echotimes
+region: content
+weight: -50
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

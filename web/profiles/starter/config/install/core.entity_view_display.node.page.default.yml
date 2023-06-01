@@ -1,0 +1,45 @@
+uuid: daa7629a-6167-4612-8992-874205cf5540
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page.body
+    - field.field.node.page.field_hero
+    - field.field.node.page.field_related_content
+    - field.field.node.page.field_teaser_image
+    - field.field.node.page.field_weight
+    - node.type.page
+  module:
+    - com_animation
+    - fences
+    - text
+    - user
+_core:
+  default_config_hash: '-Lpk_wjgp1swAnhU5W_j5rxVi-Y5c0VthPE_GzGnCFs'
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings:
+      com_animation:
+        animate: ''
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
+    region: content
+hidden:
+  field_hero: true
+  field_related_content: true
+  field_teaser_image: true
+  field_weight: true
+  links: true

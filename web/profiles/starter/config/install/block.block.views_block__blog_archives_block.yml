@@ -1,0 +1,30 @@
+uuid: 7fd0ef41-eef4-4459-949a-2a61314bc02a
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.blog
+  module:
+    - system
+    - views
+  theme:
+    - subtheme
+id: views_block__blog_archives_block
+theme: subtheme
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:blog-archives_block'
+settings:
+  id: 'views_block:blog-archives_block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /blog
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,24 @@
+uuid: d1cc30dd-c951-42c4-a1c4-8d4087c866f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - media
+_core:
+  default_config_hash: KmU8dzO_WkhifvZ6X8oUa6XwBfPoRCuOAzobYk4TMVY
+id: media
+label: Media
+type: 'canonical_entities:media'
+pattern: '/media/image/[media:name]'
+selection_criteria:
+  a95addab-54e9-4542-830d-58ff802d446f:
+    id: 'entity_bundle:media'
+    bundles:
+      image: image
+    negate: false
+    context_mapping:
+      media: media
+selection_logic: and
+weight: -5
+relationships: {  }

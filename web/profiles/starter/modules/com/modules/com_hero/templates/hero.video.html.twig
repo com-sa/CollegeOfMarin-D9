@@ -1,0 +1,8 @@
+{% if items %}
+	{% for item in items %}
+		<div class="item ambient-video" style="background-image:url('{{ item.image }}');">
+			<video src="{{ item.video }}" autoplay loop muted></video>
+			{% if meta.scroll_down %}<button id="carousel-scroll-down" data-scroll="#main-content">{{meta.scroll_down}}</button>{% endif %}
+		</div>
+	{% endfor %}
+{% endif %}

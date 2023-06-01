@@ -1,0 +1,115 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the standard installation profile.
+ */
+
+use Drupal\node\Entity\Node;
+use Drupal\media\Entity\Media;
+use Drupal\user\Entity\User;
+use Drupal\user\RoleInterface;
+use Drupal\Core\File\FileSystemInterface;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_install().
+ *
+ * Perform actions to set up the site for this profile.
+ *
+ * @see system_install()
+ */
+function starter_install() {
+
+	$home = Node::create([
+		'type' => 'page',
+		'langcode' => 'en',
+		'created' => REQUEST_TIME,
+		'changed' => REQUEST_TIME,
+		'uid' => 1,
+		'title' => 'Home',
+		'body' => [
+    	'summary' => '',
+			'value' => '',
+			'format' => 'basic_html',
+		],
+	]);
+
+	$home->save();
+
+	// Set front page to "node".
+	\Drupal::configFactory()->getEditable('system.site')->set('page.front', '/node/' . $home->id())->save(TRUE);
+
+	// Only admins can create accounts
+	$user_settings = \Drupal::configFactory()->getEditable('user.settings');
+	$user_settings->set('register', \Drupal\user\UserInterface::REGISTER_ADMINISTRATORS_ONLY)->save(TRUE);
+
+	// Assign user 1 the "administrator" role.
+	$user = User::load(1);
+	$user->roles[] = 'administrator';
+	$user->save();
+
+	// We install some menu links, so we have to rebuild the router, to ensure the
+	// menu links are valid.
+	\Drupal::service('router.builder')->rebuildIfNeeded();
+
+	// Enable the Contact link in the footer menu.
+	/** @var \Drupal\Core\Menu\MenuLinkManagerInterface $menu_link_manager */
+	//$menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+	//$menu_link_manager->updateDefinition('contact.site_page', array('enabled' => TRUE));
+
+	//user_role_grant_permissions(RoleInterface::ANONYMOUS_ID, array('access site-wide contact form'));
+	//user_role_grant_permissions(RoleInterface::AUTHENTICATED_ID, array('access site-wide contact form'));
+
+	// Enable the admin theme.
+	\Drupal::configFactory()->getEditable('node.settings')->set('use_admin_theme', TRUE)->save(TRUE);
+
+
+	// set default image on field_teaser_image
+	// for all bundles
+	//_starter_set_teaser_image();
+
+  // Term names to be added.
+  $items = [
+    'Bright Gold',
+		'COM Black',
+		'COM Blue',
+		'COM Gold',
+		'Deep Blue',
+		'Gray',
+		'Lemon Curry',
+		'Light Blue',
+		'Light Gray',
+		'Muted Blue',
+		'Muted Gold',
+		'Night Gray',
+		'Steel Gray',
+  ];
+	
+  foreach ($items as $item) {
+    $term = Term::create(['parent' => [], 'name' => $item, 'vid' => 'com_colors'])->save();
+  }
+}
+
+
+function _starter_set_teaser_image() {
+	$base_path = drupal_get_path('module', 'com');
+	$bundles = ['article', 'page', 'event', 'staff'];
+	foreach($bundles as $bundle) {
+		$path = $base_path . '/default_content/images/placeholder-' . $bundle . '.png';
+		$media = _starter_create_image_media($path);
+		$field_instance = Drupal::entityTypeManager()->getStorage('field_config')->load('node.'.$bundle.'.field_teaser_image');
+		$field_instance->setDefaultValue(['target_uuid' => $media->uuid()]);
+		$field_instance->save();
+	}
+}
+
+function _starter_create_image_media($path) {
+	$filename = basename($path);
+	try { $uri = \Drupal::service('file_system')->copy($path, 'public://' . $filename, FileSystemInterface::EXISTS_REPLACE); }
+	catch (FileException $e) { $uri = FALSE; }
+	$file = \Drupal::entityTypeManager()->getStorage('file')->create([ 'uri' => $uri, 'status' => 1, ]);
+	$file->save();
+	$media = Media::create([ 'bundle'=> 'image', 'name'=> basename($path), 'uid' => '1', 'status' => 1, 'field_media_image' => [ 'target_id' => $file->id(), ]]);
+	$media->save();
+	return $media;
+}

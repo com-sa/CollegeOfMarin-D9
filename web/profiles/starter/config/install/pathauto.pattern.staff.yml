@@ -1,0 +1,23 @@
+uuid: c58e1bfb-20ab-4abb-8589-a11bfc88eada
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 4cwGJz1UG5pWffJY2Vf4cF3qlBdMeQ_wURZepHSl6Ww
+id: staff
+label: Staff
+type: 'canonical_entities:node'
+pattern: '/staff/[node:title]'
+selection_criteria:
+  c6cda188-54fc-4a6b-8663-5455ab39e5b7:
+    id: node_type
+    bundles:
+      staff: staff
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+weight: -5
+relationships: {  }

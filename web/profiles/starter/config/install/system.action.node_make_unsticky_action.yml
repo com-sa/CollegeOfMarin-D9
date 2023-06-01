@@ -1,0 +1,13 @@
+uuid: 9180e5cc-4b3b-470a-aeb3-e1f7cc7338b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: a5EVdPTUmv1E5WoiwdN9FehphKs3_dT9l6WCC4jEKmM
+id: node_make_unsticky_action
+label: 'Make content unsticky'
+type: node
+plugin: node_make_unsticky_action
+configuration: {  }

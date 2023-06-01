@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies: {  }
+id: global
+label: Global
+tags:
+  title: '[current-page:title] | [site:name] | College of Marin'
+  robots: 'noindex, nofollow, noarchive, nosnippet, noodp, noydir, noimageindex, notranslate'
+  canonical_url: '[current-page:url]'
+  image_src: '[com-logo:url]'
+  og_image: '[com-logo:url]'
+  og_image_url: '[com-logo:url]'
+  og_image_alt: '[site:name]'
+  og_image_secure_url: '[com-logo:url]'
+  og_url: '[current-page:url]'
+  og_site_name: '[site:name]'
+  og_title: '[current-page:title]'
+  twitter_cards_image: '[com-logo:url]'
+  twitter_cards_page_url: '[current-page:url]'
+  twitter_cards_image_alt: '[site:name]'
+  twitter_cards_type: summary
+  twitter_cards_title: '[current-page:title]'

@@ -1,0 +1,30 @@
+uuid: 255d372b-a1c0-4aaa-9e8a-a112947a1873
+langcode: en
+status: true
+dependencies:
+  module:
+    - com
+    - node
+  theme:
+    - echotimes
+_core:
+  default_config_hash: gYocncpV2Bd5Ei9gFcsJFes-zzdYBepWEp_Z5qOPCBc
+id: echotimes_hero
+theme: echotimes
+region: highlighted
+weight: 0
+provider: null
+plugin: com_hero_block
+settings:
+  id: com_hero_block
+  label: Hero
+  provider: com
+  label_display: '0'
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

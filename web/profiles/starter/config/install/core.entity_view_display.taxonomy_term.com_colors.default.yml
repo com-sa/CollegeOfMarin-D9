@@ -1,0 +1,13 @@
+uuid: 271736e7-bfc8-489e-b875-a9fbfcb1dec2
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.com_colors
+id: taxonomy_term.com_colors.default
+targetEntityType: taxonomy_term
+bundle: com_colors
+mode: default
+content: {  }
+hidden:
+  description: true

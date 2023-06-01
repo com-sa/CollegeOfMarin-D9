@@ -1,0 +1,10 @@
+uuid: 443b886e-6fae-4a64-8541-74e63fcd6fa2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 6ADPI7ZfMx9G9R0Y6fRIMrHIupModcxpQxNjPyCLMq0
+id: time
+label: Time
+locked: false
+pattern: 'g:ia'

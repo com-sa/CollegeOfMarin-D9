@@ -1,0 +1,8 @@
+name: College of Marin Hero
+description: Adds Hero functionality
+package: COM
+type: module
+core_version_requirement: ^8 || ^9
+dependencies:
+  - com
+  - paragraphs:paragraphs

@@ -1,0 +1,13 @@
+uuid: dd0083bd-2db2-44c1-a105-dc860378440c
+langcode: en
+status: true
+dependencies:
+  module:
+    - webform
+_core:
+  default_config_hash: pjpLgVi0IHjiZMAWDKwpfvm0zWFvbFpmEg0f1rzFJH4
+id: webform_submission_make_unsticky_action
+label: 'Unstar/unflag submission'
+type: webform_submission
+plugin: webform_submission_make_unsticky_action
+configuration: {  }

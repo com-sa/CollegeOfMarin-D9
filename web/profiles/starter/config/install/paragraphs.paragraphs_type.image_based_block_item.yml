@@ -1,0 +1,9 @@
+uuid: a9a84756-5d9d-4f80-a9d6-2bed9c26fb4c
+langcode: en
+status: true
+dependencies: {  }
+id: image_based_block_item
+label: 'Image Based Block Item'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

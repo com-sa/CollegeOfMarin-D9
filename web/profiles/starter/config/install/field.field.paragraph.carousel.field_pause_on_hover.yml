@@ -1,0 +1,25 @@
+uuid: 7f62a5b8-f762-4ba5-80b4-0a6bbfb23992
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pause_on_hover
+    - paragraphs.paragraphs_type.carousel
+_core:
+  default_config_hash: 9jd641XmR_XfFQ40-EUaehg4asijU1hxSnjin9-8BDA
+id: paragraph.carousel.field_pause_on_hover
+field_name: field_pause_on_hover
+entity_type: paragraph
+bundle: carousel
+label: 'Pause on Hover'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

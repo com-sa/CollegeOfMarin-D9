@@ -1,0 +1,25 @@
+uuid: 50795d3d-da76-49c7-b6b4-69f38fda5efa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_arrows
+    - paragraphs.paragraphs_type.carousel
+_core:
+  default_config_hash: l-l6lNVAvN_C__GRbNnpT96Yp6i-Fjj1SZpSri8MhIo
+id: paragraph.carousel.field_arrows
+field_name: field_arrows
+entity_type: paragraph
+bundle: carousel
+label: Arrows
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

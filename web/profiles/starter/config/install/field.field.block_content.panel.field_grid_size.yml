@@ -1,0 +1,23 @@
+uuid: bff2ceef-1e0a-4c1b-abe2-747a8b3a3afb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.panel
+    - field.storage.block_content.field_grid_size
+  module:
+    - options
+id: block_content.panel.field_grid_size
+field_name: field_grid_size
+entity_type: block_content
+bundle: panel
+label: 'Grid Size'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '2'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

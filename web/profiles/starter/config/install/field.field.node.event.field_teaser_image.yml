@@ -1,0 +1,34 @@
+uuid: 42e24764-6ba5-4f61-aebd-c4ca582b1315
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser_image
+    - media.type.image
+    - node.type.event
+  content:
+    - 'media:image:c2c7b429-28a7-455a-b27c-e8fece4a7b3e'
+_core:
+  default_config_hash: n3MUjwaFDlE9Av_j4hWaZcKyJyjj2jJPzYvajgIcM1I
+id: node.event.field_teaser_image
+field_name: field_teaser_image
+entity_type: node
+bundle: event
+label: 'Featured Image'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: c2c7b429-28a7-455a-b27c-e8fece4a7b3e
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

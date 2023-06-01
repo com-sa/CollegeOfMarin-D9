@@ -1,0 +1,53 @@
+2_col_9_3:
+  label: '2 column - 9/3'
+  category: '2 column row'
+#  class: '\Drupal\echotimes\Plugin\Layout\EchotimesLayout'
+  template: layouts/2-col-9-3/2-col-9-3
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+  icon: layouts/2-col-9-3/2-col-9-3.png
+2_col_3_9:
+  label: '2 column - 3/9'
+  category: '2 column row'
+#  class: '\Drupal\echotimes\Plugin\Layout\EchotimesLayout'
+  template: layouts/2-col-3-9/2-col-3-9
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+  icon: layouts/2-col-3-9/2-col-3-9.png
+2_col_event_teaser:
+  label: 'Event Teaser'
+  category: '2 column row'
+  class: '\Drupal\com\Plugin\Layout\COMLayout'
+  template: layouts/2-col-event-teaser/2-col-event-teaser
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+  icon: layouts/2-col-event-teaser/2-col-event-teaser.png
+2_col_event_mini:
+  label: 'Event Mini'
+  category: '2 column row'
+  class: '\Drupal\com\Plugin\Layout\COMLayout'
+  template: layouts/2-col-event-mini/2-col-event-mini
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+  icon: layouts/2-col-event-mini/2-col-event-mini.png
+wrapper:
+  label: 'Wrapper'
+  category: '1 column wrapper'
+  class: '\Drupal\com\Plugin\Layout\COMLayout'
+  template: layouts/wrapper/wrapper
+  regions:
+    content:
+      label: Content
+  icon: layouts/wrapper/wrapper.png
