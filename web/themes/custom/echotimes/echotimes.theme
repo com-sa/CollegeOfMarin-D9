@@ -319,32 +319,28 @@ function echotimes_custom_get_theme_path($type) {
 
 //This routine includes environmental selection logic to derive the approriate URL for our dev, stage, production and local development environments.
 function com_get_multi_site_base_url() {
-  $prefix = '';
+	$prefix = '';
 
-  // Prefix the sub site with the corresponding environmental variable.
-  if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-    switch ($_ENV['AH_SITE_ENVIRONMENT']) {
-    case 'dev':
-      $prefix = 'dev.';
-      break;
-    case 'test':
-      $prefix = 'stage.';
-      break;
-    case 'prod':
-      $prefix = '';
-      break;
-    case 'ra':
-      $prefix = 'ra.';
-      break;
-    }
-  } else {
-    // Assume dev for local development
-    $prefix = 'dev.';
-  }
+	// Prefix the sub site with the corresponding environmental variable.
+	if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+		switch ($_ENV['PANTHEON_ENVIRONMENT']) {
+			case 'test':
+				$prefix = 'stage.';
+				break;
+			case 'prod':
+				$prefix = '';
+				break;
+			default: 
+				$prefix = 'dev.';
+		}
+	} else {
+		// Assume dev for local development
+		$prefix = 'dev.';
+	}
 
-  return $prefix;
+	return $prefix;
 }
 
 function com_get_multi_site_home_base_url() {
-  return isset($_ENV['AH_SITE_ENVIRONMENT']) && $_ENV['AH_SITE_ENVIRONMENT'] == "prod" ? 'www1.' : com_get_multi_site_base_url();
+	return isset($_ENV['PANTHEON_ENVIRONMENT']) && $_ENV['PANTHEON_ENVIRONMENT'] == "prod" ? 'www1.' : com_get_multi_site_base_url();
 }
