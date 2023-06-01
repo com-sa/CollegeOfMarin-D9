@@ -49,7 +49,7 @@ class SettingsForm extends ConfigFormBase {
 		$files[''] = "None";
 		$themes = ['echotimes','subtheme'];
 		foreach($themes as $theme) {
-			$scanned = file_scan_directory(drupal_get_path('theme', $theme).'/templates/includes/menus/'.$key, '/.*\.twig$/');
+			$scanned = \Drupal\Core\File\FileSystemInterface::scanDirectory(drupal_get_path('theme', $theme).'/templates/includes/menus/'.$key, '/.*\.twig$/');
 			foreach($scanned as $path => $scan) { $files[$path] = $theme . ' - ' . $scan->filename;	}
 		}
 
