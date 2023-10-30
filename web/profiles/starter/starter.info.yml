@@ -14,6 +14,7 @@ install:
   - config
   - contextual
   - datetime
+  - dblog  
   - dynamic_page_cache
   - editor
   - field_ui
@@ -30,6 +31,7 @@ install:
   - page_cache
   - quickedit
   - rdf
+#  - syslog  
   - taxonomy
   - toolbar
   - views
@@ -38,7 +40,7 @@ install:
   - admin_toolbar_links_access_filter
   - admin_toolbar_tools
   - block_class
-#  - cas
+  - cas
   - content_access
   - ctools
   - editor_advanced_link
@@ -48,6 +50,7 @@ install:
   - fences
   - field_group
   - hotjar
+  - image_field_caption
   - google_analytics
   - media
   - metatag
@@ -57,16 +60,17 @@ install:
   - pathauto
   - redirect
   - shield
+  - smtp
   - telephone
   - token
 #  - views_bulk_operations
+  - views_cache_bully
   - webform
   - webform_ui
   - weight
   - xmlsitemap
   - xmlsitemap_custom
   - xmlsitemap_engines
-  - syslog
 dependencies:  
   - com
   - com_animation

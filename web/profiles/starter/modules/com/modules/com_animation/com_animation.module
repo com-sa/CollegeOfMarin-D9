@@ -4,10 +4,10 @@
  * Provides custom HTML class settings for field formatters.
  */
 
-use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Xss;
-use Drupal\Core\Entity\Entity\EntityViewDisplay;
-use Drupal\block_content\BlockContentInterface;
+//use Drupal\Component\Utility\Html;
+//use Drupal\Core\Entity\Entity\EntityViewDisplay;
+//use Drupal\block_content\BlockContentInterface;
 
 /**
  * Add a textfield class to Block form
@@ -15,7 +15,7 @@ use Drupal\block_content\BlockContentInterface;
  */
 function com_animation_form_block_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 	$block_id = $form['id']['#default_value'];
- 	$block = \Drupal::entityManager()->getStorage('block')->load($block_id);
+ 	$block = \Drupal::entityTypeManager()->getStorage('block')->load($block_id);
 
   	if ($block) {			
 	  	
@@ -121,11 +121,11 @@ function com_animation_form_layout_builder_update_block_alter(&$form, \Drupal\Co
 function com_animation_block_save_callback(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
 	//Get the current block id.
 	$block_id = $form_state->getValue('id');
-	$block = \Drupal::entityManager()->getStorage('block')->load($block_id);
+	$block = \Drupal::entityTypeManager()->getStorage('block')->load($block_id);
 	$unique = $block->id();
 	
 	if ($block) {
-		$plugin_id = \Drupal::entityManager()->getStorage('block')->load($block_id)->getPluginId();
+		$plugin_id = \Drupal::entityTypeManager()->getStorage('block')->load($block_id)->getPluginId();
 	
 		//Get all configurations.
 		$config_factory = \Drupal::configFactory();
