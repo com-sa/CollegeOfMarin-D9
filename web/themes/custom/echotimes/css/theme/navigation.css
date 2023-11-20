@@ -4,12 +4,12 @@
 ----------------------------------------------- */
 
 @media(max-width:1200px) {
-	nav ul a {
+	#header nav ul a {
 		color: #fff;
-	    display: block;
-	    font-size: .75rem;
-	    padding: .5rem 0;
-	    text-transform: uppercase;
+	  display: block;
+	  font-size: .75rem;
+	  padding: .5rem 0;
+	  text-transform: uppercase;
 	}
 
 	#school-nav ul.menu a {

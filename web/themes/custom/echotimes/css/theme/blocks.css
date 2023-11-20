@@ -2,7 +2,8 @@
 	display: none;
 }
 
-.block-subtheme-page-title {
+.block-subtheme-page-title,
+.block-pagetitle {
   width: 100%;
 }
 
