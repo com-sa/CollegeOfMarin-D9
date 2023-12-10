@@ -106,7 +106,7 @@ function echotimes_preprocess_node(&$variables) {
 							if (end($plugin_id_array) == 'links') {
 
 								//$link = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $variables['elements']['#node']->id()]);
-								$link = \Drupal::service('path.alias_manager')->getAliasByPath('/node/'.$variables['elements']['#node']->id());
+								$link = \Drupal::service('path_alias.manager')->getAliasByPath('/node/'.$variables['elements']['#node']->id());
 								$title = $variables['elements']['#node']->getTitle();
 								$content['content'] = ['links' => [
 									'#theme' => 'item_list',

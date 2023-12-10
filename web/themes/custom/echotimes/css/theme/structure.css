@@ -903,6 +903,7 @@ ul.pagination li a { padding: 0.2625rem 0.725rem 0.2625rem; }
 
 @media(min-width:901px) {
 	#sidebar-first:not(:only-child) {
+		order: -1;
 		padding-right: 1rem;
 	}
 
@@ -919,6 +920,10 @@ ul.pagination li a { padding: 0.2625rem 0.725rem 0.2625rem; }
 	.sidebar .block:not(:last-child) {
 		padding-bottom: 1.5rem;
 	}
+}
+
+.sidebar nav .menu a {
+	padding-inline: 0;
 }
 
 /* -----------------------------------------------
