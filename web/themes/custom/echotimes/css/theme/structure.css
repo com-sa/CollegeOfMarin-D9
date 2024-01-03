@@ -1174,7 +1174,11 @@ body:is(.sidebar-first,.sidebar-second) #main-content .main {
 }
 
 body.sidebar-first.sidebar-second #main-content .main {
-	width: calc(50% - 6rem);
+	width: calc(60% - 6rem);
+}
+
+body.sidebar-first.sidebar-second aside.sidebar {
+	width: 20%;
 }
 
 body.sidebar-first #main-content .main:nth-last-child(2) {
@@ -1437,6 +1441,12 @@ article.mini .title {
 [class*="column"] + [class*="column"]:last-child { float:left; }
 .row [class*="column"] + [class*="column"]:last-child { float:left; }
 
+
+.button-group.stack {
+	display: block;
+  list-style: none;
+  margin: 0;
+}
 
 
 /* -----------------------------------------
