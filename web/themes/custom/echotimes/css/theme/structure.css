@@ -965,16 +965,16 @@ ul.pagination li a { padding: 0.2625rem 0.725rem 0.2625rem; }
 }
 
 .sidebar nav .menu li:not(:first-child) {
-	padding-top: .25rem;
+	padding-top: .5rem;
 }
 
 .sidebar nav .menu li:not(:last-child) {
 	border-bottom: 1px dotted #b7c5ca;
-	padding-bottom: .25rem;
+	padding-bottom: .5rem;
 }
 
 .sidebar nav .menu a {
-	padding-inline: 0;
+	padding: 0;
 }
 
 /* -----------------------------------------------
