@@ -547,6 +547,7 @@ svg.icon-gold-down {
 
 .social-links {
 	display: flex;
+	padding-left: 0;
 }
 
 .social-links a {
