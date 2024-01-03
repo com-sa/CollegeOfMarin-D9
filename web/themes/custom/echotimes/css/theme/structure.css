@@ -567,7 +567,6 @@ svg.icon-gold-down {
 
 .social-links a:not(:has(svg)) {
   background-repeat: no-repeat;
-  background-size: auto 60%;
   background-position: center center;
 }
 
@@ -576,6 +575,7 @@ svg.icon-gold-down {
 }
 .social-links a[href*="facebook"]:not(:has(svg)) {
 	background-image: url(../../images/icons/icon-social-facebook.svg);
+	background-size: auto 60%;
 }
 
 .social-links a[href*="facebook"]:hover {
@@ -592,6 +592,7 @@ svg.icon-gold-down {
 
 .social-links a[href*="twitter"]:not(:has(svg)) {
 	background-image: url(../../images/icons/icon-social-twitter.svg);
+	background-size: auto 45%;
 }
 
 .social-links a[href*="twitter"]:hover {
@@ -608,6 +609,7 @@ svg.icon-gold-down {
 
 .social-links a[href*="youtube"]:not(:has(svg)) {
 	background-image: url(../../images/icons/icon-social-youtube.svg);
+	background-size: auto 40%;
 }
 
 .social-links a[href*="youtube"]:hover {
@@ -625,6 +627,7 @@ svg.icon-gold-down {
 
 .social-links a[href*="instagram"]:not(:has(svg)) {
 	background-image: url(../../images/icons/icon-social-instagram.svg);
+	background-size: auto 75%;
 }
 
 .social-links a[href*="instagram"]:hover {
@@ -641,6 +644,7 @@ svg.icon-gold-down {
 
 .social-links a[href*="linkedin"]:not(:has(svg)) {
 	background-image: url(../../images/icons/icon-social-linkedin.svg);
+	background-size: auto 50%;
 }
 
 .social-links a[href*="linkedin"]:hover {
