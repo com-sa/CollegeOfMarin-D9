@@ -69,8 +69,9 @@ h1 {
   font-size: 1.25rem;
 	font-weight: 900;
 	letter-spacing: .012em;
-	/*padding-bottom: 0.25em;*/
   line-height: 1.4;
+	margin-bottom: 0;
+	/*padding-bottom: 0.25em;*/
   padding-bottom: 0.75rem;
   text-transform: uppercase;
 }
@@ -548,7 +549,7 @@ svg.icon-gold-down {
 	display: flex;
 }
 
-.icon-social {
+.social-links a {
 	align-items: center;
 	border-radius: 50%;
 	display: flex !important;
@@ -560,78 +561,80 @@ svg.icon-gold-down {
 	width: 2rem;
 }
 
-.icon-social:not(:last-child) {
+.social-links a:not(:last-child) {
 	margin-right: .4375rem;
 }
 
-.icon-social.facebook {
+.social-links a[href*="facebook"] {
 	background-color: #5b6d98;
 }
 
-.icon-social.facebook:hover {
+.social-links a[href*="facebook"]:hover {
 	background-color: #3b5998;
 }
 
-.icon-social.facebook svg {
+.social-links a[href*="facebook"] svg {
 	width: 25%;
 }
 
-.icon-social.twitter {
+.social-links a[href*="twitter"] {
 	background-color: #85bfed;
 }
 
-.icon-social.twitter:hover {
+.social-links a[href*="twitter"]:hover {
 	background-color: #55acee;
 }
 
-.icon-social.twitter svg {
+.social-links a[href*="twitter"] svg {
 	width: 50%;
 }
 
-.icon-social.youtube {
+.social-links a[href*="youtube"] {
 	background-color: #cc4747;
 }
 
-.icon-social.youtube:hover {
+.social-links a[href*="youtube"]:hover {
 	background-color: #cd1f1f;
 }
 
-.icon-social.youtube svg {
+.social-links a[href*="youtube"] svg {
     margin-left: 2px;
 	width: 36%;
 }
 
-.icon-social.instagram {
+.social-links a[href*="instagram"] {
 	background-color: #4e799c;
 }
 
-.icon-social.instagram:hover {
+.social-links a[href*="instagram"]:hover {
 	background-color: #3e729b;
 }
 
-.icon-social.instagram svg {
+.social-links a[href*="instagram"] svg {
 	width: 80%;
 }
 
-.icon-social.linkedin {
+.social-links a[href*="linkedin"] {
 	background-color: #2381b5;
 }
 
-.icon-social.linkedin:hover {
+.social-links a[href*="linkedin"]:hover {
 	background-color: #0077b5;
 }
 
-.icon-social.linkedin svg {
+.social-links a[href*="linkedin"] svg {
 	width: 50%;
 }
 
-.icon-social svg {
+.social-links a svg {
 	fill: #fff;
 	height: 100%;
 }
 
 
-
+#block-pagetitle {
+	margin-bottom: 0;
+}
 
 h1#page-title { margin-bottom: 1em; }
 
@@ -1096,6 +1099,7 @@ section.block:before, section.block:after {
 }
 
 #main-content {
+	gap: 0 3rem;
 	padding-top: 1.875rem;
 }
 
@@ -1115,6 +1119,14 @@ section.block:before, section.block:after {
 
 .sidebar .block {
 	padding-top: 1rem;
+}
+
+body:is(.sidebar-first,.sidebar-second) #main-content .main {
+	width: calc(75% - 3rem);
+}
+
+body.sidebar-first.sidebar-second #main-content .main {
+	width: calc(75% - 6rem);
 }
 
 body.sidebar-first #main-content .main:nth-last-child(2) {

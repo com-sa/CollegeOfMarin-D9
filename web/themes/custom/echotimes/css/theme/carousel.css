@@ -79,22 +79,23 @@
 }
 
 .block-hero .item {
-    align-items: stretch;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+  align-items: stretch;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
 	display: flex;
-    justify-content: stretch;
-    min-height: 100vh;
+  justify-content: stretch;
+  /*min-height: 100vh;*/
+	max-height: 550px;
 }
 
 
-@media(min-width:901px) {
+/*@media(min-width:901px) {
 	.block-hero .orbit-container,
 	.block-hero .item {
 	    min-height: calc(88vh - 176px);
 	}
-}
+}*/
 
 
 
