@@ -977,6 +977,19 @@ ul.pagination li a { padding: 0.2625rem 0.725rem 0.2625rem; }
 	padding: 0;
 }
 
+@media(min-width:901px) {
+	.sidebar .block:first-child {
+		padding-top: 0;
+	}
+	
+	.sidebar .block:first-child > h2.block-title {
+		align-items: end;
+		display: flex;
+		min-height: 57px;
+		padding-bottom: 0.625rem;
+	}
+}
+
 /* -----------------------------------------------
 	END REGION: SIDEBAR
 ----------------------------------------------- */
