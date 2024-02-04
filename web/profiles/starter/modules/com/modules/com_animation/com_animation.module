@@ -17,12 +17,11 @@ function com_animation_form_block_form_alter(&$form, \Drupal\Core\Form\FormState
 	$block_id = $form['id']['#default_value'];
  	$block = \Drupal::entityTypeManager()->getStorage('block')->load($block_id);
 
-  	if ($block) {			
-	  	
-	  	$plugin_id = $block->getPluginId();
-	  	$config_factory = \Drupal::configFactory();
+  if ($block) {
+	 	$plugin_id = $block->getPluginId();
+	 	$config_factory = \Drupal::configFactory();
 	 	$plugin_definition = $block->getPlugin()->getPluginDefinition();
-	  	$animation_config = $config_factory->getEditable('com_animation.settings.animate');	
+	 	$animation_config = $config_factory->getEditable('com_animation.settings.animate');	
 
 		$form['animate'] = [
 			'#type' => 'select',
@@ -68,14 +67,14 @@ function com_animation_form_block_form_alter(&$form, \Drupal\Core\Form\FormState
 function com_animation_form_layout_builder_update_block_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
 	$component = $form_state->getFormObject()->getCurrentComponent();
 	$component_array = (array) $component;
-  	$config_factory = \Drupal::configFactory();		
-  	$animation_config = $config_factory->getEditable('com_animation.settings.animate');	
-  	$plugin_id = $component->getPluginId();
-  	$is_views = strpos(substr($plugin_id, 0, strpos($plugin_id, ':')), 'views') > -1;
-  	$unique = $component->getUuid();
+  $config_factory = \Drupal::configFactory();		
+  $animation_config = $config_factory->getEditable('com_animation.settings.animate');	
+  $plugin_id = $component->getPluginId();
+  $is_views = strpos(substr($plugin_id, 0, strpos($plugin_id, ':')), 'views') > -1;
+  $unique = $component->getUuid();
 
-  	if (!isset($component_array["\0*\0configuration"]['formatter']['third_party_settings']['com_animation']['animate'])) {
-	  	$form['animate'] = [
+  if (!isset($component_array["\0*\0configuration"]['formatter']['third_party_settings']['com_animation']['animate'])) {
+	 	$form['animate'] = [
 			'#type' => 'select',
 			'#options' => com_animation_get_animatable_classes(),
 			'#weight' => -1,
@@ -84,11 +83,10 @@ function com_animation_form_layout_builder_update_block_alter(&$form, \Drupal\Co
 			'#description' => t('Choose an animation to be applied to this block.')
 		];
 
-	
 		if ($is_views) {
 			$carousel_config = $config_factory->getEditable('com_animation.settings.carousel');			
 			$carousel_toshow_config = $config_factory->getEditable('com_animation.settings.carousel_toshow');			
-				
+					
 			$form['carousel'] = [
 				'#type' => 'checkbox',
 				'#weight' => 0,
@@ -96,7 +94,7 @@ function com_animation_form_layout_builder_update_block_alter(&$form, \Drupal\Co
 				'#default_value' => $carousel_config->get($plugin_id.$unique),
 				'#description' => t('Choose whether this block should be carousel scrollable. This should only be used on views outputting more than one item.')
 			];
-			
+				
 			$form['carousel_toshow'] = [
 				'#type' => 'select',
 				'#options' => [1 => 1,2 => 2,3 => 3,4 => 4,5 => 5,6 => 6,7 => 7,8 => 8,9 => 9,10 => 10,11 => 11,12 => 12],			
@@ -105,10 +103,10 @@ function com_animation_form_layout_builder_update_block_alter(&$form, \Drupal\Co
 				'#default_value' => $carousel_toshow_config->get($plugin_id.$unique),
 				'#description' => t('How many items should be shown at once?')
 			];
-			
+				
 			$form['#attached']['library'][] = 'com_animation/block_edit_form';
 		}	
-		
+			
 		$form['actions']['submit']['#submit'][] = 'com_animation_layout_block_save_callback';	
 	}
 }
@@ -131,17 +129,15 @@ function com_animation_block_save_callback(&$form, \Drupal\Core\Form\FormStateIn
 		$config_factory = \Drupal::configFactory();
 	
 		if ($plugin_id != '') {
-			if ($form_state->hasValue('animate')) {
-		    	$config_factory->getEditable('com_animation.settings.animate')->set($plugin_id.$unique, $form_state->getValue('animate'))->save(TRUE);
-		    }
-		    
-		    if ($form_state->hasValue('carousel')) {
-		    	$config_factory->getEditable('com_animation.settings.carousel')->set($plugin_id.$unique, $form_state->getValue('carousel'))->save(TRUE);
-			}
-			
-		    if ($form_state->hasValue('carousel_toshow')) {
-		    	$config_factory->getEditable('com_animation.settings.carousel_toshow')->set($plugin_id.$unique, $form_state->getValue('carousel_toshow'))->save(TRUE);
-			}			
+			$config_factory->getEditable('com_animation.settings.animate')->set($plugin_id.$unique, $form_state->getValue('animate'))->save(TRUE);
+
+			if ($form_state->hasValue('carousel') && $form_state->getValue('carousel') > 0) {
+		   	$config_factory->getEditable('com_animation.settings.carousel')->set($plugin_id.$unique, $form_state->getValue('carousel'))->save(TRUE);
+
+				 if ($form_state->hasValue('carousel_toshow')) {
+					$config_factory->getEditable('com_animation.settings.carousel_toshow')->set($plugin_id.$unique, $form_state->getValue('carousel_toshow'))->save(TRUE);
+				}
+			}  
 		}
 	}
 }
@@ -156,19 +152,23 @@ function com_animation_layout_block_save_callback(&$form, \Drupal\Core\Form\Form
 	$config_factory = \Drupal::configFactory();
 	$component = $form_state->getFormObject()->getCurrentComponent();
 	$plugin_id = $component->getPluginId();
-  	$unique = $component->getUuid();
+  //$unique = $component->getUuid();
 
 	if ($plugin_id != '') {
-		if ($form_state->hasValue('animate')) {
-	    	$config_factory->getEditable('com_animation.settings.animate')->set($plugin_id.$unique, $form_state->getValue('animate'))->save(TRUE);
-	    }
-		    
-	    if ($form_state->hasValue('carousel')) {
-	    	$config_factory->getEditable('com_animation.settings.carousel')->set($plugin_id.$unique, $form_state->getValue('carousel'))->save(TRUE);
+		$unique = $plugin_id;
+		$pos = strpos($plugin_id, ':');
+		if ($pos !== false) {
+			$unique = substr_replace($plugin_id, '__', $pos, strlen(':'));
+		}
+
+   	$config_factory->getEditable('com_animation.settings.animate')->set($plugin_id.$unique, $form_state->getValue('animate'))->save(TRUE);
+
+		if ($form_state->hasValue('carousel')) {
+    	$config_factory->getEditable('com_animation.settings.carousel')->set($plugin_id.$unique, $form_state->getValue('carousel'))->save(TRUE);
 		}
 			
-	    if ($form_state->hasValue('carousel_toshow')) {
-	    	$config_factory->getEditable('com_animation.settings.carousel_toshow')->set($plugin_id.$unique, $form_state->getValue('carousel_toshow'))->save(TRUE);
+    if ($form_state->hasValue('carousel_toshow')) {
+    	$config_factory->getEditable('com_animation.settings.carousel_toshow')->set($plugin_id.$unique, $form_state->getValue('carousel_toshow'))->save(TRUE);
 		}			
 	}
 }
@@ -180,9 +180,9 @@ function com_animation_layout_block_save_callback(&$form, \Drupal\Core\Form\Form
 function com_animation_preprocess_block(&$variables) {
 	$config_factory = \Drupal::configFactory();
 	$plugins_id = $variables['elements']['#configuration']['id'];
-	$animation_class = $config_factory->getEditable('com_animation.settings.animate')->get($plugins_id);
-	$carousel = $config_factory->getEditable('com_animation.settings.carousel')->get($plugins_id);
-	
+	$unique =  $variables['elements']['#base_plugin_id'] . ($variables['elements']['#derivative_plugin_id'] ? ('__' . str_replace('-', '_', $variables['elements']['#derivative_plugin_id'])) : '');
+	$animation_class = $config_factory->getEditable('com_animation.settings.animate')->get($plugins_id.$unique);
+	$carousel = $config_factory->getEditable('com_animation.settings.carousel')->get($plugins_id.$unique);
 	$classes = [];
 	
 	if ($animation_class && $variables['configuration']['id'] == $plugins_id) {
@@ -195,9 +195,9 @@ function com_animation_preprocess_block(&$variables) {
 		//$classes[] = 'content-carousel';
 		//$carousel_toshow = $config_factory->getEditable('com_animation.settings.carousel_toshow')->get($plugins_id);
 		//$variables['attributes']['data-carousel-toshow'] = $carousel_toshow;
-  	}
+  }
   	
-  	if (count($classes)) {
+  if (count($classes)) {
 		if (!isset($variables['attributes']['class'])) {
 			$variables['attributes']['class'] = [];
 		}
