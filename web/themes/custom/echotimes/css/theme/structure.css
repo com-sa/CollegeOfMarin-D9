@@ -1287,6 +1287,10 @@ article.teaser .field--name-field-teaser-image img {
     padding: 0;
 }
 
+.type-article.featured .content .layout-builder-item {
+	margin-block: 0 !important;
+}
+
 .type-page.featured .field-title,
 .type-page.featured .field-title a,
 .type-article.featured .field-title,
