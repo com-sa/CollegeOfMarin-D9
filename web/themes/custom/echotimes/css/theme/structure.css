@@ -1284,7 +1284,7 @@ article.teaser .field--name-field-teaser-image img {
 
 .type-page.featured .content,
 .type-article.featured .content {
-    padding: 1.25rem 0 0;
+    padding: 0;
 }
 
 .type-page.featured .field-title,
