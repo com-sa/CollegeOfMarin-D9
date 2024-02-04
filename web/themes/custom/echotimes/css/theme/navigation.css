@@ -48,6 +48,16 @@
 	}
 }
 
+@media(max-width:1200px) {
+  #navigation nav {
+    padding: 1rem;
+  }
+
+  #navigation nav .menu {
+    flex-direction: column;
+  }
+}
+
 #block-mainnavigation .block-title {
     background: #231f20;
     border-color: #cd9027;
