@@ -42,7 +42,7 @@
  * @see template_process()
  */
 #}
-{% set classes = ['block', content['#field_name'] ? 'field-' ~ content['#field_name'] ] %}
+{% set classes = [content['#field_name'] ? 'field-' ~ content['#field_name'] ] %}
 <section{{ attributes.addClass(classes) }}>
 	{{ title_prefix }}
 	{% if label %}<h2 {{ title_attributes }}>{{ label }}</h2>{% endif %}

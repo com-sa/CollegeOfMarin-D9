@@ -47,7 +47,7 @@
 {% set fullwidth = content.field_full_width['#items'].value %}
 {% set centered = content.field_centered['#items'].value %}
 {% set classes = [
-	'block', content['#field_name'] ? 
+	content['#field_name'] ? 
 	'field-' ~ content['#field_name'], 
 	grid ? 'grid', 
 	gridsize == 4 ? 'grid-size-4',

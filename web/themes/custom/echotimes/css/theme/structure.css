@@ -243,6 +243,10 @@ p {
 	margin:0 0 10px;
 }
 
+p:last-child {
+	margin-bottom: 0;
+}
+
 p:empty {
 	display: none;
 }
