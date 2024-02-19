@@ -1,0 +1,7 @@
+com_post_migration.cleanup:
+  path: '/admin/post-migration/cleanup'
+  defaults:
+    _form: '\Drupal\com_post_migration\Form\MigrationCleanupForm'
+    _title: 'Migration Cleanup'
+  requirements:
+    _permission: 'administer site configuration'

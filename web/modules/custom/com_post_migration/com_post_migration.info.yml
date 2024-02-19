@@ -1,0 +1,7 @@
+name: COM Post Migration
+description: 'COM Post Migration Helper'
+type: module
+package: COM
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:media

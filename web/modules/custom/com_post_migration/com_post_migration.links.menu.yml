@@ -1,0 +1,5 @@
+com_post_migration.cleanup:
+  route_name: com_post_migration.cleanup
+  title: 'Migration Cleanup'
+  description: 'COM: Migration Cleanup.'
+  parent: system.admin_config_system
