@@ -1188,6 +1188,10 @@ section.block:before, section.block:after {
 	margin-top: 1rem;
 }
 
+#region-content .block {
+	width: 100%;
+}
+
 .sidebar .block {
 	padding-top: 1rem;
 }
