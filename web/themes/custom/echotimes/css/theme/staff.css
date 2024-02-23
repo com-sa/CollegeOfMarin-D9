@@ -16,15 +16,15 @@
 */
 
 .type-staff.teaser .layout-builder-item {
-	margin-bottom: .3125rem;
+	margin-block: 0 .3125rem !important;
 	text-align: center;
 }
 
 .type-staff.teaser .field-title {
 	color: #a47c42;
-    font-size: 1rem;
-    font-weight: 900;
-    text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .type-staff.teaser .field-field_position {

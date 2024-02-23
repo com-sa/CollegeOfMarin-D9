@@ -27,6 +27,10 @@
 	width: 70px;
 }
 
+.type-event.teaser .field-title + .field-field_date time {
+	text-align: left;
+}
+
 .type-event .field--name-field-date .month,
 .type-event.teaser .field-field_date .month {
 	font-size: 1rem;
