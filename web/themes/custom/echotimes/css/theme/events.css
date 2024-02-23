@@ -27,7 +27,7 @@
 	width: 70px;
 }
 
-.type-event.teaser .field-title + .field-field_date time {
+.type-event.teaser .field-title + .field-field_date .field--node-field-date {
 	text-align: left;
 }
 
