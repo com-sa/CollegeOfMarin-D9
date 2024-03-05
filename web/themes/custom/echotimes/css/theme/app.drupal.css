@@ -20,7 +20,7 @@
 	text-transform: none;
 }
 
-#block-subtheme-local-tasks:before, #block-subtheme-local-tasks:after { 
+/*#block-subtheme-local-tasks:before, #block-subtheme-local-tasks:after { 
 	content: none !important;
 }
 
@@ -48,6 +48,14 @@
 
 #block-subtheme-local-tasks .button-group a {
 	width: 100%;
+}*/
+
+#block-subtheme-local-tasks .button-group .button.visually-hidden + .button {
+    margin-left: 0;
+}
+
+#block-subtheme-local-tasks .button-group a:not(.button) {
+    font-size: 1rem;
 }
 
 .block-region {

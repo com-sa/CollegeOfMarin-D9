@@ -287,6 +287,30 @@ function echotimes_preprocess_views_view(&$variables) {
 	$variables['current_display'] = $variables['view']->current_display;
 }
 
+function echotimes_preprocess_menu_local_task(array $variables) {
+	$route_name = \Drupal::routeMatch()->getRouteName();
+	$link = $variables['element']['#link'];
+	if (in_array($route_name, ['user.login', 'user.pass'])) {
+		$options = $link['url']->getOptions();
+		$class = $options['attributes']['class'];
+		
+		/*
+		$index = array_search('button', $class);
+		if ($index>-1) {
+			unset($class[$index]);
+			$link['url']->setOption('attributes', ['class' => $class]);
+		}*/
+	
+		if ($route_name == 'user.login' && $link['title'] == 'Log in') {
+			$class[] = 'visually-hidden';
+			$link['url']->setOption('attributes', ['class' => $class]);
+		} else if ($route_name == 'user.pass' && $link['title'] == 'Reset your password') {
+			$class[] = 'visually-hidden';
+			$link['url']->setOption('attributes', ['class' => $class]);
+		}
+	}
+}
+
 /**
  * Custom function to determine where to include our custom .twig files from
  */
