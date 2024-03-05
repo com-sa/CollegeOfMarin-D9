@@ -11,7 +11,7 @@ class ImagesToMedia {
     if (!isset($context['sandbox']['current'])) {
       $context['sandbox']['current'] = 0;
       $context['sandbox']['max'] = count($files);
-      $context['sandbox']['limit'] = 1;
+      $context['sandbox']['limit'] = 10;
     }
 
     $rows = array_slice($files, $context['sandbox']['current'], $context['sandbox']['limit']);
@@ -34,17 +34,20 @@ class ImagesToMedia {
       [filename] => blank.pdf
       [name] => blank
     )*/
-
-    $file_data = file_get_contents($item->uri);
     $file_repository = \Drupal::service('file.repository');
-    $file = $file_repository->writeData($file_data, "public://".$item->filename, FileSystemInterface::EXISTS_REPLACE);
+		$file = $file_repository->loadByUri("public://".str_replace(DRUPAL_ROOT . '/sites/default/files/', '', $item->uri));
     $is_image = preg_match('/^.*\.(jpg|jpeg|png|gif|webp)$/i', $item->filename);
+
+    if (!$file || get_class($file) !== 'Drupal\file\Entity\File') {
+      $file_data = file_get_contents($item->uri);
+      $file = $file_repository->writeData($file_data, "public://".$item->filename, FileSystemInterface::EXISTS_REPLACE);
+    }
 
     $opts = [
       'name' => $item->name,
       'uid' => 1,
       'langcode' => 'en',
-      'status' => 0,
+      'status' => 1,
     ];
 
     if ($is_image) {
