@@ -22,19 +22,19 @@
         "cweagans/composer-patches": "^1.7",
         "drush/drush": "^11 || ^12",
         "drupal/admin_toolbar": "^3.2",
-        "drupal/block_class": "^1.3",
+        "drupal/block_class": "^2.0",
         "drupal/cas": "^2.1",
         "drupal/content_access": "^2.0@RC",
         "drupal/core-project-message": "^9",
         "drupal/ctools": "^3.9",
-        "drupal/editor_advanced_link": "^1.9",
+        "drupal/editor_advanced_link": "^2.2",
         "drupal/entity_reference_revisions": "^1.9",
         "drupal/externalauth": "^2.0",
         "drupal/fast_404": "^2.0@alpha",
         "drupal/fences": "^3.0",
         "drupal/field_group": "^3.3",
         "drupal/google_analytics": "^4.0",
-        "drupal/hotjar": "^2.4",
+        "drupal/hotjar": "^3.1",
         "drupal/metatag": "^1.16",
         "drupal/paragraphs": "^1.13",
         "drupal/pathauto": "^1.10",
@@ -50,7 +50,7 @@
         "drupal/smtp": "^1.2",
         "drupal/samlauth": "^3.9",
         "drupal/views_cache_bully": "^2.0",
-        "drupal/image_field_caption": "^1.2"
+        "drupal/image_field_caption": "^2.0"
     },
     "require-dev": {
         "drupal/core-dev": "^9.2"
