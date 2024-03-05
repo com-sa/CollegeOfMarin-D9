@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.staff.field_phone_number
     - field.field.node.staff.field_position
     - field.field.node.staff.field_teaser_image
-    - image.style.large
+    - image.style.480x480_crop
     - node.type.staff
   module:
     - layout_builder
@@ -63,7 +63,7 @@ third_party_settings:
                 label: hidden
                 type: media_thumbnail
                 settings:
-                  image_style: large
+                  image_style: 480x480_crop
                   image_link: ''
                 third_party_settings:
                   fences:
@@ -225,7 +225,7 @@ third_party_settings:
                 type: media_thumbnail
                 label: hidden
                 settings:
-                  image_style: large
+                  image_style: 480x480_crop
                   image_link: ''
                 third_party_settings: {  }
             additional: {  }
@@ -274,7 +274,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: large
+      image_style: 480x480_crop
       image_link: ''
     third_party_settings: {  }
 hidden:

@@ -10,7 +10,7 @@ dependencies:
     - field.field.node.staff.field_phone_number
     - field.field.node.staff.field_position
     - field.field.node.staff.field_teaser_image
-    - image.style.large
+    - image.style.480x480_crop
     - node.type.staff
   module:
     - field_group
@@ -57,7 +57,7 @@ third_party_settings:
                 type: media_thumbnail
                 label: hidden
                 settings:
-                  image_style: large
+                  image_style: 480x480_crop
                   image_link: content
                 third_party_settings: {  }
             additional: {  }
@@ -156,7 +156,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: large
+      image_style: 480x480_crop
       image_link: content
     third_party_settings: {  }
 hidden:

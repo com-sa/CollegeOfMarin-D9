@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.page.field_related_content
     - field.field.node.page.field_teaser_image
     - field.field.node.page.field_weight
+    - image.style.480x480_crop
     - node.type.page
   module:
     - com_animation
@@ -41,7 +42,7 @@ third_party_settings:
                 label: hidden
                 type: media_thumbnail
                 settings:
-                  image_style: large
+                  image_style: 480x480_crop
                   image_link: content
                 third_party_settings:
                   com_animation:
@@ -118,18 +119,6 @@ third_party_settings:
                 entity: layout_builder.entity
             additional: {  }
             weight: 2
-          c9250fab-d0ec-4ef7-80bf-b50c543ca0e5:
-            uuid: c9250fab-d0ec-4ef7-80bf-b50c543ca0e5
-            region: content
-            configuration:
-              id: 'extra_field_block:node:page:links'
-              label: Links
-              provider: layout_builder
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            additional: {  }
-            weight: 3
         third_party_settings: {  }
 _core:
   default_config_hash: '-Lpk_wjgp1swAnhU5W_j5rxVi-Y5c0VthPE_GzGnCFs'

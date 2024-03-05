@@ -12,7 +12,7 @@ dependencies:
     - field.field.node.event.field_location
     - field.field.node.event.field_presenter
     - field.field.node.event.field_teaser_image
-    - image.style.large
+    - image.style.480x480_crop
     - node.type.event
   module:
     - com_animation
@@ -265,13 +265,8 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: large
+      image_style: 480x480_crop
       image_link: content
-    third_party_settings: {  }
-  links:
-    weight: 3
-    region: content
-    settings: {  }
     third_party_settings: {  }
 hidden:
   field_contact: true
@@ -279,3 +274,4 @@ hidden:
   field_fee: true
   field_location: true
   field_presenter: true
+  links: true

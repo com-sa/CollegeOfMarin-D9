@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.page.field_related_content
     - field.field.node.page.field_teaser_image
     - field.field.node.page.field_weight
-    - image.style.large
+    - image.style.480x480_crop
     - node.type.page
   module:
     - layout_builder
@@ -40,7 +40,7 @@ third_party_settings:
                 type: media_thumbnail
                 label: hidden
                 settings:
-                  image_style: large
+                  image_style: 480x480_crop
                   image_link: content
                 third_party_settings: {  }
             additional: {  }
@@ -68,16 +68,6 @@ third_party_settings:
                 third_party_settings: {  }
             additional: {  }
             weight: -9
-          f94e95e0-b3c6-4f04-9eec-a516e1350695:
-            uuid: f94e95e0-b3c6-4f04-9eec-a516e1350695
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'extra_field_block:node:page:links'
-            additional: {  }
-            weight: -8
           f3340c50-a045-4e7e-9099-051df9bac30d:
             uuid: f3340c50-a045-4e7e-9099-051df9bac30d
             region: content
@@ -127,15 +117,11 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: large
+      image_style: 480x480_crop
       image_link: content
-    third_party_settings: {  }
-  links:
-    weight: 2
-    region: content
-    settings: {  }
     third_party_settings: {  }
 hidden:
   field_hero: true
   field_related_content: true
   field_weight: true
+  links: true

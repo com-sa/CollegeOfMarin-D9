@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.article.field_related_content
     - field.field.node.article.field_tags
     - field.field.node.article.field_teaser_image
+    - image.style.480x480_crop
     - node.type.article
   module:
     - layout_builder
@@ -39,7 +40,7 @@ third_party_settings:
                 label: hidden
                 type: media_thumbnail
                 settings:
-                  image_style: large
+                  image_style: 480x480_crop
                   image_link: ''
                 third_party_settings:
                   com_animation:
@@ -172,18 +173,6 @@ third_party_settings:
                 entity: layout_builder.entity
             additional: {  }
             weight: -8
-          94d2524f-e31e-4159-a9b0-c9b022aeb3d6:
-            uuid: 94d2524f-e31e-4159-a9b0-c9b022aeb3d6
-            region: content
-            configuration:
-              id: 'extra_field_block:node:article:links'
-              label: Links
-              provider: layout_builder
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-            additional: {  }
-            weight: -7
         third_party_settings: {  }
 _core:
   default_config_hash: BWa8m3qZT8M7Rx3Ea9iG6BuM6E9_-cHUv7egSrD5fWA

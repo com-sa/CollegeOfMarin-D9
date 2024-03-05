@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 250x250_crop
+label: '250x250 Crop'
+effects:
+  43c3cdbe-7a82-4d76-8de8-c1126a56ca79:
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 250
+      height: 250
+      anchor: center-center

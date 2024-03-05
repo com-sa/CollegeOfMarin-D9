@@ -35,6 +35,18 @@ class MigrationCleanupForm extends ConfigFormBase {
 			'#attributes' => [ 'style' => 'display:flex; justify-content: space-between; margin-bottom: 1rem; max-width: 400px;' ],
 		];
 
+		$form['checkbox_wrapper']['roles'] = [
+			'#default_value' => TRUE,			
+			'#title' => $this->t('Roles'),
+			'#type' => 'checkbox',
+		];
+
+		$form['checkbox_wrapper']['text_editors'] = [
+			'#default_value' => TRUE,			
+			'#title' => $this->t('Text Editors'),
+			'#type' => 'checkbox',
+		];
+
 		$form['checkbox_wrapper']['images'] = [
 			'#default_value' => TRUE,
 			'#title' => $this->t('Image'),
@@ -51,24 +63,50 @@ class MigrationCleanupForm extends ConfigFormBase {
 		return $form;
 	}
 
+	private function updateTextEditor() {	
+		user_role_grant_permissions('content_administrator', array('use text format full_html'));
+		user_role_grant_permissions('content_editor', array('use text format full_html'));
+	
+		/* update nodes and blocks using wysiwyg to use full_html */
+		$connection = \Drupal::database();
+		$connection->update('node__body')->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();		
+		$connection->update('block_content__body')->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();
+	
+		/* Remove wysiwyg filter */
+		$filter = FilterFormat::load('wysiwyg');
+		$filter->disable();
+		$filter->save();		
+
+		\Drupal::messenger()->addMessage($this->t('Updated Role Permissions for Full HTML Filter'), \Drupal::messenger()::TYPE_STATUS);
+	}
+
+	private function updateRolesWeight() {
+		$role_weight_mapping = [
+			'anonymous' => 0,
+			'authenticated' => 1,
+			'contributor' => 2,
+			'editor' => 3,
+			'administrator' => 4,
+		];
+	
+		$roles = \Drupal::entityTypeManager()->getStorage('user_role')->loadMultiple();
+
+		foreach($roles as $rid => $role) {
+			$role->setWeight($role_weight_mapping[$rid]);
+			$role->save();
+		}
+	}
+
 	public function postMigrationCleanup($params = []) {
-		/*if (empty($params) || in_array('fields', $params)) {
-			$this->removeEntityFields();
+		if (empty($params) || in_array('roles', $params)) {
+			$this->updateRolesWeight();	
 		}
-
-		if (empty($params) || in_array('entities', $params)) {
-			$this->removeEntityTypes();
-			$this->reorderEntityViewDisplays();
-		}
-
+		
 		if (empty($params) || in_array('text_editors', $params)) {
 			$this->updateTextEditor();
-		}
+		}		
 
-		$this->updateRolesWeight();*/
-
-
-    if (in_array('images', $params)) {
+    if (empty($params) || in_array('images', $params)) {
       // get all images in directory
       $uri = rtrim(\Drupal::service('file_url_generator')->generateString("public://"), '/');
       $files = \Drupal::service('file_system')->scanDirectory(DRUPAL_ROOT . $uri, '/.*\.(gif|jpe?g|png|webp|pdf|doc|txt)$/', ['recurse' => false,]);
@@ -90,16 +128,15 @@ class MigrationCleanupForm extends ConfigFormBase {
 	 * {@inheritdoc}
 	*/
 	public function submitForm(array &$form, FormStateInterface $form_state) {
-		//$defaults = ['fields', 'entities', 'text_editors'];
-    $defaults = ['images'];
+		$defaults = ['roles', 'text_editors', 'images'];
 		$params = [];
-
+		
 		foreach($defaults as $default) {
-			if ($form_state->getValue($default)) {
+			if ($form_state->getValue($default)) { 
 				$params[] = $default;
 			}
 		}
-
+				
 		$this->postMigrationCleanup($params);
 	}
 }

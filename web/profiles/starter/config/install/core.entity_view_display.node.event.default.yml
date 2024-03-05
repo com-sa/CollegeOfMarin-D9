@@ -12,7 +12,7 @@ dependencies:
     - field.field.node.event.field_presenter
     - field.field.node.event.field_related_content
     - field.field.node.event.field_teaser_image
-    - image.style.large
+    - image.style.480x480_crop
     - node.type.event
   module:
     - datetime
@@ -226,7 +226,7 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: large
+      image_style: 480x480_crop
       image_link: ''
     third_party_settings: {  }
     type: media_thumbnail

@@ -45,12 +45,17 @@
 .type-event.teaser .cell:has(.block):last-child { 
 	display: grid;
 	gap: 0.5rem 1rem;
-	grid-template-rows: auto auto auto;
-	grid-template-columns: auto auto;
 }
 
-.type-event.teaser :where(.field-title, field-body) {
-	grid-column: span 2;
+@media(min-width:601px) {
+	.type-event.teaser .cell:has(.block):last-child {
+		grid-template-rows: auto auto auto;
+		grid-template-columns: auto auto;
+	}
+
+	.type-event.teaser :where(.field-title, field-body) {
+		grid-column: span 2;
+	}
 }
 
 .type-event.teaser .cell > .block,
@@ -80,8 +85,11 @@
 	padding-bottom: .5rem;
 }
 
-.type-event.teaser .field-field_location {
-	margin-left: 3rem;
+@media(min-width:601px) {
+	.type-event.teaser .field-field_location {
+		margin-left: 3rem;
+		text-align: right;
+	}
 }
 
 

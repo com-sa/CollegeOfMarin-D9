@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 480x480_crop
+label: '480x480 Crop'
+effects:
+  ee633859-c679-4155-bea9-308a02dc68d7:
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 480
+      anchor: center-center
