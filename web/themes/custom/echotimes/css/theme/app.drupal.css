@@ -62,6 +62,11 @@
 	width: 100%;
 }
 
+.block-subtheme-local-tasks .button-group::before,
+.block-subtheme-local-tasks .button-group::after {content:none}
+.block-subtheme-local-tasks:has(.button-group) {display:none}
+.block-subtheme-local-tasks:has(.button-group > *) {display: block}
+
 
 /* MESSAGES/ALERTS
 ----------------------------------------------- */
