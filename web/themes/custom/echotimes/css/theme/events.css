@@ -53,7 +53,7 @@
 		grid-template-columns: auto auto;
 	}
 
-	.type-event.teaser :where(.field-title, field-body) {
+	.type-event.teaser :where(.field-title, .field-body) {
 		grid-column: span 2;
 	}
 }

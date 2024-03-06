@@ -1188,7 +1188,7 @@ section.block:before, section.block:after {
 	margin-top: 1rem;
 }
 
-#region-content .block {
+#region-content > .block {
 	width: 100%;
 }
 
