@@ -102,31 +102,6 @@ third_party_settings:
                 entity: layout_builder.entity
             additional: {  }
             weight: 1
-          499fc94a-0b39-42a6-81f1-b1d4d7e343f3:
-            uuid: 499fc94a-0b39-42a6-81f1-b1d4d7e343f3
-            region: second
-            configuration:
-              id: 'field_block:node:staff:field_office'
-              label: Office
-              provider: layout_builder
-              label_display: '0'
-              formatter:
-                label: above
-                type: string
-                settings:
-                  link_to_entity: false
-                third_party_settings:
-                  fences:
-                    fences_field_tag: div
-                    fences_field_classes: ''
-                    fences_field_item_tag: div
-                    fences_field_item_classes: ''
-                    fences_label_tag: div
-                    fences_label_classes: ''
-              context_mapping:
-                entity: layout_builder.entity
-            additional: {  }
-            weight: 2
           355f5c16-d0ec-4520-ab4b-f05d15a58597:
             uuid: 355f5c16-d0ec-4520-ab4b-f05d15a58597
             region: second
@@ -181,22 +156,6 @@ third_party_settings:
                 third_party_settings: {  }
             additional: {  }
             weight: 1
-          7b1f7d00-02fd-406c-911f-6e1e98bb3f6f:
-            uuid: 7b1f7d00-02fd-406c-911f-6e1e98bb3f6f
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:staff:field_office'
-              formatter:
-                type: string
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-            additional: {  }
-            weight: 2
           ebe8142d-ea21-48b8-9742-3e7f1f364384:
             uuid: ebe8142d-ea21-48b8-9742-3e7f1f364384
             region: content
@@ -252,14 +211,6 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
-  field_office:
-    type: string
-    weight: 3
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   field_position:
     type: string
     weight: 2
@@ -278,5 +229,5 @@ content:
       image_link: ''
     third_party_settings: {  }
 hidden:
-  field_phone_number: true
+  field_office: true
   links: true
