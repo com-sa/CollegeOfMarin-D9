@@ -33,9 +33,9 @@
 }
 
 
-.type-staff.full {
+/*.type-staff.full {
 	margin-top: .75rem;	
-}
+}*/
 
 @media(max-width:900px) {
 	.type-staff .view-mode-full {
