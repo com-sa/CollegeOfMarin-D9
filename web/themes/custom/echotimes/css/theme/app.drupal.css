@@ -184,3 +184,10 @@
         transform: translate3d(2000px, 0, 0);
 	}
 }
+
+
+
+/* layout builder */
+#layout-builder-components-table tr.draggable .js-form-item label {
+    display: none;
+  }
