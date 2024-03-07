@@ -190,4 +190,8 @@
 /* layout builder */
 #layout-builder-components-table tr.draggable .js-form-item label {
     display: none;
-  }
+}
+
+#layout-builder-components-table tr.draggable .tabledrag-handle .handle {
+    height: 1rem;
+}
