@@ -70,7 +70,7 @@ third_party_settings:
                 type: datetime_default
                 settings:
                   timezone_override: ''
-                  format_type: medium
+                  format_type: blog_date
                 third_party_settings:
                   fences:
                     fences_field_tag: div
@@ -185,7 +185,7 @@ content:
     weight: 6
     label: inline
     settings:
-      format_type: medium
+      format_type: blog_date
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
