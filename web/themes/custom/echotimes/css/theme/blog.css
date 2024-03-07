@@ -15,6 +15,10 @@
 	margin-top: 1.25rem;
 }
 
+.views-row:first-child .type-article.teaser {
+	margin-top: 0;
+}
+
 .type-article.teaser .field--name-field-teaser-image img {
 	width: 100%;
 }
