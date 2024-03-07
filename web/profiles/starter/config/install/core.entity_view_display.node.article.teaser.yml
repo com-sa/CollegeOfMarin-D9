@@ -24,7 +24,7 @@ third_party_settings:
     enabled: true
     sections:
       -
-        layout_id: 2_col_3_9
+        layout_id: 2_col_2_10
         layout_settings: {  }
         components:
           c7c64cfa-9470-45e6-af0b-ac379602a000:

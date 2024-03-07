@@ -64,8 +64,8 @@ class MigrationCleanupForm extends ConfigFormBase {
 	}
 
 	private function updateTextEditor() {	
-		user_role_grant_permissions('content_administrator', array('use text format full_html'));
-		user_role_grant_permissions('content_editor', array('use text format full_html'));
+		user_role_grant_permissions('contributor', array('use text format full_html'));
+		user_role_grant_permissions('editor', array('use text format full_html'));
 	
 		/* update nodes and blocks using wysiwyg to use full_html */
 		$connection = \Drupal::database();

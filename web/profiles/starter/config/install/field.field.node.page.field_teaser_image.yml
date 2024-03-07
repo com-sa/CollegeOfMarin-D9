@@ -15,7 +15,7 @@ field_name: field_teaser_image
 entity_type: node
 bundle: page
 label: 'Teaser Image'
-description: ''
+description: 'Image should be no smaller than 250x250 and square (1 to 1 ratio) images are recommended.'
 required: false
 translatable: true
 default_value:

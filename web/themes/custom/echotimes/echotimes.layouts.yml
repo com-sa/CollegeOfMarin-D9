@@ -1,3 +1,14 @@
+2_col_2_10:
+  label: '2 column - 2/10'
+  category: '2 column row'
+#  class: '\Drupal\echotimes\Plugin\Layout\EchotimesLayout'
+  template: layouts/2-col-2-10/2-col-2-10
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+  icon: layouts/2-col-2-10/2-col-2-10.png
 2_col_9_3:
   label: '2 column - 9/3'
   category: '2 column row'
