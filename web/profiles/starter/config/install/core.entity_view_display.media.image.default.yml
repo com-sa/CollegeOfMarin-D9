@@ -1,55 +1,47 @@
-uuid: a3365618-3735-4911-9124-aee71e9b65f1
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.media.image.field_media_image
-    - image.style.thumbnail
     - media.type.image
   module:
+    - com_animation
+    - fences
     - image
-    - user
-_core:
-  default_config_hash: m-ZqIxKT2rPeRHfCzbYJicv5c6khSIRya2yAhbu7cQM
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
 id: media.image.default
 targetEntityType: media
 bundle: image
 mode: default
 content:
-  created:
-    label: hidden
-    type: timestamp
-    weight: 0
-    region: content
-    settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-    third_party_settings: {  }
   field_media_image:
-    weight: 6
-    label: above
+    type: image
+    label: hidden
     settings:
+      image_link: ''
       image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    type: image
-    region: content
-  thumbnail:
-    type: image
-    weight: 5
-    label: hidden
-    settings:
-      image_style: thumbnail
-      image_link: ''
-    region: content
-    third_party_settings: {  }
-  uid:
-    label: hidden
-    type: author
+      image_loading:
+        attribute: lazy
+    third_party_settings:
+      com_animation:
+        animate: ''
+      fences:
+        fences_field_tag: div
+        fences_field_classes: ''
+        fences_field_items_wrapper_tag: none
+        fences_field_items_wrapper_classes: ''
+        fences_field_item_tag: div
+        fences_field_item_classes: ''
+        fences_label_tag: div
+        fences_label_classes: ''
     weight: 0
     region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
+  created: true
   name: true
+  thumbnail: true
+  uid: true

@@ -11,6 +11,10 @@
 	margin-top: 1.25rem;
 }
 
+.views-row:first-child .type-event.teaser {
+	margin-top: 0;
+}
+
 .type-event .layout-builder-item {
 	margin-bottom: 0;
 }
