@@ -1182,18 +1182,15 @@ section.block:before, section.block:after {
 	}
 }
 
-#region-content .block,
+#region-content > .block,
 #content-bottom .block {
 	margin-bottom: 1rem;
 	margin-top: 1rem;
+	width: 100%;
 }
 
 #region-content article.full .block {
 	margin-block: 0;
-}
-
-#region-content > .block {
-	width: 100%;
 }
 
 .sidebar .block {
