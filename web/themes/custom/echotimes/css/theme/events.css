@@ -19,6 +19,22 @@
 	margin-bottom: 0;
 }
 
+.type-event.full .grid-x > .cell:last-child .layout-builder-item {
+	border-bottom: 1px solid #f7f7f7;
+	margin-bottom: .5rem;
+	padding-bottom: .5rem;
+}
+
+.type-event.full .grid-x > .cell:last-child .layout-builder-item:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.type-event.full .grid-x > .cell:last-child .layout-builder-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
 .type-event .field--name-field-date .month,
 .type-event .field--name-field-date .day,
 .type-event.teaser .field-field_date {
@@ -100,14 +116,6 @@
 .type-event.full {
 	padding-top: .75rem;
 }*/
-
-.type-event.full .field-field_date,
-.type-event.full .field--name-field-location,
-.type-event.full .field--name-field-presenter {
-	border-bottom: 1px solid #f7f7f7;
-	margin-bottom: 0.5625rem;
-	padding-bottom: 0.5625rem;
-}
 
 
 .type-event.full .field-label {
