@@ -1189,7 +1189,8 @@ section.block:before, section.block:after {
 	width: 100%;
 }
 
-#region-content article.full .block {
+#region-content article.full:not(.type-staff,.type-event) .block {
+#region-content article.full:where(.type-staff,.type-event) .grid-x > .cell .layout-builder-item {
 	margin-block: 0;
 }
 
