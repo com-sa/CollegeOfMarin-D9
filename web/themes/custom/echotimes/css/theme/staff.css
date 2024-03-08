@@ -1,19 +1,5 @@
 /* PAGES: STAFF
 ----------------------------------------------- */
-/*
-.view-staff { text-align: center; }
-.view-staff .view-content > .column { 
-	margin: 0 0 1em; 
-}
-
-.view-staff .view-content > .column > div {
-	margin-bottom: .333rem;
-}
-
-.view-staff .view-content > .column > div:last-child {
-	margin-bottom: 1.5rem;
-}
-*/
 
 .type-staff.teaser .layout-builder-item {
 	margin-block: 0 .3125rem !important;
@@ -44,53 +30,14 @@
 	}
 }
 
-.type-staff.full .layout-builder-item {
+/*.type-staff.full .layout-builder-item {
 	margin-bottom: 0;
-}
+}*/
 
-/*
-.staff-graphic {
-	border: 1px solid #bdbdbd;
-	display:inline-block;
-	margin-bottom: 1.25rem;
-	overflow: hidden;
-}
-
-.staff-name {
-	color: #a47c42;
-	font-size: 1rem;
-	font-weight: 500;
-}
-
-.staff-position {
-	color: #ccc;
-	font-size: 1rem;
-}
-
-.staff-phone {
-	color: #666;
-}
-*/
-
-
-/* staff page block */
-
-/*
-.block-com-starter-staff-staff-info {
-	color: #666;
-}
-*/
-
-/*
-.block-com-starter-staff-staff-info:first-child {
-	margin-top: 2.333rem;	
-}
-*/
-
-.type-staff.full .field {
+/*.type-staff.full .field {
 	margin-bottom: .625rem;
 	padding-bottom: .625rem;
-}
+}*/
 
 
 @media(min-width:63.0625rem) {
@@ -100,11 +47,30 @@
 	}
 }
 
-.type-staff.full .field:nth-last-child(-n+3):not(:last-child),
-/*.type-staff.full .layout-builder-item:not(:last-child) .field:nth-last-child(-n+3)*/
+/*.type-staff.full .field:nth-last-child(-n+3):not(:last-child),
 .type-staff.full .layout-builder-item:not(:first-child):not(:last-child) .field {
 	border-bottom: 1px solid #f7f7f7;
+}*/
+
+
+.type-event.full .grid-x > .cell:last-child .layout-builder-item {
+	border-bottom: 1px solid #f7f7f7;
+	margin-block: .5rem;
+	padding-block: .5rem;
 }
+
+.type-event.full .grid-x > .cell:last-child .layout-builder-item:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.type-event.full .grid-x > .cell:last-child .layout-builder-item:last-child {
+	border: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+
  
 .type-staff.full .field-label {
 	font-weight: 700;

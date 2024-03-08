@@ -21,8 +21,8 @@
 
 .type-event.full .grid-x > .cell:last-child .layout-builder-item {
 	border-bottom: 1px solid #f7f7f7;
-	margin-bottom: .5rem;
-	padding-bottom: .5rem;
+	margin-block: .5rem;
+	padding-block: .5rem;
 }
 
 .type-event.full .grid-x > .cell:last-child .layout-builder-item:first-child {
