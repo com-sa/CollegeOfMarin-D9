@@ -86,3 +86,58 @@
 	font-size: 1rem;
 }
 
+
+
+
+/* PAGES: STAFF
+----------------------------------------------- */
+.view-id-profiles { text-align: center; }
+
+.view-id-profiles .views-row {
+	margin-bottom: 2rem;
+}
+
+@media #{$large-up} {
+    .view-id-profiles .views-row:nth-child(4n + 1) {
+       	clear:both;
+    }
+}
+
+@media #{$medium-only} {
+	.view-id-profiles .views-row:nth-child(odd) {
+        clear:both;
+    }
+}
+
+.view-id-profiles .view-content > .column { 
+	margin: 0 0 1em; 
+}
+
+.view-id-profiles .view-content > .column > div {
+	margin-bottom: .333rem;
+}
+
+.view-id-profiles .view-content > .column > div:last-child {
+	margin-bottom: 1.5rem;
+}
+
+.view-id-profiles .staff-graphic {
+	border: 1px solid #bdbdbd;
+	display:inline-block;
+	overflow: hidden;
+}
+
+.view-id-profiles .staff-name {
+	color: #a47c42;
+	font-size: 1rem;
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+.view-id-profiles .staff-position {
+	font-size: .875rem;;
+}
+
+.view-id-profiles .staff-phone {
+	color: #666;
+}
