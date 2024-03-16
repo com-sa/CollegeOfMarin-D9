@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\filter\Entity\FilterFormat;
+use Drupal\node\Entity\Node;
 
 class MigrationCleanupForm extends ConfigFormBase {
 
@@ -32,33 +33,94 @@ class MigrationCleanupForm extends ConfigFormBase {
 
 		$form['checkbox_wrapper'] = [
 			'#type' => 'container',
-			'#attributes' => [ 'style' => 'display:flex; justify-content: space-between; margin-bottom: 1rem; max-width: 400px;' ],
+			//'#attributes' => [ 'style' => 'display:flex; justify-content: space-between; margin-bottom: 1rem; max-width: 400px;' ],
 		];
 
 		$form['checkbox_wrapper']['roles'] = [
-			'#default_value' => TRUE,			
+			'#default_value' => FALSE,			
 			'#title' => $this->t('Roles'),
 			'#type' => 'checkbox',
 		];
 
 		$form['checkbox_wrapper']['text_editors'] = [
-			'#default_value' => TRUE,			
+			'#default_value' => FALSE,			
 			'#title' => $this->t('Text Editors'),
 			'#type' => 'checkbox',
 		];
 
 		$form['checkbox_wrapper']['images'] = [
-			'#default_value' => TRUE,
+			'#default_value' => FALSE,
 			'#title' => $this->t('Image'),
       '#description' => $this->t('Migrate all images to media entities'),
 			'#type' => 'checkbox',
 		];
+
+		$form['checkbox_wrapper']['nodes_wrapper'] = [
+			'#type' => 'fieldgroup',
+			'#title' => $this->t('Nodes'),
+			'#attributes' => [  ],
+		];
+
+		$existing_node_types = array_keys(\Drupal::entityTypeManager()->getStorage('node_type')->loadMultiple());
+
+		if (in_array('page', $existing_node_types)) {
+			$form['checkbox_wrapper']['nodes_wrapper']['pages'] = [
+				'#default_value' => FALSE,
+				'#title' => $this->t('Pages'),
+      	//'#description' => $this->t('Migrate all pages'),
+				'#type' => 'checkbox',
+				'#disabled' => TRUE,
+			];
+		}
+
+		if (in_array('article', $existing_node_types)) {
+			$form['checkbox_wrapper']['nodes_wrapper']['articles'] = [
+				'#default_value' => FALSE,
+				'#title' => $this->t('Articles'),
+      	//'#description' => $this->t('Migrate all articles'),
+				'#type' => 'checkbox',
+				'#disabled' => TRUE,
+			];
+		}
+
+		if (in_array('event', $existing_node_types)) {
+			$form['checkbox_wrapper']['nodes_wrapper']['events'] = [
+				'#default_value' => FALSE,
+				'#title' => $this->t('Events'),
+      	//'#description' => $this->t('Migrate all events'),
+				'#type' => 'checkbox',
+				'#disabled' => TRUE,
+			];
+		}
+
+		if (in_array('staff', $existing_node_types)) {
+			$form['checkbox_wrapper']['nodes_wrapper']['staff'] = [
+				'#default_value' => FALSE,
+				'#title' => $this->t('Staff'),
+      	//'#description' => $this->t('Migrate all staff'),
+				'#type' => 'checkbox',
+				'#disabled' => TRUE,
+			];
+		}
+
+		if (in_array('agenda_item', $existing_node_types)) {
+			$form['checkbox_wrapper']['nodes_wrapper']['agenda_items'] = [
+				'#default_value' => FALSE,
+				'#title' => $this->t('Agenda Items'),
+      	//'#description' => $this->t('Migrate all agenda items'),
+				'#type' => 'checkbox',
+			];
+		}
+
+		
 
 		$form['submit'] = [
 			'#submit' => array([$this, 'submitForm']),
 			'#type' => 'submit',
 			'#value' => t('Migrate'),
 		];
+
+		//print count($this->getNodes('agenda_item'));
 
 		return $form;
 	}
@@ -69,13 +131,26 @@ class MigrationCleanupForm extends ConfigFormBase {
 	
 		/* update nodes and blocks using wysiwyg to use full_html */
 		$connection = \Drupal::database();
-		$connection->update('node__body')->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();		
+		$tables = ['node__body', 'node_revision__body', 'block_content__body', 'block_content_revision__body'];
+		foreach($tables as $table) {
+			$connection->update($table)->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();
+		}
+
+		//UPDATE node__body SET body_format = 'full_html' WHERE body_format = 'wysiwyg'
+		//UPDATE block_content__body SET body_format = 'full_html' WHERE body_format = 'wysiwyg'
+		
+		/*$connection->update('node__body')->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();		
+		$connection->update('node_revision__body')->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();
 		$connection->update('block_content__body')->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();
-	
+		$connection->update('block_content_revision__body')->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();*/
+
+
 		/* Remove wysiwyg filter */
 		$filter = FilterFormat::load('wysiwyg');
-		$filter->disable();
-		$filter->save();		
+		if ($filter) {
+			$filter->disable();
+			$filter->save();		
+		}
 
 		\Drupal::messenger()->addMessage($this->t('Updated Role Permissions for Full HTML Filter'), \Drupal::messenger()::TYPE_STATUS);
 	}
@@ -97,16 +172,94 @@ class MigrationCleanupForm extends ConfigFormBase {
 		}
 	}
 
+	private function getNodes($type) {
+		$db = \Drupal\Core\Database\Database::getConnection('default','second');
+		$fields = [
+			'node.nid as ID',
+			'node.title as title',
+			'node.created as created',
+			'node.changed as changed',
+			'node.uid as uid',
+		];
+
+		/*$sql = "SELECT 
+		node.nid as ID,
+		node.title as title,
+		node.created as created,
+		node.changed as changed,
+		node.uid as uid,
+		ANY_VALUE(location.field_location_value) as location,
+		ANY_VALUE(date.field_meeting_date_value) as date, 
+		ANY_VALUE(organization_term.name) as organization,
+		ANY_VALUE(fiscal_year_term.name) as fiscal_year, 
+		ANY_VALUE(agenda_file.uri) as agenda, 
+		ANY_VALUE(minutes_file.uri) as minutes,
+		GROUP_CONCAT(additional_materials_file.uri) as additional_materials 
+		FROM node as node 
+		JOIN field_data_field_location as location ON node.nid = location.entity_id 
+		JOIN field_data_field_meeting_date as date ON node.nid = date.entity_id 
+		JOIN field_data_field_organization as organization ON node.nid = organization.entity_id 
+		JOIN taxonomy_term_data as organization_term ON organization.field_organization_tid = organization_term.tid 
+		JOIN field_data_field_fiscal_year as fiscal_year ON node.nid = fiscal_year.entity_id 
+		JOIN taxonomy_term_data as fiscal_year_term ON fiscal_year.field_fiscal_year_tid = fiscal_year_term.tid 
+		LEFT JOIN field_revision_field_agenda_pdf as agenda ON node.nid = agenda.entity_id 
+		LEFT JOIN file_managed as agenda_file ON agenda.field_agenda_pdf_fid = agenda_file.fid 
+		LEFT JOIN field_revision_field_minutes_pdf as minutes ON node.nid = minutes.entity_id 
+		LEFT JOIN file_managed as minutes_file ON minutes.field_minutes_pdf_fid = minutes_file.fid 
+		LEFT JOIN field_data_field_additional_materials_pdf as additional_materials ON node.nid = additional_materials.entity_id 
+		LEFT JOIN file_managed as additional_materials_file ON additional_materials.field_additional_materials_pdf_fid = additional_materials_file.fid			
+		WHERE node.type = 'agenda_item' 
+		GROUP BY node.nid ORDER BY node.nid ASC";*/
+		
+		switch ($type) {
+			case 'agenda_item':
+				$fields = array_merge($fields, [
+					'ANY_VALUE(location.field_location_value) as location',
+					'ANY_VALUE(date.field_meeting_date_value) as date', 
+					'ANY_VALUE(organization_term.name) as organization',
+					'ANY_VALUE(fiscal_year_term.name) as fiscal_year', 
+					'ANY_VALUE(agenda_file.uri) as agenda', 
+					'ANY_VALUE(minutes_file.uri) as minutes',
+					'GROUP_CONCAT(additional_materials_file.uri) as additional_materials'
+				]);
+
+				$where = "WHERE node.type = 'agenda_item'";
+
+				$joins = [
+					'JOIN field_data_field_location as location ON node.nid = location.entity_id',
+					'JOIN field_data_field_meeting_date as date ON node.nid = date.entity_id',
+					'JOIN field_data_field_organization as organization ON node.nid = organization.entity_id',
+					'JOIN taxonomy_term_data as organization_term ON organization.field_organization_tid = organization_term.tid',
+					'JOIN field_data_field_fiscal_year as fiscal_year ON node.nid = fiscal_year.entity_id',
+					'JOIN taxonomy_term_data as fiscal_year_term ON fiscal_year.field_fiscal_year_tid = fiscal_year_term.tid',
+					'LEFT JOIN field_revision_field_agenda_pdf as agenda ON node.nid = agenda.entity_id',
+					'LEFT JOIN file_managed as agenda_file ON agenda.field_agenda_pdf_fid = agenda_file.fid', 
+					'LEFT JOIN field_revision_field_minutes_pdf as minutes ON node.nid = minutes.entity_id',
+					'LEFT JOIN file_managed as minutes_file ON minutes.field_minutes_pdf_fid = minutes_file.fid',
+					'LEFT JOIN field_data_field_additional_materials_pdf as additional_materials ON node.nid = additional_materials.entity_id',
+					'LEFT JOIN file_managed as additional_materials_file ON additional_materials.field_additional_materials_pdf_fid = additional_materials_file.fid'
+				];
+				break;
+			default:
+				$where = '';
+				$joins = [];
+				//
+		}
+
+		$sql = 'SELECT ' . implode(', ', $fields) . ' FROM node as node ' . implode(' ', $joins) . ' ' . $where . ' GROUP BY node.nid ORDER BY node.nid ASC';
+		return $db->query($sql)->fetchAll();
+	}
+
 	public function postMigrationCleanup($params = []) {
-		if (empty($params) || in_array('roles', $params)) {
+		if (in_array('roles', $params)) {
 			$this->updateRolesWeight();	
 		}
 		
-		if (empty($params) || in_array('text_editors', $params)) {
+		if (in_array('text_editors', $params)) {
 			$this->updateTextEditor();
 		}		
 
-    if (empty($params) || in_array('images', $params)) {
+    if (in_array('images', $params)) {
       // get all images in directory
       $uri = rtrim(\Drupal::service('file_url_generator')->generateString("public://"), '/');
       $files = \Drupal::service('file_system')->scanDirectory(DRUPAL_ROOT . $uri, '/.*\.(gif|jpe?g|png|webp|pdf|doc|txt)$/', ['recurse' => false,]);
@@ -121,6 +274,61 @@ class MigrationCleanupForm extends ConfigFormBase {
 
       batch_set($batch);
     }
+
+		if (in_array('agenda_items', $params)) {
+      $db = \Drupal\Core\Database\Database::getConnection('default','second');
+			$query = $db->query("SELECT 
+				node.nid as ID,
+				node.title as title,
+				node.created as created,
+				node.changed as changed,
+				node.uid as uid,
+				ANY_VALUE(location.field_location_value) as location,
+				ANY_VALUE(date.field_meeting_date_value) as date, 
+				ANY_VALUE(organization_term.name) as organization,
+				ANY_VALUE(fiscal_year_term.name) as fiscal_year, 
+				ANY_VALUE(agenda_file.uri) as agenda, 
+				ANY_VALUE(minutes_file.uri) as minutes,
+				GROUP_CONCAT(additional_materials_file.uri) as additional_materials 
+				FROM node as node 
+				JOIN field_data_field_location as location ON node.nid = location.entity_id 
+				JOIN field_data_field_meeting_date as date ON node.nid = date.entity_id 
+				JOIN field_data_field_organization as organization ON node.nid = organization.entity_id 
+				JOIN taxonomy_term_data as organization_term ON organization.field_organization_tid = organization_term.tid 
+				JOIN field_data_field_fiscal_year as fiscal_year ON node.nid = fiscal_year.entity_id 
+				JOIN taxonomy_term_data as fiscal_year_term ON fiscal_year.field_fiscal_year_tid = fiscal_year_term.tid 
+				LEFT JOIN field_revision_field_agenda_pdf as agenda ON node.nid = agenda.entity_id 
+				LEFT JOIN file_managed as agenda_file ON agenda.field_agenda_pdf_fid = agenda_file.fid 
+				LEFT JOIN field_revision_field_minutes_pdf as minutes ON node.nid = minutes.entity_id 
+				LEFT JOIN file_managed as minutes_file ON minutes.field_minutes_pdf_fid = minutes_file.fid 
+				LEFT JOIN field_data_field_additional_materials_pdf as additional_materials ON node.nid = additional_materials.entity_id 
+				LEFT JOIN file_managed as additional_materials_file ON additional_materials.field_additional_materials_pdf_fid = additional_materials_file.fid			
+				WHERE node.type = 'agenda_item' 
+				GROUP BY node.nid 
+				ORDER BY node.nid ASC
+			");
+
+			//667
+			$items = $query->fetchAll();
+
+			$tids = \Drupal::entityQuery('taxonomy_term')->condition('vid', "organization")->execute();
+			$tids = array_merge($tids, \Drupal::entityQuery('taxonomy_term')->condition('vid', "fiscal_year")->execute());
+			$terms = \Drupal\taxonomy\Entity\Term::loadMultiple($tids);
+			$terms = array_reduce($terms, function($acc, $term) {
+				$acc[$term->getName()] = ['id' => $term->id(), 'vocab' => $term->bundle()];
+				return $acc;
+			}, []);
+
+      $batch = array(
+        'title' => t('Creating Nodes'),
+        'operations' => [ ['\Drupal\com_post_migration\CreateNodes::process', [$items, $terms] ], ],
+        'finished' => '\Drupal\com_post_migration\CreateNodes::finishedCallback',
+        'progress_message' => t('Processed @current out of @total.'),
+        'init_message' => t('Batch is starting.'),
+      );
+
+      batch_set($batch);
+    }
 	}
 
 
@@ -128,7 +336,7 @@ class MigrationCleanupForm extends ConfigFormBase {
 	 * {@inheritdoc}
 	*/
 	public function submitForm(array &$form, FormStateInterface $form_state) {
-		$defaults = ['roles', 'text_editors', 'images'];
+		$defaults = ['roles', 'text_editors', 'images', 'agenda_items'];
 		$params = [];
 		
 		foreach($defaults as $default) {
