@@ -46,7 +46,7 @@ install:
   - editor_advanced_link
   - entity_reference_revisions
   - externalauth
-  #- fast404
+  - fast404
   - fences
   - field_group
   - hotjar
