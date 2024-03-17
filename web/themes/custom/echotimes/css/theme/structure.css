@@ -360,6 +360,20 @@ h6 a, h6 a:link, h6 a:visited { color: inherit; }
 	width: 100%;
 }
 
+.file--application-pdf a {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.file--application-pdf a:before {
+	content: "";
+	display: inline-block;
+	width: 1rem;
+	height: 1rem;
+	background: url('/themes/custom/echotimes/images/icons.svg#pdf');
+}
+
 
 /* COLORS: BACKGROUNDS
 ----------------------------------------------- */
