@@ -1110,9 +1110,9 @@ ul.pagination li a { padding: 0.2625rem 0.725rem 0.2625rem; }
     -webkit-appearance: none;
 }
 
-.view .field__item:not(.day):not(.month) time {
-    color: #ccc;
-}
+/*.view .field__item:not(.day):not(.month) time {
+  color: #ccc;
+}*/
 
 .view.display-type-page .views-row:not(:last-child) article.teaser {
 	padding-bottom: 2rem;
