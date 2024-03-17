@@ -30,7 +30,6 @@
         "drupal/editor_advanced_link": "^2.2",
         "drupal/entity_reference_revisions": "^1.9",
         "drupal/externalauth": "^2.0",
-        "drupal/fast_404": "^2.0@alpha",
         "drupal/fences": "^3.0",
         "drupal/field_group": "^3.3",
         "drupal/google_analytics": "^4.0",
@@ -50,7 +49,8 @@
         "drupal/smtp": "^1.2",
         "drupal/samlauth": "^3.9",
         "drupal/views_cache_bully": "^2.0",
-        "drupal/image_field_caption": "^2.0"
+        "drupal/image_field_caption": "^2.0",
+        "drupal/fast_404": "^3.2"
     },
     "require-dev": {
         "drupal/core-dev": "^9.2"
