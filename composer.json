@@ -50,7 +50,8 @@
         "drupal/samlauth": "^3.9",
         "drupal/views_cache_bully": "^2.0",
         "drupal/image_field_caption": "^2.0",
-        "drupal/fast_404": "^3.2"
+        "drupal/fast_404": "^3.2",
+        "drupal/asset_injector": "^2.19"
     },
     "require-dev": {
         "drupal/core-dev": "^9.2"
