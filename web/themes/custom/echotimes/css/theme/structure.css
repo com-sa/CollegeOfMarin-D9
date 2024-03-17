@@ -366,7 +366,7 @@ h6 a, h6 a:link, h6 a:visited { color: inherit; }
 	gap: 0.25rem;
 }
 
-.file--application-pdf a:before {
+.file--application-pdf a::before {
 	content: "";
 	display: inline-block;
 	width: 1rem;
