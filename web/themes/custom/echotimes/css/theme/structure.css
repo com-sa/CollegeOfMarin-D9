@@ -367,11 +367,11 @@ h6 a, h6 a:link, h6 a:visited { color: inherit; }
 }
 
 .file--application-pdf a::before {
+	background: url('/themes/custom/echotimes/images/icons.svg#pdf');
 	content: "";
 	display: inline-block;
-	width: 1rem;
 	height: 1rem;
-	background: url('/themes/custom/echotimes/images/icons.svg#pdf');
+	width: 1rem;
 }
 
 
