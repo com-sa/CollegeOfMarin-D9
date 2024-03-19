@@ -3,7 +3,7 @@ global:
   css:
     base:
       css/libraries/foundation-float.css: {}
-      css/libraries/foundation.css: {}
+      css/libraries/foundation.min.css: {}
       css/libraries/slick.css: {}
       css/libraries/animate.css: {}
       css/libraries/animate-initial.css: {}
@@ -24,7 +24,7 @@ global:
   js:
     https://ai.ocelotbot.com/embed/standard/22d1a09e-06e6-40e5-aee9-5363045232de: { type: external, attributes: { async: true } }
     js/libraries/css-vars-ponyfill.min.js: {}
-    js/libraries/foundation.js: {}
+    js/libraries/foundation.min.js: {}
     js/libraries/motion-ui.min.js: {}
     js/libraries/slick.min.js: {}
     js/libraries/smoothScroll.js: {}
