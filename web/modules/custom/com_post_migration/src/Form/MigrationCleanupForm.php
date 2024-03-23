@@ -55,63 +55,71 @@ class MigrationCleanupForm extends ConfigFormBase {
 			'#type' => 'checkbox',
 		];
 
-		$form['checkbox_wrapper']['nodes_wrapper'] = [
-			'#type' => 'fieldgroup',
-			'#title' => $this->t('Nodes'),
-			'#attributes' => [  ],
-		];
+		if (!isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+			$existing_node_types = array_keys(\Drupal::entityTypeManager()->getStorage('node_type')->loadMultiple());
 
-		$existing_node_types = array_keys(\Drupal::entityTypeManager()->getStorage('node_type')->loadMultiple());
+			$form['checkbox_wrapper']['nodes_wrapper'] = [
+				'#type' => 'fieldgroup',
+				'#title' => $this->t('Nodes'),
+				'#attributes' => [  ],
+			];
 
-		if (in_array('page', $existing_node_types)) {
-			$form['checkbox_wrapper']['nodes_wrapper']['pages'] = [
+			if (in_array('page', $existing_node_types)) {
+				$form['checkbox_wrapper']['nodes_wrapper']['pages'] = [
+					'#default_value' => FALSE,
+					'#title' => $this->t('Pages'),
+					//'#description' => $this->t('Migrate all pages'),
+					'#type' => 'checkbox',
+					'#disabled' => TRUE,
+				];
+			}
+
+			if (in_array('article', $existing_node_types)) {
+				$form['checkbox_wrapper']['nodes_wrapper']['articles'] = [
+					'#default_value' => FALSE,
+					'#title' => $this->t('Articles'),
+					//'#description' => $this->t('Migrate all articles'),
+					'#type' => 'checkbox',
+					'#disabled' => TRUE,
+				];
+			}
+
+			if (in_array('event', $existing_node_types)) {
+				$form['checkbox_wrapper']['nodes_wrapper']['events'] = [
+					'#default_value' => FALSE,
+					'#title' => $this->t('Events'),
+					//'#description' => $this->t('Migrate all events'),
+					'#type' => 'checkbox',
+					'#disabled' => TRUE,
+				];
+			}
+
+			if (in_array('staff', $existing_node_types)) {
+				$form['checkbox_wrapper']['nodes_wrapper']['staff'] = [
+					'#default_value' => FALSE,
+					'#title' => $this->t('Staff'),
+					//'#description' => $this->t('Migrate all staff'),
+					'#type' => 'checkbox',
+					'#disabled' => TRUE,
+				];
+			}
+
+			if (in_array('agenda_item', $existing_node_types)) {
+				$form['checkbox_wrapper']['nodes_wrapper']['agenda_items'] = [
+					'#default_value' => FALSE,
+					'#title' => $this->t('Agenda Items'),
+					//'#description' => $this->t('Migrate all agenda items'),
+					'#type' => 'checkbox',
+				];
+			}
+
+			$form['checkbox_wrapper']['nodes_wrapper']['node_updated_date'] = [
 				'#default_value' => FALSE,
-				'#title' => $this->t('Pages'),
-      	//'#description' => $this->t('Migrate all pages'),
+				'#title' => $this->t('Node Updated Date'),
+				'#description' => $this->t('Sync Updated Date on all Nodes'),
 				'#type' => 'checkbox',
-				'#disabled' => TRUE,
 			];
 		}
-
-		if (in_array('article', $existing_node_types)) {
-			$form['checkbox_wrapper']['nodes_wrapper']['articles'] = [
-				'#default_value' => FALSE,
-				'#title' => $this->t('Articles'),
-      	//'#description' => $this->t('Migrate all articles'),
-				'#type' => 'checkbox',
-				'#disabled' => TRUE,
-			];
-		}
-
-		if (in_array('event', $existing_node_types)) {
-			$form['checkbox_wrapper']['nodes_wrapper']['events'] = [
-				'#default_value' => FALSE,
-				'#title' => $this->t('Events'),
-      	//'#description' => $this->t('Migrate all events'),
-				'#type' => 'checkbox',
-				'#disabled' => TRUE,
-			];
-		}
-
-		if (in_array('staff', $existing_node_types)) {
-			$form['checkbox_wrapper']['nodes_wrapper']['staff'] = [
-				'#default_value' => FALSE,
-				'#title' => $this->t('Staff'),
-      	//'#description' => $this->t('Migrate all staff'),
-				'#type' => 'checkbox',
-				'#disabled' => TRUE,
-			];
-		}
-
-		if (in_array('agenda_item', $existing_node_types)) {
-			$form['checkbox_wrapper']['nodes_wrapper']['agenda_items'] = [
-				'#default_value' => FALSE,
-				'#title' => $this->t('Agenda Items'),
-      	//'#description' => $this->t('Migrate all agenda items'),
-				'#type' => 'checkbox',
-			];
-		}
-
 		
 
 		$form['submit'] = [
@@ -119,8 +127,6 @@ class MigrationCleanupForm extends ConfigFormBase {
 			'#type' => 'submit',
 			'#value' => t('Migrate'),
 		];
-
-		//print count($this->getNodes('agenda_item'));
 
 		return $form;
 	}
@@ -135,15 +141,6 @@ class MigrationCleanupForm extends ConfigFormBase {
 		foreach($tables as $table) {
 			$connection->update($table)->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();
 		}
-
-		//UPDATE node__body SET body_format = 'full_html' WHERE body_format = 'wysiwyg'
-		//UPDATE block_content__body SET body_format = 'full_html' WHERE body_format = 'wysiwyg'
-		
-		/*$connection->update('node__body')->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();		
-		$connection->update('node_revision__body')->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();
-		$connection->update('block_content__body')->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();
-		$connection->update('block_content_revision__body')->fields(['body_format' => 'full_html',])->condition('body_format', 'wysiwyg')->execute();*/
-
 
 		/* Remove wysiwyg filter */
 		$filter = FilterFormat::load('wysiwyg');
@@ -182,35 +179,6 @@ class MigrationCleanupForm extends ConfigFormBase {
 			'node.uid as uid',
 		];
 
-		/*$sql = "SELECT 
-		node.nid as ID,
-		node.title as title,
-		node.created as created,
-		node.changed as changed,
-		node.uid as uid,
-		ANY_VALUE(location.field_location_value) as location,
-		ANY_VALUE(date.field_meeting_date_value) as date, 
-		ANY_VALUE(organization_term.name) as organization,
-		ANY_VALUE(fiscal_year_term.name) as fiscal_year, 
-		ANY_VALUE(agenda_file.uri) as agenda, 
-		ANY_VALUE(minutes_file.uri) as minutes,
-		GROUP_CONCAT(additional_materials_file.uri) as additional_materials 
-		FROM node as node 
-		JOIN field_data_field_location as location ON node.nid = location.entity_id 
-		JOIN field_data_field_meeting_date as date ON node.nid = date.entity_id 
-		JOIN field_data_field_organization as organization ON node.nid = organization.entity_id 
-		JOIN taxonomy_term_data as organization_term ON organization.field_organization_tid = organization_term.tid 
-		JOIN field_data_field_fiscal_year as fiscal_year ON node.nid = fiscal_year.entity_id 
-		JOIN taxonomy_term_data as fiscal_year_term ON fiscal_year.field_fiscal_year_tid = fiscal_year_term.tid 
-		LEFT JOIN field_revision_field_agenda_pdf as agenda ON node.nid = agenda.entity_id 
-		LEFT JOIN file_managed as agenda_file ON agenda.field_agenda_pdf_fid = agenda_file.fid 
-		LEFT JOIN field_revision_field_minutes_pdf as minutes ON node.nid = minutes.entity_id 
-		LEFT JOIN file_managed as minutes_file ON minutes.field_minutes_pdf_fid = minutes_file.fid 
-		LEFT JOIN field_data_field_additional_materials_pdf as additional_materials ON node.nid = additional_materials.entity_id 
-		LEFT JOIN file_managed as additional_materials_file ON additional_materials.field_additional_materials_pdf_fid = additional_materials_file.fid			
-		WHERE node.type = 'agenda_item' 
-		GROUP BY node.nid ORDER BY node.nid ASC";*/
-		
 		switch ($type) {
 			case 'agenda_item':
 				$fields = array_merge($fields, [
@@ -276,40 +244,7 @@ class MigrationCleanupForm extends ConfigFormBase {
     }
 
 		if (in_array('agenda_items', $params)) {
-      $db = \Drupal\Core\Database\Database::getConnection('default','second');
-			$query = $db->query("SELECT 
-				node.nid as ID,
-				node.title as title,
-				node.created as created,
-				node.changed as changed,
-				node.uid as uid,
-				ANY_VALUE(location.field_location_value) as location,
-				ANY_VALUE(date.field_meeting_date_value) as date, 
-				ANY_VALUE(organization_term.name) as organization,
-				ANY_VALUE(fiscal_year_term.name) as fiscal_year, 
-				ANY_VALUE(agenda_file.uri) as agenda, 
-				ANY_VALUE(minutes_file.uri) as minutes,
-				GROUP_CONCAT(additional_materials_file.uri) as additional_materials 
-				FROM node as node 
-				JOIN field_data_field_location as location ON node.nid = location.entity_id 
-				JOIN field_data_field_meeting_date as date ON node.nid = date.entity_id 
-				JOIN field_data_field_organization as organization ON node.nid = organization.entity_id 
-				JOIN taxonomy_term_data as organization_term ON organization.field_organization_tid = organization_term.tid 
-				JOIN field_data_field_fiscal_year as fiscal_year ON node.nid = fiscal_year.entity_id 
-				JOIN taxonomy_term_data as fiscal_year_term ON fiscal_year.field_fiscal_year_tid = fiscal_year_term.tid 
-				LEFT JOIN field_revision_field_agenda_pdf as agenda ON node.nid = agenda.entity_id 
-				LEFT JOIN file_managed as agenda_file ON agenda.field_agenda_pdf_fid = agenda_file.fid 
-				LEFT JOIN field_revision_field_minutes_pdf as minutes ON node.nid = minutes.entity_id 
-				LEFT JOIN file_managed as minutes_file ON minutes.field_minutes_pdf_fid = minutes_file.fid 
-				LEFT JOIN field_data_field_additional_materials_pdf as additional_materials ON node.nid = additional_materials.entity_id 
-				LEFT JOIN file_managed as additional_materials_file ON additional_materials.field_additional_materials_pdf_fid = additional_materials_file.fid			
-				WHERE node.type = 'agenda_item' 
-				GROUP BY node.nid 
-				ORDER BY node.nid ASC
-			");
-
-			//667
-			$items = $query->fetchAll();
+      $items = $this->getNodes('agenda_item');
 
 			$tids = \Drupal::entityQuery('taxonomy_term')->condition('vid', "organization")->execute();
 			$tids = array_merge($tids, \Drupal::entityQuery('taxonomy_term')->condition('vid', "fiscal_year")->execute());
@@ -329,6 +264,18 @@ class MigrationCleanupForm extends ConfigFormBase {
 
       batch_set($batch);
     }
+
+		if (in_array('node_updated_date', $params)) {
+			$db_7 = \Drupal\Core\Database\Database::getConnection('default','second');
+			$db_9 = \Drupal::database();
+			$nodes = $db_7->query("SELECT nid, changed FROM node")->fetchAll();
+			foreach($nodes as $node) {
+				$db_9->update('node_field_data')->fields(['changed' => $node->changed])->condition('nid', $node->nid)->execute();
+
+				$vid = $db_9->query("SELECT vid FROM node_field_revision WHERE nid = :nid ORDER BY vid DESC LIMIT 0, 1", [':nid' => $node->nid])->fetchField();
+				$db_9->update('node_field_revision')->fields(['changed' => $node->changed])->condition('nid', $node->nid)->condition('vid', $vid)->execute();
+			}
+		}
 	}
 
 
@@ -336,7 +283,7 @@ class MigrationCleanupForm extends ConfigFormBase {
 	 * {@inheritdoc}
 	*/
 	public function submitForm(array &$form, FormStateInterface $form_state) {
-		$defaults = ['roles', 'text_editors', 'images', 'agenda_items'];
+		$defaults = ['roles', 'text_editors', 'images', 'agenda_items', 'node_updated_date'];
 		$params = [];
 		
 		foreach($defaults as $default) {
