@@ -61,11 +61,13 @@
  */
 #}
 <div id="page" role="document">
-	{# {% if page.meta_header %}
-       	{% if meta_header_grid %}<div class="grid-container grid-x"><div class="cell large-12">{% endif %}
-		{{ page.meta_header }}
-		{% if meta_header_grid %}</div></div>{% endif %}
-	{% endif %} #}
+	{# 
+		{% if page.meta_header %}
+    	{% if meta_header_grid %}<div class="grid-container grid-x"><div class="cell large-12">{% endif %}
+			{{ page.meta_header }}
+			{% if meta_header_grid %}</div></div>{% endif %}
+		{% endif %} 
+	#}
 
 	<!-- include header -->
 	{% include header_include_path %}
@@ -73,7 +75,6 @@
 
 	<main id="main">
 		{% if page.highlighted %}{{ page.highlighted }}{% endif %}
-
 		<div id="main-content" class="grid-container grid-x">
 			<div class="main cell {{ main_grid }} small-12">
 				<a id="main-content"></a>
@@ -82,27 +83,11 @@
 				  {% if tabs %}{{ tabs }}{% if tabs2 %}{{ tabs2 }}{% endif %}{% endif %}
 				  {% if action_links %}<ul class="action-links">{{ action_links }}</ul>{% endif %}
         #}
-
 				{{ page.content }}
 			</div><!-- // .main -->
-
-			{% if page.sidebar_first %}
-			<aside id="sidebar-first" class="sidebar cell {{ sidebar_first_grid }} small-12">
-				{{ page.sidebar_first }}
-			</aside>
-			{% endif %}
-
-			{% if page.sidebar_second %}
-			<aside id="sidebar-second" class="sidebar cell {{ sidebar_sec_grid }} small-12">
-				{{ page.sidebar_second }}
-			</aside>
-			{% endif %}
-
-			{% if page.content_bottom %}
-			<div id="content-bottom" class="grid-x grid-padding-x cell small-12">{{ page.content_bottom }}</div>
-			{% endif %}
-
-		</div>
+			{% if page.sidebar_first %}<aside id="sidebar-first" class="sidebar cell {{ sidebar_first_grid }} small-12">{{ page.sidebar_first }}</aside>{% endif %}
+			{% if page.sidebar_second %}<aside id="sidebar-second" class="sidebar cell {{ sidebar_sec_grid }} small-12">{{ page.sidebar_second }}</aside>{% endif %}
+			{% if page.content_bottom %}<div id="content-bottom" class="grid-x grid-padding-x cell small-12">{{ page.content_bottom }}</div>{% endif %}</div>
 	</main>
 
 	<!-- include_footer -->
@@ -110,14 +95,8 @@
 	<!-- include_footer -->
 </div>
 
-{% if page.messages %}
-	<div id="messages" class="grid-container grid-x"><div class="cell large-12">{{ page.messages }}</div></div>
-{% endif %}
-
-{#{% if page.left_off_canvas %}
-	<aside class="left-off-canvas-menu">{{ page.left_off_canvas }}</aside>
-{% endif %}
-
-{% if page.right_off_canvas %}
-	<aside class="right-off-canvas-menu">{{ page.right_off_canvas }}</aside>
-{% endif %}#}
+{% if page.messages %}<div id="messages" class="grid-container grid-x"><div class="cell large-12">{{ page.messages }}</div></div>{% endif %}
+{#
+	{% if page.left_off_canvas %}<aside class="left-off-canvas-menu">{{ page.left_off_canvas }}</aside>{% endif %}
+	{% if page.right_off_canvas %}<aside class="right-off-canvas-menu">{{ page.right_off_canvas }}</aside>{% endif %}
+#}
