@@ -1253,6 +1253,11 @@ section.block:before, section.block:after {
 	}
 }
 
+#sidebar-first:empty,
+#sidebar-second:empty {
+	display: none;
+}
+
 article.teaser .links.inline,
 article.featured .links.inline {
 	display: flex;
