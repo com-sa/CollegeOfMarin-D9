@@ -120,7 +120,6 @@ class MigrationCleanupForm extends ConfigFormBase {
 				'#type' => 'checkbox',
 			];
 		}
-		
 
 		$form['submit'] = [
 			'#submit' => array([$this, 'submitForm']),
@@ -295,3 +294,34 @@ class MigrationCleanupForm extends ConfigFormBase {
 		$this->postMigrationCleanup($params);
 	}
 }
+
+
+
+
+
+/*
+$db_7 = \Drupal\Core\Database\Database::getConnection('default','second');
+$db_9 = \Drupal::database();
+
+$original = $db_7->query('SELECT nid, title FROM node ORDER BY nid ASC')->fetchAll();
+$original = array_reduce($original, fn($acc, $item) => $acc + [$item->nid => $item->title], []);
+$new = $db_9->query('SELECT nid, title FROM node_field_data ORDER BY nid ASC')->fetchAll();
+$new = array_reduce($new, fn($acc, $item) => $acc + [$item->nid => $item->title], []);
+		
+$original_diff = [];
+foreach($original as $key => $item) {
+	if (!isset($new[$key]) || $new[$key] != $item) {
+		$original_diff[] = $key;
+	}
+}
+
+$new_diff = [];
+foreach($new as $key => $item) {
+	if (!isset($original[$key]) || $original[$key] != $item) {
+		$new_diff[] = $key;
+	}
+}
+
+print_r($original_diff);
+print_r($new_diff);
+*/
