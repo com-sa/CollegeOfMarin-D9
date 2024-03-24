@@ -52,7 +52,8 @@
         "drupal/image_field_caption": "^2.0",
         "drupal/fast_404": "^3.2",
         "drupal/asset_injector": "^2.19",
-        "drupal/rabbit_hole": "^2.0@alpha"
+        "drupal/rabbit_hole": "^2.0@alpha",
+        "drupal/custom_nid": "^2.0"
     },
     "require-dev": {
         "drupal/core-dev": "^9.2"
