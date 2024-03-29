@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58e1cc4b5c2db34da106c3f4e26dbd77",
+    "content-hash": "1a910c52f594e36a4be8327e2748a0c3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3803,6 +3803,50 @@
             "homepage": "https://www.drupal.org/project/views_cache_bully",
             "support": {
                 "source": "https://git.drupalcode.org/project/views_cache_bully"
+            }
+        },
+        {
+            "name": "drupal/views_taxonomy_term_name_into_id",
+            "version": "1.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/views_taxonomy_term_name_into_id.git",
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/views_taxonomy_term_name_into_id-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "03d9092d02eb3d24d41bd03d8e53bc435cb52da5"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1678760984",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "dww",
+                    "homepage": "https://www.drupal.org/user/46549"
+                }
+            ],
+            "description": "The module provides the Views plugin for a Contextual filter (argument) validator that converts valid term names into IDs.",
+            "homepage": "https://www.drupal.org/project/views_taxonomy_term_name_into_id",
+            "support": {
+                "source": "https://git.drupalcode.org/project/views_taxonomy_term_name_into_id"
             }
         },
         {
@@ -13087,7 +13131,8 @@
         "pantheon-upstreams/upstream-configuration": 20,
         "drupal/content_access": 5,
         "drupal/zurb_foundation": 10,
-        "drupal/rabbit_hole": 15
+        "drupal/rabbit_hole": 15,
+        "drupal/views_taxonomy_term_name_into_id": 5
     },
     "prefer-stable": true,
     "prefer-lowest": false,

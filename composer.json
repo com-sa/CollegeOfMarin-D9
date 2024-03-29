@@ -53,7 +53,8 @@
         "drupal/fast_404": "^3.2",
         "drupal/asset_injector": "^2.19",
         "drupal/rabbit_hole": "^2.0@alpha",
-        "drupal/custom_nid": "^2.0"
+        "drupal/custom_nid": "^2.0",
+        "drupal/views_taxonomy_term_name_into_id": "^1.0@RC"
     },
     "require-dev": {
         "drupal/core-dev": "^9.2"
