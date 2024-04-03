@@ -45,7 +45,7 @@
 	line-height: 1.25;
 	text-align: center;
 	text-transform: uppercase;
-	width: 70px;
+	/*width: 70px;*/
 }
 
 .type-event.teaser .field-title + .field-field_date .field--node-field-date {

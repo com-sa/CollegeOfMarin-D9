@@ -987,7 +987,7 @@ ul.pagination li a { padding: 0.2625rem 0.725rem 0.2625rem; }
 		padding-top: 2rem;
 	}
 
-	.sidebar .block:not(:last-child) {
+	.sidebar .block:not(:last-child):not(.layout-builder-item) {
 		padding-bottom: 1.5rem;
 	}
 }
@@ -1011,7 +1011,7 @@ ul.pagination li a { padding: 0.2625rem 0.725rem 0.2625rem; }
 }
 
 @media(min-width:901px) {
-	.sidebar .block:first-child {
+	.sidebar .block:first-child:not(.layout-builder-item) {
 		padding-top: 0;
 	}
 	
@@ -1226,7 +1226,7 @@ section.block:before, section.block:after {
 	margin-block: 0;
 }
 
-.sidebar .block {
+.sidebar .block:not(.layout-builder-item) {
 	padding-top: 1rem;
 }
 
