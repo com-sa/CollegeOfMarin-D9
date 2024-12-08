@@ -1080,6 +1080,11 @@ ul.pagination li a { padding: 0.2625rem 0.725rem 0.2625rem; }
 /* -----------------------------------------------
 /* VIEWS
 ----------------------------------------------- */
+
+.view > footer {
+	width: 100%;
+}
+
 .view .more-link {
     margin-top: 1rem;
     padding-left: 1rem;
