@@ -1,9 +1,0 @@
-credential_provider: shield
-credentials:
-  shield:
-    user: mariner
-    pass: com
-print: Hello!
-allow_cli: true
-shield_enable: true
-whitelist: ''
