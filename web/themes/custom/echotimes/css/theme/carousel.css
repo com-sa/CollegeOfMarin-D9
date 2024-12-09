@@ -87,6 +87,10 @@
   justify-content: stretch;
   /*min-height: 100vh;*/
 	max-height: 550px;
+	
+	&:has(video) {
+		height: 56.25dvw;
+	}
 }
 
 
