@@ -12,7 +12,7 @@ type: 'canonical_entities:node'
 pattern: '/blog/[node:title]'
 selection_criteria:
   97cc5465-5c8b-4c7a-9540-27252f91f936:
-    id: node_type
+    id: entity_bundle:node
     bundles:
       article: article
     negate: false

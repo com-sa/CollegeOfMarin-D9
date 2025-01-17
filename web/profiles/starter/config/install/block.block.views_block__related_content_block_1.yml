@@ -25,7 +25,7 @@ settings:
   context_mapping: {  }
 visibility:
   node_type:
-    id: node_type
+    id: entity_bundle:node
     bundles:
       article: article
       page: page

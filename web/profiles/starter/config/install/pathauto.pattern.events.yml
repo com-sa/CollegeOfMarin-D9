@@ -12,7 +12,7 @@ type: 'canonical_entities:node'
 pattern: '/event/[node:title]'
 selection_criteria:
   63337e3d-aca3-40aa-a2bf-6ff5bf2c9d3d:
-    id: node_type
+    id: entity_bundle:node
     bundles:
       event: event
     negate: false
