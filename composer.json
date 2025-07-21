@@ -22,7 +22,7 @@
         "cweagans/composer-patches": "^1.7",
         "drush/drush": "^11 || ^12",
         "drupal/admin_toolbar": "^3.2",
-        "drupal/block_class": "^2.0",
+        "drupal/block_class": "^3.0",
         "drupal/cas": "^2.1",
         "drupal/content_access": "^2.0@RC",
         "drupal/core-project-message": "^9",
