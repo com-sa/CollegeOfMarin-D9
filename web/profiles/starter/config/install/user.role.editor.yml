@@ -1,81 +1,71 @@
-uuid: df81ee38-8cac-48a0-89cc-b35aa548783c
 langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: pX1604QY3Q8hi_NxXfBPGRgfVceeQfO9SPYEoJdkBSw
+dependencies:
+  config:
+    - filter.format.full_html
+    - filter.format.webform_default
+    - media.type.document
+    - media.type.image
+    - node.type.page
+  module:
+    - block
+    - block_class
+    - contextual
+    - file
+    - filter
+    - image
+    - media
+    - node
+    - quickedit
+    - system
+    - toolbar
 id: editor
 label: Editor
 weight: 2
 is_admin: null
 permissions:
   - 'access administration pages'
-  - 'access any webform configuration'
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
   - 'access in-place editing'
   - 'access media overview'
-  - 'access own webform configuration'
   - 'access toolbar'
-  - 'access webform overview'
-  - 'access webform submission user'
   - 'administer block classes'
   - 'administer blocks'
   - 'administer image styles'
   - 'administer menu'
   - 'administer nodes'
-  - 'administer webform'
-  - 'administer webform submission'
   - 'bypass honeypot protection'
   - 'bypass node access'
   - 'create document media'
   - 'create image media'
   - 'create media'
   - 'create page content'
-  - 'create terms in event_type'
-  - 'create terms in tags'
-  - 'create webform'
   - 'delete all revisions'
   - 'delete any document media'
   - 'delete any image media'
   - 'delete any media'
   - 'delete any page content'
-  - 'delete any webform'
-  - 'delete any webform submission'
   - 'delete media'
   - 'delete own document media'
   - 'delete own image media'
   - 'delete own page content'
-  - 'delete own webform'
-  - 'delete own webform submission'
   - 'delete page revisions'
-  - 'delete terms in event_type'
-  - 'delete terms in tags'
   - 'edit any document media'
   - 'edit any image media'
   - 'edit any page content'
-  - 'edit any webform'
-  - 'edit any webform submission'
   - 'edit own document media'
   - 'edit own image media'
   - 'edit own page content'
-  - 'edit own webform'
-  - 'edit own webform submission'
-  - 'edit terms in event_type'
-  - 'edit terms in tags'
-  - 'edit webform assets'
-  - 'edit webform source'
-  - 'edit webform twig'
   - 'revert all revisions'
   - 'revert page revisions'
   - 'update any media'
   - 'update media'
   - 'use text format full_html'
+  - 'use text format webform_default'
   - 'view all media revisions'
   - 'view all revisions'
-  - 'view any webform submission'
   - 'view own unpublished content'
-  - 'view own webform submission'
   - 'view page revisions'
   - 'view the administration theme'

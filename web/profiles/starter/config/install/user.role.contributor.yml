@@ -1,9 +1,24 @@
-uuid: 8f6e08e9-44f6-46f1-ad7a-db9d72e6b272
 langcode: en
 status: true
-dependencies: {  }
-_core:
-  default_config_hash: EKPbb_zRbU2-BLUX8RQY_SptwwRokTgQVh7DuvV3pw8
+dependencies:
+  config:
+    - filter.format.full_html
+    - filter.format.webform_default
+    - media.type.document
+    - media.type.image
+    - node.type.article
+    - node.type.event
+    - node.type.page
+    - node.type.staff
+  module:
+    - contextual
+    - file
+    - filter
+    - media
+    - node
+    - quickedit
+    - system
+    - toolbar
 id: contributor
 label: Contributor
 weight: 3
@@ -16,15 +31,12 @@ permissions:
   - 'access in-place editing'
   - 'access media overview'
   - 'access toolbar'
-  - 'administer menu'
   - 'bypass honeypot protection'
   - 'create article content'
   - 'create document media'
   - 'create event content'
   - 'create image media'
   - 'create media'
-  - 'create terms in event_type'
-  - 'create terms in tags'
   - 'delete any article content'
   - 'delete any document media'
   - 'delete any event content'
@@ -36,8 +48,6 @@ permissions:
   - 'delete own event content'
   - 'delete own image media'
   - 'delete own page content'
-  - 'delete terms in event_type'
-  - 'delete terms in tags'
   - 'edit any article content'
   - 'edit any document media'
   - 'edit any event content'
@@ -48,14 +58,13 @@ permissions:
   - 'edit own event content'
   - 'edit own image media'
   - 'edit own page content'
-  - 'edit terms in event_type'
-  - 'edit terms in tags'
   - 'revert article revisions'
   - 'revert event revisions'
   - 'revert staff revisions'
   - 'update any media'
   - 'update media'
   - 'use text format full_html'
+  - 'use text format webform_default'
   - 'view all media revisions'
   - 'view article revisions'
   - 'view event revisions'
