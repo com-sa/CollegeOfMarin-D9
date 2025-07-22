@@ -13,9 +13,10 @@
 
 .orbit-caption {
 	background: none;
-    bottom: 20%;
-    left: 0;
-    width: auto;
+  bottom: 20%;
+  left: 0;
+	padding: 1rem 1rem 3rem;
+  width: auto;
 }
 
 .orbit-caption h1 {
