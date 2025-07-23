@@ -97,7 +97,29 @@
 
 
 
+.view-id-blog.current-display-block_1 {
+	position: relative;
+	
+	.views-field-field-teaser-image {
+		margin-bottom: 1rem;
+		
+		img {
+	    width: 100%;
+		}
+	}
+	
+	& > footer {
+		padding-top: 1rem;
+	}
 
+
+	header:has(a:only-child) {
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translate(-10px, -48px);
+	}
+}
 
 /* ELEMENTS: BLOG Carousel
 ----------------------------------------------- */
