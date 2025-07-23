@@ -37,8 +37,7 @@
 }
 
 .type-event .field--name-field-date .month,
-.type-event .field--name-field-date .day,
-.type-event.teaser .field-field_date {
+.type-event .field--name-field-date .day {
 	color: #4c5762;
 	display: block;
 	font-weight: 500;
@@ -101,6 +100,7 @@
 }
 
 .type-event.teaser .field--name-field-date > .field__item:not(.month):not(.day),
+.type-event.teaser .field--name-field-date > .field-item:not(.month):not(.day),
 .type-event.teaser .field-field_location {
 	color: #ccc;
 	padding-bottom: .5rem;
