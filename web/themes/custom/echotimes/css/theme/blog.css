@@ -94,11 +94,12 @@
 }
 */
 
-
-
-
 .view-id-blog.current-display-block_1 {
 	position: relative;
+
+	.cell {
+		padding-inline: 1rem;
+	}
 	
 	.views-field-field-teaser-image {
 		margin-bottom: 1rem;
