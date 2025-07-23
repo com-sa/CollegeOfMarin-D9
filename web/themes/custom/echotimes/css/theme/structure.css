@@ -1071,10 +1071,11 @@ ul.pagination li a { padding: 0.2625rem 0.725rem 0.2625rem; }
 	flex: 0 0 33.333%;
 }
 
+/*
 .view-id-featured_content .views-row:first-child:nth-last-child(4),
 .view-id-featured_content .views-row:first-child:nth-last-child(4) ~ .views-row {
 	flex: 0 0 25%;
-}
+}*/
 
 
 /* -----------------------------------------------
