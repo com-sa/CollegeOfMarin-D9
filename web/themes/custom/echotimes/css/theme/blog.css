@@ -19,6 +19,10 @@
 	margin-top: 0;
 }
 
+.type-article.teaser .cell:not(:has(>*)) {
+  display: none;
+}
+
 .type-article.teaser .field--name-field-teaser-image img {
 	width: 100%;
 }
