@@ -1312,6 +1312,20 @@ article.full .field--name-body {
 /* END PAGES
 ----------------------------------------------- */
 
+article .body a[href$=".pdf"] {
+	align-items: flex-start;
+	display: inline-flex;
+	gap: .25rem;
+
+	&::before {
+		background: url('/core/themes/classy/images/icons/application-pdf.png') 50% 50% / contain no-repeat;
+		content:"";
+		flex-shrink: 0;
+		height: 1em;
+		transform: translateY(2px);
+		width: 1em;
+	}
+}
 
 
 article.featured .field--name-field-teaser-image img,
