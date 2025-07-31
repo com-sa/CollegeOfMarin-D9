@@ -805,6 +805,10 @@
 	margin-bottom: 1.875rem;
 	padding: 1.125rem;
 
+	.block-title {
+		min-height: unset;
+	}
+
 	.button {
 			display: block;
 	}
