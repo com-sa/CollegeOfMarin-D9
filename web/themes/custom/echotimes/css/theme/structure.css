@@ -508,6 +508,10 @@ button.expand a, .button.expand a { display: block; padding: .75em 2em;
 	transition: all .3s linear 0s;
 }
 
+.button.small {
+	font-size: .75rem !important;
+}
+
 .button:not(.expanded) + .button:not(.expanded) {
 	margin-left: .625rem;
 }

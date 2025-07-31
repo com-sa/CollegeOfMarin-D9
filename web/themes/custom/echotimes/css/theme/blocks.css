@@ -794,3 +794,18 @@
 			clear: both
 	}
 }
+
+
+/* BLOCK: WITH CALLOUT CLASS
+----------------------------------------------- */
+.block.callout {
+	background: #f2f2f2;
+	border: 1px solid #d8d8d8;
+	color: #333;
+	margin-bottom: 1.875rem;
+	padding: 1.125rem;
+
+	.button {
+			display: block;
+	}
+}
