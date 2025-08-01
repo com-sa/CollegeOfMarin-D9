@@ -1331,7 +1331,7 @@ article.full .field--name-body {
 	}
 }*/
 
-.view-field-additional-materials-pdf-table-column span.file + span {
+.views-field-field-additional-materials-pdf span.file + span {
 	display: none;
 }
 
