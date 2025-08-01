@@ -1331,6 +1331,10 @@ article.full .field--name-body {
 	}
 }*/
 
+.view-field-additional-materials-pdf-table-column span.file + span {
+	display: none;
+}
+
 
 article.featured .field--name-field-teaser-image img,
 article.teaser .field--name-field-teaser-image img {
