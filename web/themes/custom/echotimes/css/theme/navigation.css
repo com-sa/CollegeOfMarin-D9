@@ -58,14 +58,14 @@
   }
 }
 
-#block-mainnavigation .block-title {
-    background: #231f20;
-    border-color: #cd9027;
-    border-style: solid;
-    border-width: 6px 0 0;
-    color: #fff;
-    font-weight: 400;
-    padding: 1rem;
+#header #block-mainnavigation .block-title {
+  background: #231f20;
+  border-color: #cd9027;
+  border-style: solid;
+  border-width: 6px 0 0;
+  color: #fff;
+  font-weight: 400;
+  padding: 1rem;
 }
 
 
