@@ -1316,7 +1316,7 @@ article.full .field--name-body {
 /* END PAGES
 ----------------------------------------------- */
 
-article .body a[href$=".pdf"] {
+/*article .body a[href$=".pdf"] {
 	align-items: flex-start;
 	display: inline-flex;
 	gap: .25rem;
@@ -1329,7 +1329,7 @@ article .body a[href$=".pdf"] {
 		transform: translateY(2px);
 		width: 1em;
 	}
-}
+}*/
 
 
 article.featured .field--name-field-teaser-image img,
