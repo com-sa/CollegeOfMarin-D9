@@ -138,7 +138,10 @@ class COMHeroBlock extends BlockBase {
 				$render['#meta'] = $carousel_meta;
 			}
 		} else {
-			$render = ['#attributes' => ['class' => ['empty']]];	
+			$render = [
+				'#attributes' => ['class' => ['empty']],
+				'#cache' => ['max-age' => 0,]
+			];
 		}
 	
 		return $render;
