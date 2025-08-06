@@ -87,19 +87,25 @@
 }
 */
 
-.view-id-blog.display-type-page .pager {
-  padding-top: 2rem;
+.view-id-blog.display-type-page {
 
-  ul.pagination {
-    display: flex;
-    gap: .75rem;
+	.title {
+		text-transform: uppercase;
+	}
 
-    .current {
-      padding: 0;
-    }
-  }
+	.pager {
+		padding-top: 2rem;
+
+		ul.pagination {
+			display: flex;
+			gap: .75rem;
+
+			.current {
+				padding: 0;
+			}
+		}
+	}
 }
-
 
 /* -----------------------------------------------
 /*  SIDEBAR: BLOCKS: BLOG
