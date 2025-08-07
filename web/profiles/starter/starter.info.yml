@@ -10,7 +10,8 @@ install:
   - block
   - big_pipe
   - block_content
-  - ckeditor
+#  - ckeditor
+  - ckeditor5
   - config
   - contextual
   - datetime
