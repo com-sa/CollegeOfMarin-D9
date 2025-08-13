@@ -57,7 +57,8 @@
         "drupal/views_taxonomy_term_name_into_id": "^1.0@RC",
         "drupal/stable": "^2.0",
         "drupal/ckeditor_html_embed": "^1.0",
-        "drupal/media_entity_file_replace": "^1.2"
+        "drupal/media_entity_file_replace": "^1.2",
+        "drupal/fancy_file_delete": "^2.0"
     },
     "require-dev": {
         "drupal/core-dev": "^9.2"
