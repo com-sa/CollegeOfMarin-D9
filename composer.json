@@ -59,7 +59,8 @@
         "drupal/ckeditor_html_embed": "^1.0",
         "drupal/media_entity_file_replace": "^1.2",
         "drupal/fancy_file_delete": "^2.0",
-        "drupal/config_delete": "^1.18"
+        "drupal/config_delete": "^1.18",
+        "drupal/file_replace": "^1.4"
     },
     "require-dev": {
         "drupal/core-dev": "^9.2"
