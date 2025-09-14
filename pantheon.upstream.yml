@@ -2,7 +2,8 @@ api_version: 1
 web_docroot: true
 # See https://pantheon.io/docs/pantheon-yml/#enforce-https--hsts for valid values.
 enforce_https: full+subdomains
-php_version: 8.1
+php_version: 8.2
+php_runtime_generation: 2
 database:
   version: 10.4
 drush_version: 10
