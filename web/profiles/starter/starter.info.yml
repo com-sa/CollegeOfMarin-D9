@@ -30,15 +30,15 @@ install:
   - options
   - path
   - page_cache
-  - quickedit
-  - rdf
+#  - quickedit
+#  - rdf
 #  - syslog  
   - taxonomy
   - toolbar
   - views
   - views_ui
   - admin_toolbar
-  - admin_toolbar_links_access_filter
+#  - admin_toolbar_links_access_filter
   - admin_toolbar_tools
   - block_class
   - cas
@@ -50,10 +50,12 @@ install:
   - fast404
   - fences
   - field_group
+  - file_replace
   - hotjar
   - image_field_caption
   - google_analytics
   - media
+  - media_entity_file_replace
   - metatag
   - metatag_open_graph
   - metatag_twitter_cards
