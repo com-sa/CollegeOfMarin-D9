@@ -6,10 +6,10 @@
 	margin-bottom: .75rem !important;
 }
 
-.type-event.teaser {
+/*.type-event.teaser {
 	margin-bottom: 2rem;
 	margin-top: 1.25rem;
-}
+}*/
 
 .views-row:first-child .type-event.teaser {
 	margin-top: 0;
