@@ -1445,7 +1445,7 @@ article.mini .title {
 /* FEATURED CONTENT
 ----------------------------------------------- */
 .view-id-featured_content {
-  .views-field views-field-field-teaser-image {
+  .views-field-field-teaser-image {
     padding-bottom: 0.5rem;
   }
 }
