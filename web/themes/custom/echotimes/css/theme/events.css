@@ -113,6 +113,27 @@
 	}
 }
 
+.type-event.teaser {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+
+    .field-title {
+      margin: 0;
+      min-width: 100%;
+    }
+
+    .field-field_location {
+      margin: 0;
+    }
+  }
+}
+
 /*
 .type-event.full {
 	padding-top: .75rem;
