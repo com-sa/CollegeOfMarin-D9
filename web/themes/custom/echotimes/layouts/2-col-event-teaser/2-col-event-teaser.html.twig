@@ -14,9 +14,11 @@
  *   - content.second: Content in the right column.
  */
 #}
-<div class="date">
-   	{{ content.first }}
-</div>
-<div class="info">
-   	{{ content.second }}
-</div>
+<div {{ attributes.setAttribute('id', settings.css_id).addClass('grid-x grid-margin-x', settings.css_classes) }}>
+	<div class="cell large-1 medium-2 small-3">
+    	{{ content.first }}
+	</div>
+	<div class="cell large-11 medium-10 small-9">
+    	{{ content.second }}
+	</div>
+</div> <!-- /.grid-x -->

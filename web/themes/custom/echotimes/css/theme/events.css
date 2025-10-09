@@ -47,6 +47,10 @@
 	/*width: 70px;*/
 }
 
+.type-event .field--name-field-date .day {
+	font-size: 1.6875rem
+}
+
 .type-event.teaser .field-title + .field-field_date .field--node-field-date {
 	text-align: left;
 }
@@ -113,7 +117,7 @@
 	}
 }
 
-.type-event.teaser {
+.type-event.teaser > div {
   display: flex;
   gap: 0.75rem;
   align-items: center;
