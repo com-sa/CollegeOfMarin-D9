@@ -134,7 +134,8 @@ function com_preprocess_block(&$variables) {
 	}
 	
 	if ($variables['elements']['#plugin_id'] == 'system_main_block') {		
-		$markup = trim(strip_tags($variables['elements']['content']['#markup']));
+		//$markup = trim(strip_tags($variables['elements']['content']['#markup']));
+		$markup = trim($variables['elements']['content']['#markup']);
 		if ($markup == '') {
 			if (isset($variables['attributes']['class'])) {
 				$variables['attributes']['class'][] = 'empty-block';
@@ -142,7 +143,6 @@ function com_preprocess_block(&$variables) {
 				$variables['attributes']['class'] = ['empty-block'];	
 			}
 		}
-		//print_r($variables['elements']);
 	}
 }
 
