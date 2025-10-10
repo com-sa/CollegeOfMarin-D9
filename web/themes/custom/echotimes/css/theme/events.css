@@ -122,6 +122,10 @@
   gap: 0.75rem;
   align-items: center;
 
+	& > .grid-x {
+		width: 100%;
+	}
+
   .info {
     display: flex;
     flex-wrap: wrap;
