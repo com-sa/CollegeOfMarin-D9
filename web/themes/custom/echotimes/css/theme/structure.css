@@ -1455,6 +1455,25 @@ article.mini .title {
 
 
 /* -----------------------------------------------
+/* Embedded Media:Image
+----------------------------------------------- */
+.field--name-field-media-image {
+	.align-left:has(&) {
+		margin-right: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.align-right:has(&) {
+		margin-left: 1rem;
+		margin-bottom: 1rem;
+	}
+}
+/* -----------------------------------------------
+/* END Embedded Media:Image
+----------------------------------------------- */
+
+
+/* -----------------------------------------------
 /*  ANIMATIONS AND MISC CSS
 ----------------------------------------------- */
 
