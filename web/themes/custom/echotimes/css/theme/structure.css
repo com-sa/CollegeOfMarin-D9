@@ -1454,6 +1454,7 @@ article.mini .title {
 ----------------------------------------------- */
 
 
+
 /* -----------------------------------------------
 /* Embedded Media:Image
 ----------------------------------------------- */
@@ -1471,6 +1472,7 @@ article.mini .title {
 /* -----------------------------------------------
 /* END Embedded Media:Image
 ----------------------------------------------- */
+
 
 
 /* -----------------------------------------------
@@ -1575,11 +1577,32 @@ article.mini .title {
 [class*="column"] + [class*="column"]:last-child { float:left; }
 .row [class*="column"] + [class*="column"]:last-child { float:left; }
 
-
-.button-group.stack {
-	display: block;
+.button-group {
+	gap: 1px;
   list-style: none;
-  margin: 0;
+  margin: 0 0 1rem;
+
+	&.stack {
+		display: block;
+  	margin: 0;
+	}
+
+  &.round {
+
+    a {
+      border-radius: 0;
+    }
+
+    li:first-child a {
+      border-bottom-left-radius: 1000px;
+      border-top-left-radius: 1000px;
+    }
+
+    li:last-child a {
+      border-bottom-right-radius: 1000px;
+      border-top-right-radius: 1000px;
+    }
+  }
 }
 
 
