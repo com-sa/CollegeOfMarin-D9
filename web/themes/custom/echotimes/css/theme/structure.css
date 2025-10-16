@@ -956,6 +956,11 @@ ul.pagination li a { padding: 0.2625rem 0.725rem 0.2625rem; }
 	color:#993232;
 }
 
+.alert-box.info {
+	background-color: #a0d3e8;
+  border-color: #74bfdd;
+  color: #4f4f4f;
+}
 
 
 /* UNPUBLISHED CONTENT */
