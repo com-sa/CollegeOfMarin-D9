@@ -352,13 +352,13 @@ h6 a, h6 a:link, h6 a:visited { color: inherit; }
 ---*/
 
 /* don't allow jump links to get sucked underneath fixed nav */
-*:target:before {
+/**:target:before {
 	clear: both;
 	content: "";
 	display: block;
 	height: 10em;
 	width: 100%;
-}
+}*/
 
 .file--application-pdf a {
 	display: inline-flex;
