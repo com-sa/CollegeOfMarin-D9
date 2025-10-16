@@ -939,6 +939,7 @@ ul.pagination li a { padding: 0.2625rem 0.725rem 0.2625rem; }
 	font-size: 1rem;
 	font-weight: 300;
 	margin: .625rem 0;
+	padding: .875rem 1.5rem .875rem .875rem;
 }
 
 .alert-box.success {
