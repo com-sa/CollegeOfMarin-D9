@@ -1486,6 +1486,44 @@ article.mini .title {
 
 
 /* -----------------------------------------------
+/* Pricing Table
+----------------------------------------------- */
+.pricing-table {
+    border: solid 1px #ddd;
+    margin-left: 0;
+    margin-bottom: 1.25rem;
+
+    * {
+        list-style: none;
+        line-height: 1;
+    }
+
+    .title {
+        background-color: #333;
+        color: #eee;
+        font-family: "Avenir", sans-serif;
+        font-size: 1rem;
+        font-weight: normal;
+        padding: .9375rem 1.25rem;
+        text-align: center;
+    }
+
+    .price {
+        background-color: #f6f6f6;
+        color: #333;
+        font-family: "Avenir", sans-serif;
+        font-size: 2rem;
+        font-weight: normal;
+        padding: .9375rem 1.25rem;
+        text-align: center;
+    }
+}
+/* -----------------------------------------------
+/* END Pricing Table
+----------------------------------------------- */
+
+
+/* -----------------------------------------------
 /*  ANIMATIONS AND MISC CSS
 ----------------------------------------------- */
 
