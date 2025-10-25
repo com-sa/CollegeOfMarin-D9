@@ -12,3 +12,10 @@ com.kitchen_sink:
     _title: 'Kitchen Sink'
   requirements:
     _permission: 'access content overview'
+com.migration_prep:
+  path: '/admin/com/migration_prep'
+  defaults:
+    _form: '\Drupal\com\Form\MigrationPrepForm'
+    _title: 'Migration Prep'
+  requirements:
+    _permission: 'administer com'

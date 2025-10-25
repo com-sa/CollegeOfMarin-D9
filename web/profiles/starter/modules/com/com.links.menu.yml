@@ -8,3 +8,8 @@ com.kitchen_sink:
   title: 'Kitchen Sink'
   description: 'COM: Kitchen Sink - Configuration.'
   parent: system.admin_content
+com.migration_prep:
+  route_name: com.migration_prep
+  title: 'Migration Prep'
+  description: 'COM: Migration Prep.'
+  parent: com.admin_settings

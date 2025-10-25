@@ -141,7 +141,7 @@ class COMHeroBlock extends BlockBase {
 			$render = [
 				'#attributes' => ['class' => ['empty']],
 				'#cache' => ['max-age' => 0,]
-			];
+			];	
 		}
 	
 		return $render;

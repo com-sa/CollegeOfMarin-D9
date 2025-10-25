@@ -1,6 +1,8 @@
 <?php
 
 use Drupal\Core\File\FileSystem;
+use Symfony\Component\Routing\RouteCollection;
+
 
 /**
 * Implements hook_theme().
@@ -9,7 +11,7 @@ function com_theme($existing, $type, $theme, $path) {
 	return [
 		'kitchen_sink' => array(
 			'template' => 'kitchen-sink',
-			'path' => drupal_get_path('module', 'com') . '/templates',
+			'path' => \Drupal::service('extension.list.module')->getPath('com') . '/templates',
 			'render element' => 'kitchen-sink',
 		),
 	];
@@ -145,6 +147,16 @@ function com_preprocess_block(&$variables) {
 		}
 	}
 }
+
+
+function com_route_alter(RouteCollection $collection) {
+  // Replace 'webform.autocomplete' if that is the route you find in Network.
+  if ($route = $collection->get('entity.webform.autocomplete')) {
+    $route->setDefault('_controller', '\Drupal\com\Controller\WebformAutocompleteFix::handle');
+  }
+}
+
+
 
 /**
  * Implements hook_form_FORMID_alter().
