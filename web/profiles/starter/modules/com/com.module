@@ -8,12 +8,12 @@ use Symfony\Component\Routing\RouteCollection;
 * Implements hook_theme().
 */
 function com_theme($existing, $type, $theme, $path) {
-	return [
+	return [ 
 		'kitchen_sink' => array(
 			'template' => 'kitchen-sink',
 			'path' => \Drupal::service('extension.list.module')->getPath('com') . '/templates',
 			'render element' => 'kitchen-sink',
-		),
+		), 
 	];
 }
 
