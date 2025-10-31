@@ -100,7 +100,7 @@ Array.from||(Array.from=function(){var r=Object.prototype.toString,n=function(n)
 			});
 			
 			el.addEventListener("click", function(evt) {
-				if ( document.documentElement.clientWidth <= 1008 ) {
+				if ( document.documentElement.clientWidth <= 1200 ) {
 					evt.preventDefault();
 					var $li = $(this).parent(),
 						i = $li.parent().children().index( $li );
