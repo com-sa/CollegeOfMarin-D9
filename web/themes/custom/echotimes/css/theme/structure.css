@@ -1236,13 +1236,17 @@ section.block:before, section.block:after {
 	margin-top: 1rem;
 }
 
-#region-content > .block {
+#region-content > .block:not(.cell) {
 	width: 100%;
 }
 
 #region-content article.full:not(.type-staff,.type-event) .block,
 #region-content article.full:where(.type-staff,.type-event) .grid-x > .cell .layout-builder-item {
 	margin-block: 0;
+}
+
+.block-subtheme-content:has(.view-mode-full:empty) {
+	display: none;
 }
 
 .sidebar .block:not(.layout-builder-item) {
