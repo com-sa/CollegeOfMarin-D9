@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e990f41b8bf53cc5ab568a2fe8b16501",
+    "content-hash": "c6c3601564bc091a1eb3b8c9f73d4bd0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1877,6 +1877,78 @@
                 "source": "https://git.drupalcode.org/project/cas",
                 "issues": "http://drupal.org/project/issues/cas",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/cas_attributes",
+            "version": "2.0.0-beta5",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/cas_attributes.git",
+                "reference": "2.0.0-beta5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/cas_attributes-2.0.0-beta5.zip",
+                "reference": "2.0.0-beta5",
+                "shasum": "895fd804ac2718ca26efd231c0d5efe206d6b858"
+            },
+            "require": {
+                "drupal/cas": "^2.1",
+                "drupal/core": "^9 || ^10",
+                "drupal/token": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-beta5",
+                    "datestamp": "1668811504",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "bfroehle",
+                    "homepage": "https://www.drupal.org/user/381391"
+                },
+                {
+                    "name": "bkosborne",
+                    "homepage": "https://www.drupal.org/user/788032"
+                },
+                {
+                    "name": "claudiu.cristea",
+                    "homepage": "https://www.drupal.org/user/56348"
+                },
+                {
+                    "name": "metzlerd",
+                    "homepage": "https://www.drupal.org/user/32494"
+                },
+                {
+                    "name": "olarin",
+                    "homepage": "https://www.drupal.org/user/334773"
+                },
+                {
+                    "name": "redndahead",
+                    "homepage": "https://www.drupal.org/user/160320"
+                }
+            ],
+            "description": "Provides tokens for CAS attributes and an interface for token replacement in user account fields as well as advanced role mapping capability.",
+            "homepage": "https://www.drupal.org/project/cas_attributes",
+            "keywords": [
+                "CAS",
+                "Drupal",
+                "single sign-on"
+            ],
+            "support": {
+                "source": "https://git.drupalcode.org/project/cas_attributes",
+                "issues": "https://www.drupal.org/project/issues/cas_attributes"
             }
         },
         {
@@ -13825,6 +13897,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "drupal/cas_attributes": 10,
         "drupal/content_access": 5,
         "drupal/rabbit_hole": 15,
         "drupal/views_taxonomy_term_name_into_id": 5,
