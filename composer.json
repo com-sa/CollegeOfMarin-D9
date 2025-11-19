@@ -63,7 +63,9 @@
         "drupal/file_replace": "^1.4",
         "drupal/upgrade_status": "^4.3",
         "drupal/cas_attributes": "2.0.0-beta5",
-        "drupal/meaofd": "^1.1"
+        "drupal/meaofd": "^1.1",
+        "drupal/migrate_plus": "^6.0",
+        "drupal/webform_migrate": "^2.0@alpha"
     },
     "require-dev": {
         "drupal/core-dev": "^9.2"
